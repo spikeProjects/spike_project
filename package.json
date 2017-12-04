@@ -2,5 +2,22 @@
   "amd": {},
   "volo": {
     "baseUrl": "www/lib"
+  },
+
+  "scripts": {
+    "test": "mocha --require ignore-styles --compilers js:babel-core/register --require spec/helpers/browser.js --recursive spec/**/*_spec.*",
+    "cover": "babel-node ./node_modules/.bin/istanbul cover _mocha -- --require spec/helpers/browser.js --recursive spec/**/*_spec.*",
+    "dev": "NODE_ENV=dev webpack --watch --colors --progress --debug --output-pathinfo --devtool inline-source-map",
+    "prod": "NODE_ENV=production node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js -p --colors --progress",
+    "build": "NODE_ENV=production webpack --colors --progress",
+    "lint": "eslint --ignore-path=.eslintignore --ext .js,.jsx ."
+  },
+  "dependencies": {
+  	"d3": "^3.5.15",
+    "d3-cloud": "^1.2.1",
+    "d3-sankey": "^0.4.1",
+    "d3-scale": "^1.0.3",
+    "d3-tip": "^0.7.1",
+    "datamaps": "^0.5.8"
   }
 }

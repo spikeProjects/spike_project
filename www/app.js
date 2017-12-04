@@ -6,7 +6,10 @@
 requirejs.config({
     baseUrl: 'lib',
     paths: {
-        app: '../app'
+        app: '../app',
+        data: '../data/response',
+        slice: '../data/slice',
+        centers: '../data/centers'
     }
 });
 

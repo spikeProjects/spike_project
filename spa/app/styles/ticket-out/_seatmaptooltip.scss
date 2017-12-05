@@ -1,0 +1,230 @@
+@import "../utils/mixins";
+@import "common";
+
+#seatmap-tooltip {
+    position: fixed;
+    min-width: 50px;
+    height: 20px;
+    font-size: 87.5%;
+    background-color: $medium-gray;
+    color: $white;
+    border-radius: 2px;
+    opacity: 0.8;
+    padding: 3px;
+}
+
+/* For both mobile and small screen sizes */
+@media only screen and (max-width: $screen-width-small) {
+    #seatmap-tooltip {
+        .tooltip-vfs {
+            display: none;
+        }
+        .left-text {
+            display: none;
+        }
+        .qty-box {
+            display: none;
+        }
+        .triangle-tip {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-size) {
+
+    #seatmap-tooltip {
+        width: 149px;
+        background-color: $white;
+        border-radius: 0;
+        opacity: 1;
+        padding: 0;
+        @include box-shadow(0.1px 1.5px 5px 1.5px rgba(136, 136, 136, 0.3));
+
+        /* Allows tooltip to go out of bounds on the right when the MAP is zoomed in */
+        z-index: 990;
+
+        .tooltip-vfs {
+            position: relative;
+            height: 81px;
+            width: 149px;
+            background-color: $background-color;
+            z-index: -1;
+        }
+
+        .price-box {
+            position: relative;
+            top: -9px;
+            background-color: $color-core-tertiary;
+            border-radius: 3px;
+            padding: 7px;
+            color: $white;
+            font-family: "Interstate";
+
+            /* the 'from' text */
+            .left-text {
+                position: relative;
+                text-align: left;
+                font-weight: bold;
+                font-size: $fontSizeSmall;
+                padding: 5px;
+            }
+
+            /* the price text */
+            .right-text {
+                position: relative;
+                text-align: right;
+                font-weight: bold;
+                padding: 5px;
+            }
+        }
+
+        .qty-box {
+            position: relative;
+            top: 2px;
+            padding: 8px;
+            color: $color-core-tertiary;
+            font-size: $font-size-13;
+            line-height: 155%;
+            .qty {
+                font-weight: bold;
+            }
+            .qty-text {
+                text-transform: lowercase;  /* TODO: may need to be addressed for internationalization in case UK/DE wants uppercase */
+                &::before {
+                    content: "\00a0";   /* add a space char in front of 'tickets' */
+                }
+            }
+        }
+
+        /* triangle tip shadow */
+        .triangle-tip {
+            position: absolute;
+            top: 132px;             /* height 130 + 2 px (height is dependent on tooltip type) */
+            left: -2px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 32px 149px 0 0;
+            border-color: rgba(136, 136, 136, 0.1) transparent transparent transparent;
+
+            /* actual white triangle tip */
+            &:before {
+                content: "";
+                position: absolute;
+                top: -34px;
+                left: 2px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 30px 149px 0 0;
+                border-color: $white transparent transparent transparent;
+                -moz-transform: scale(.9999);       /* smooths triangle in Firefox */
+            }
+            /* the dot at the tip of the tooltip */
+            &:after {
+                content: "";
+                width: 7px;
+                height: 7px;
+                position: absolute;
+                bottom: -4px;
+                left: -4px;
+                border-style: solid;
+                border-radius: 50%;
+                border-color: $color-core-tertiary-dark;
+                background: $color-core-tertiary-dark;
+                opacity: 0.8;
+                z-index: -1;
+                pointer-events: none;
+            }
+        }
+
+        &.vfs {
+            height: 130px;
+
+            .noimage, img {
+                width: 149px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+
+            img {
+                cursor: pointer;
+            }
+
+            .noimage {
+                cursor: default;
+                color: $deliver-gray;
+                font-size: $font-size-12;
+                top: 50%;
+                left: 50%;
+                @include transform(translate(-50%, -50%));
+            }
+
+            .expand-vfs-button {
+                position: absolute;
+                top: 25px;
+                left: 63px;
+                color: $white;
+                opacity: 0.5;
+                pointer-events: none;   /* tap event is attached to underlying img */
+            }
+        }
+
+        &.non-vfs {
+            height: 75px;
+            .tooltip-vfs {
+                height: 30px;
+                background-color: $white;
+
+                img {
+                    display: none;
+                }
+            }
+            .expand-vfs-button {
+                display: none;
+            }
+            .triangle-tip {
+                top: 77px;     /* height 75 + 2 px (height is dependent on tooltip type) */
+            }
+        }
+
+        &.mini {
+            height: 30px;
+            width: 85px;
+            .tooltip-vfs {
+                display: none;
+                img {
+                    display: none;
+                }
+            }
+            .expand-vfs-button {
+                display: none;
+            }
+            .price-box {
+                top: 10px;
+                padding: 0;
+                background-color: transparent;
+                .left-text {
+                    display: none;
+                }
+                .right-text {
+                    color: $color-core-tertiary;
+                }
+            }
+            .qty-box {
+                display: none;
+            }
+            .triangle-tip {
+                top: 32px;     /* height 40 + 2 px (height is dependent on tooltip type) */
+                border-width: 20px 85px 0 0;
+
+                &:before {
+                    top: -22px;
+                    border-width: 20px 85px 0 0;
+                }
+            }
+        }
+    }
+}

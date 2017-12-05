@@ -1,0 +1,35 @@
+<div class="similar-ticket-wrapper">
+    <div class="similar-ticket-sorry">
+        <div class="sorry-msg">{@i18n key="event.common.ticketunavailable.header" /}</div>
+        <div class="ticket-msg">{@i18n key="event.common.ticketunavailable.message" /}</div>
+    </div>
+    <div class="msg-separator">
+        <hr></hr>
+    </div>
+    <div class="header-msg">{@i18n key="event.similarticket.headermsg" /}</div>
+    <div class="similar-vfs">
+        <img class="similar-vfs-image"></img>
+        <span class="novfs-text hide">{@i18n key="event.common.byo.vfs.notavailable" /}</span>
+    </div>
+    <div class="similar-listing-info">
+        {>"/*@echo appNameVersioned*//partials/seat_info" /}
+    </div>
+    <div class="dash-separator"></div>
+    <div class="similar-button checkout">
+        <button class="button_primary">
+                {@i18n key="event.similarticket.getit" /}
+        </button>
+    </div>
+</div>
+
+<div class="similar-find-ticket">
+    <span class="find-ticket-msg">{@i18n key="event.common.singleticket.error.findeticket" /}</span>
+    <span class="find-ticket-arrow"> > </span>
+</div>
+
+<div class="find-ticket-container hide">
+    <div class="sorry-msg">{@i18n key="event.common.ticketunavailable.header" /}</div>
+    <div class="find-ticket-msg">{@i18n key="event.similarticket.findTicket" /}</div>
+    <div class="dash-separator"></div>
+    <div class="find-ticket-button checkout"><button class="button_primary">{@i18n key="event.common.singleticket.error.findeticket" /}</button></div>
+</div>

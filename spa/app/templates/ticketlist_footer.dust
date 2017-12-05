@@ -1,0 +1,14 @@
+<div class="filter-wrapper">
+    <div class="filterTitle">
+        <div class="filterButton">
+            <i class="sh-iconset sh-iconset-settings"></i>
+            <div id="price-filter-txt" class="bluetext">{@i18n key="event.common.filters.text"/}</div>
+        </div>
+    </div>
+    {?showServiceFeeInfo}
+        <div id="serviceFee-ga" class="serviceFeeInfo">
+            <div class='sh-icons sh-info'></div>
+            <div class='infoContainer'>{@i18n key="event.common.pdo.serviceFeeInfo"/}</div>
+        </div>
+    {/showServiceFeeInfo}
+</div>

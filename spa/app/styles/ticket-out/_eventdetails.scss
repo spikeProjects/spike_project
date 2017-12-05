@@ -1,0 +1,144 @@
+@import "common";
+@import "../utils/mixins";
+
+/* Event details styles */
+#arrowButton {
+    left: 50%;
+    @include transform(translateX(-50%));
+    position: absolute;
+    top:-36px;
+    padding:15px 20px 0;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    /*z-index:2000;*/
+    opacity:0.4;
+
+    .sh-iconset-expand {
+        font-size: 6px;
+        @include transform(rotate(180deg));
+    }
+
+}
+#arrowButton.down {
+    top: 49px;
+    z-index: 1000;
+    padding: 5px 20px 20px;
+}
+
+.sh-iconset-flag {
+    color: $color-core-secondary;
+    font-size: 6px;
+}
+
+.arrowFlipUp i {
+    -webkit-animation-name: flipup;
+    animation-name: flipup;
+    -webkit-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.arrowFlipDown i {
+    -webkit-animation-name: flipdown;
+    animation-name: flipdown;
+    -webkit-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+#event-details {
+    height: 44px;
+    text-align: center;
+    color: $dark-gray;
+    background-color: $background-gray;
+    line-height: 20px;
+    opacity: 0.8;
+    padding: 5px 0;
+    border-bottom: 1px solid $border-gray-light;
+
+    .infoButton {
+        display: inline;
+        float: right;
+        padding: 10px 10px;
+        font-size:16px;
+        line-height: 20px;
+        color: $light-gray;
+        pointer-events: auto;
+        cursor: pointer;
+        position: relative;
+        top: 50%;
+        @include transform(translateY(-50%));
+    }
+
+    .filterButton, .back-button {
+        display: inline;
+        font-size: 20px;
+        padding: 10px 10px 8px;
+        line-height: 20px;
+        float: left;
+        color: $light-gray;
+        pointer-events: auto;
+        cursor: pointer;
+        position: relative;
+        top: 50%;
+        @include transform(translateY(-50%));
+        i.sh-iconset-settings {
+            font-size: $font-size-8;
+        }
+
+        &.blue-txt {
+            color: $border-blue;
+        }
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    .back-button {
+        min-width: 20px;
+
+        .sh-iconset-headerback {
+            font-size: $font-size-8;
+        }
+    }
+
+    .eventTitle {
+        padding: 2px 2px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        a {
+            color: initial;
+        }
+    }
+
+    .event-description {
+        font-size: $font-size-14;
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        @include transform(translateY(-50%));
+    }
+
+    .event-date {
+        font-size: $font-size-12;
+        color: $light-gray;
+
+        #event-details-flag {
+            width: 40px;
+            line-height: 20px;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-size) {
+    #event-details{
+        display:none;
+    }
+}

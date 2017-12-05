@@ -1,0 +1,1 @@
+(function(){dust.register("event-5.1.2-SNAPSHOT/ticketlist_footer",body_0);function body_0(chk,ctx){return chk.write("<div class=\"filter-wrapper\"><div class=\"filterTitle\"><div class=\"filterButton\"><i class=\"sh-iconset sh-iconset-settings\"></i><div id=\"price-filter-txt\" class=\"bluetext\">Filter</div></div></div></div>");}return body_0;})();

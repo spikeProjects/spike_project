@@ -1,0 +1,327 @@
+@import "../../../../node_modules/@stubhub/common-build-files/brand/styles/ticket-out/colors";
+@import "../utils/mixins";
+
+/*common fonts*/
+$font-family-primary: Interstate, HelveticaNeue, Helvetica, Roboto, Segoe, Arial, Sans-Serif;
+$font-family-secondary: HelveticaNeue, Helvetica, Roboto, Segoe, Arial, Sans-Serif;
+
+$tablet-size: 768px;
+$desktop-size: 1200px;
+$screen-width-small: 767px;
+$white: white;
+$stubhub-orange: #F26516;
+$border-orange: #f36719;
+$secondary-disabled: $color-text-xxlight;
+$border-color-dark: #C2C2C2;
+$link-color: #0854AB;
+$highlight-gray: #eaeaea;
+$color-ui-secondary: #d92b79;
+
+/*font-sizes*/
+$font-size-3: 3px;
+$font-size-4: 4px;
+$font-size-5: 5px;
+$font-size-6: 6px;
+$font-size-7: 7px;
+$font-size-8: 8px;
+$font-size-10: 10px;
+$font-size-11: 11px;
+$font-size-12: 12px;
+$font-size-13: 13px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-22: 22px;
+$font-size-24: 24px;
+$font-size-30: 30px;
+$font-size-32: 32px;
+
+.parking-component {
+    border:2px solid $color-ui-xlight;
+    font-family: $font-family-secondary;
+    height: 100%;
+    padding: 20px 10px;
+    position: relative;
+    width: auto;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+
+    &.parking-error {
+        border-top:3px solid $color-core-secondary;
+        /** @todo: AppCommon doesn't have Sass global variables/paths */
+        background: url(data:image/png;base64,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) calc(100% - 50px) 0 no-repeat;
+    }
+
+    &.active {
+        background-color: transparentize($color-ui-xxlight, 1);
+        border:2px solid $color-core-tertiary;
+
+        .parking-check {
+            display: block;
+
+            .sh-ok {
+                display: block;
+                fill: $color-text-xxlight;
+                height: 24px;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                width: 24px;
+            }
+        }
+
+        .more-parking {
+            border-top: 2px solid $border-color-dark;
+            color: $color-text-dark;
+            cursor: default;
+            .right-arrow {
+                color: $color-text-dark;
+            }
+        }
+
+        .parking-button {
+            cursor: pointer;
+
+            &.add {
+                display: none;
+            }
+            &.remove {
+                display: inline;
+            }
+        }
+    }
+
+
+    .hide {
+        display: none;
+    }
+
+    .parking-spinner {
+        color: $color-core-secondary;
+        line-height: 0;
+        margin: auto;
+        position: relative;
+        top: 50px;
+        width: 30px;
+    }
+
+    .parking-error-header {
+        color: $color-text-xdark;
+        font-family: $font-family-primary;
+        font-size: $font-size-22;
+    }
+
+    .parking-error-message {
+        color: $color-text-dark;
+        margin: 20px 0;
+    }
+
+    .parking-error-similar {
+        border-top: 2px solid $color-ui-xlight;
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    .sh-iconset-loader:before {
+        content: "\E041";
+    }
+
+    .sh-animate-spin {
+        -webkit-animation: sh-spin 1000ms infinite linear;
+        animation: sh-spin 1000ms infinite linear;
+    }
+
+    .sh-iconset {
+        display: inline-block;
+        font-family: 'stubhub-icons-regular-1.4.0';
+        font-style: normal;
+        font-weight: normal;
+        font-size: $font-size-10;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .sh-iconset-instantdnld {
+        font-size: $font-size-4;
+    }
+
+    .parking-check {
+        background-color: $color-core-tertiary;
+        display: none;
+        height: 48px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 48px;
+    }
+
+    .addparking-text {
+        color: $color-text-xdark;
+        font-family: $font-family-primary;
+        font-size: $font-size-18;
+        font-weight: 500;
+    }
+
+    .parking-icon-svg {
+        display: block;
+        fill: $color-text-dark;
+        height: 60px;
+        position: absolute;
+        right: 10px;
+        width: 60px;
+    }
+
+    .parking-info {
+        clear: left;
+        width: 100%;
+
+        /* TODO: Can we use the .parking-section just like it is? Do we need another layer .lot-info? */
+        .lot-info {
+            width: 80%;
+
+            .parking-section {
+                color: $color-text-xdark;
+                font-size: $font-size-16;
+                font-weight: 700;
+                margin: 20px 0 5px;
+            }
+        }
+
+        .price_value:after {
+            content: ' ';
+        }
+
+        .parking-price {
+            clear: both;
+            color: $color-text-xdark;
+
+            .price-info {
+                font-size: $font-size-24;
+                font-weight: 700;
+                margin-left: 1px;
+            }
+
+            .each-text {
+                font-size: $font-size-12;
+            }
+        }
+
+        .lowest-price {
+            color: $color-text-dark;
+            font-size: $font-size-14;
+            margin: 0 0 15px 0;
+        }
+
+        .not-lowest-price {
+            height: 8px;
+        }
+
+        .delivery-header {
+            color: $color-text-dark;
+            font-family: $font-family-primary;
+            font-size: $font-size-14;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .delivery-info {
+            padding: 10px 0 0 0px;
+            color: $color-text-xdark;
+        }
+
+        .delivery-method {
+            font-size: $font-size-14;
+
+            .sh-iconset-instantdnld {
+                color: $color-ui-dark;
+                margin-right: 5px;
+            }
+
+        }
+
+        .delivery-date:before,
+        .delivery-date-prefix:before {
+            content: "\00a0";
+        }
+
+        .delivery-date {
+            font-weight: 700;
+        }
+
+        .delivery-separator {
+            padding: 0 5px;
+        }
+
+    }
+
+    .parking-button {
+        background-color: $color-core-tertiary;
+        @include border-radius(2px);
+        color: $color-text-xxlight;
+        font-size: $font-size-20;
+        font-weight: 500;
+        min-height: 53px;
+        margin: 36px 0 26px 0;
+        padding: 13px 40px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        &:active,
+        &:disabled {
+            border-color: $secondary-disabled;
+            color: $secondary-disabled;
+        }
+
+        &.add {
+            display: inline;
+        }
+        &.remove {
+            display: none;
+        }
+    }
+
+    .parking-button-spinner {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+    }
+
+    .parking-disabled {
+        cursor: text;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    .more-parking {
+        border-top: 2px solid $color-ui-xlight;
+        font-size: $font-size-14;
+        color: $color-text-links;
+        cursor: pointer;
+        margin: 0 -10px -15px -10px;
+        padding: 15px;
+        .right-arrow {
+            display: inline-block;
+            float: right;
+            font-size: $font-size-7;
+            font-family: 'stubhub-icons-regular-1.4.0';
+            font-style: normal;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
+
+    @media only screen and (min-width: $tablet-size) {
+        .add-parking {
+            text-align: center;
+        }
+
+        .parking-button {
+            max-width: 292px;
+            width: 61%;
+        }
+    }
+}

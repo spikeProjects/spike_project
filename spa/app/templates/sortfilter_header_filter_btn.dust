@@ -1,0 +1,6 @@
+<div id="sortfilter-selector">
+    <div class="sortfilter-selector-cont">
+        <div class="sortfilter-filter-icon"><span class="filter-icon"><i class="sh-iconset sh-iconset-settings"></i></span></div>
+        <div class="filter-title">{@i18n key="event.common.filters.text" /}</div>
+    </div>
+</div>

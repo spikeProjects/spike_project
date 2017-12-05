@@ -1,0 +1,179 @@
+//Mixins file
+//Manage the browser prefixes here
+
+//default radius is 5px
+@mixin border-radius($radius:2px)
+{
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+@mixin border-top-radius($radius:2px)
+{
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    -moz-border-top-left-radius: $radius;
+    -moz-border-top-right-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    -webkit-border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius:2px)
+{
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -moz-border-bottom-left-radius: $radius;
+    -moz-border-bottom-right-radius: $radius;
+    -webkit-border-bottom-left-radius: $radius;
+    -webkit-border-bottom-right-radius: $radius;
+}
+
+@mixin border-radiuses($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0)
+{
+    -webkit-border-top-right-radius: $topright;
+    -webkit-border-bottom-right-radius: $bottomright;
+    -webkit-border-bottom-left-radius: $bottomleft;
+    -webkit-border-top-left-radius: $topleft;
+
+    -moz-border-radius-topright: $topright;
+    -moz-border-radius-bottomright: $bottomright;
+    -moz-border-radius-bottomleft: $bottomleft;
+    -moz-border-radius-topleft: $topleft;
+
+    border-top-right-radius: $topright;
+    border-bottom-right-radius: $bottomright;
+    border-bottom-left-radius: $bottomleft;
+    border-top-left-radius: $topleft;
+
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+@mixin box-shadow($arguments)
+{
+    -webkit-box-shadow: $arguments;
+    -moz-box-shadow: $arguments;
+    -ms-box-shadow: $arguments;
+    -o-box-shadow: $arguments;
+    box-shadow: $arguments;
+}
+
+@mixin box-sizing($sizing: border-box)
+{
+    -webkit-box-sizing: $sizing;
+    -moz-box-sizing: $sizing;
+    -ms-box-sizing: $sizing;
+    -o-box-sizing: $sizing;
+    box-sizing: $sizing;
+}
+
+//takes all the arguments
+@mixin transform($arguments...)
+{
+    -webkit-transform: $arguments;
+    -moz-transform: $arguments;
+    -ms-transform: $arguments;
+    -o-transform: $arguments;
+    transform: $arguments;
+}
+
+@mixin transform-origin($x:center, $y:center)
+{
+    -webkit-transform-origin: $x $y;
+    -moz-transform-origin: $x $y;
+    -ms-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    transform-origin: $x $y;
+}
+
+@mixin transform-style($arguments...)
+{
+    -webkit-transform-style: $arguments;
+    -moz-transform-style: $arguments;
+    -ms-transform-style: $arguments;
+    -o-transform-style: $arguments;
+    transform-style: $arguments;
+}
+
+@mixin rotation($deg:5deg)
+{
+    @include transform(rotate($deg));
+}
+
+@mixin scale($ratio:1.5)
+{
+    @include transform(scale($ratio));
+}
+
+@mixin transition($duration:0.2s, $ease:ease-out)
+{
+    -webkit-transition: all $duration $ease;
+    -moz-transition: all $duration $ease;
+    -ms-filter: all $duration $ease;
+    -o-transition: all $duration $ease;
+    transition: all $duration $ease;
+}
+
+@mixin translate($x:0, $y:0)
+{
+    @include transform(translate($x, $y));
+}
+
+@mixin filter($arguments...)
+{
+    -webkit-filter: $arguments;
+    -moz-filter: $arguments;
+    -ms-filter: $arguments;
+    -o-filter: $arguments;
+    filter: $arguments;
+}
+
+@mixin gradient($fromColor, $toColor, $direction:left)
+{
+    background: $fromColor; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($direction, $fromColor, $toColor); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($direction, $fromColor, $toColor); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($direction, $fromColor, $toColor); /* For Firefox 3.6 to 15 */
+    background: -ms-linear-gradient($direction, $fromColor, $toColor); /* IE 10+ */
+    background: linear-gradient($direction, $fromColor, $toColor); /* Standard syntax */
+}
+
+@mixin animation-name($name, $duration)
+{
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    animation-name: $name;
+    animation-duration: $duration;
+}
+@mixin button() {
+    background-color: $link-color;
+    min-height: 25px;
+    @include border-radius;
+    padding: 0;
+    height: 25px;
+    line-height: 25px;
+    min-width: 45px;
+}
+
+@mixin applyQuantity() {
+    opacity: 1;
+    border: 1px solid $border-gray-light;
+    color: $deliver-gray;
+    background-color: $white;
+}
+
+@mixin checkboxChecked()
+{
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjEzcHgiIGhlaWdodD0iMTNweCIgdmlld0JveD0iMCAwIDEzIDEzIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy4zLjMgKDEyMDgxKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5BcnRib2FyZCA3NDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJDdXJyZW50IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4KICAgICAgICA8ZyBpZD0iQXJ0Ym9hcmQtNzQiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIGZpbGw9IiM4MjgyODIiPgogICAgICAgICAgICA8cGF0aCBkPSJNMy40NTgwOTIwNywtMS42MjU4NTQ1NCBMMy40NTgwOTIwNywxMC43MDk5MzE5IEw1LjcwMDk2MjMzLDEwLjcwOTkzMTkgTDUuNzAwOTYyMzMsLTEuNjI1ODU0NTQgTDMuNDU4MDkyMDcsLTEuNjI1ODU0NTQgWiBNNS43MDA5NjIzMywtMS42MjU4NTQ1NCBMNS43MDA5NjIzMywwLjYxNzAxNTcyNCBMOS42MjU5ODUyOSwwLjYxNzAxNTcyNCBMOS42MjU5ODUyOSwtMS42MjU4NTQ1NCBMNS43MDA5NjIzMywtMS42MjU4NTQ1NCBaIiBpZD0ic2VsZWN0ZWQiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYuNTQyMDM5LCA0LjU0MjAzOSkgcm90YXRlKC0xMzUuMDAwMDAwKSB0cmFuc2xhdGUoLTYuNTQyMDM5LCAtNC41NDIwMzkpICI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin center()
+{
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}

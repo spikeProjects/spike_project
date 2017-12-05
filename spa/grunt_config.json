@@ -1,0 +1,132 @@
+{
+    "appPrefix": "event",
+    "appName": "event",
+    "appUrlPath": "/",
+    "appVersion": "5.6.0-SNAPSHOT",
+    "appCommonVersion": "6.0.0-SNAPSHOT",
+    "appCommon": {
+        "local": {
+            "staticHost": "//slcq054-cache11.stubhubstatic.com",
+            "icmsHost": "https://static.slcq054.com/cms"
+        }
+    },
+        "app": {
+            "search": {
+              "version": "1.0.9",
+              "staticHost": "//slcq009-cache11.stubhubstatic.com"
+            }
+    },
+    "appHomepage": {
+        "version": "2.0.59",
+        "staticHost": "//slcq036-cache11.stubhubstatic.com"
+    },
+    "modules": {
+        "main" : [
+            { "name":"parkingpass", "version":"1.*", "css":true, "i18n":true },
+            { "name":"jquery_drawer", "version":"1.*", "css":true, "i18n":false }
+        ]
+    },
+    "targetHost": "slcq054",
+    "locale": "en-us",
+    "implementedLocalesList":["en-us","en-gb","de-de","fr-fr","es-mx"],
+    "i18n": {
+        "locales": ["en-us", "en-gb", "de-de", "es-mx", "fr-fr"]
+    },
+    "trkAccount": "mweb-us",
+    "trkTargetHost": "stubhub.com",
+
+    "proxies": [
+        {
+            "context": "/api",
+            "host": "localhost",
+            "port": 7778,
+            "https": false,
+            "changeOrigin": false
+        }, {
+            "context": "/shape",
+            "host": "www.slcq054.com",
+            "https": true,
+            "port": 443,
+            "changeOrigin": true
+        }, {
+            "context": "/promotions",
+            "host": "www.slcq054.com",
+            "https": false,
+            "changeOrigin": true
+        }, {
+            "context": "/loginapi",
+            "host": "m.slcq054.com",
+            "https": true,
+            "port": 443,
+            "changeOrigin": true
+        }
+    ],
+    "resourcesPath": "/resources/shape",
+    "deploymentTargetPath": "../../server/bunny-express/public",
+    "requirejsoptimizer": {
+        "out": "main.js",
+        "include": ["./main.js", "./controllers/viewselector_controller"],
+        "exclude": ["backbone", "backbone_associations", "jquery", "underscore", "dust", "dust_helpers", "foobunny", "vendor", "mbox", "site_catalyst", "foresee", "hammer", "blueprint", "sh-boomerang", "page-ready-checker", "boomerang-utils", "component", "blueprint-bundle"],
+        "paths": {
+            "backbone": "empty:",
+            "backbone_associations": "empty:",
+            "jquery": "empty:",
+            "underscore": "empty:",
+            "dust": "empty:",
+            "dust_helpers": "empty:",
+            "dotdotdot": "empty:",
+
+            "vendor": "empty:",
+            "foobunny": "empty:",
+
+            "raphael": "empty:",
+            "hammer": "empty:",
+            "blueprint": "empty:",
+            "blueprint-bundle": "empty:",
+
+            "mbox": "empty:",
+            "site_catalyst": "empty:",
+            "trackFunnel": "empty:",
+            "foresee": "empty:",
+            "bugSnag": "empty:",
+
+            "global_context": "empty:",
+
+            "common": "empty:",
+            "common-utils": "empty:",
+            "shcookie": "empty:",
+            "logger": "empty:",
+            "loggerUtil": "empty:",
+            "globalContextVars": "empty:",
+            "cors_request": "empty:",
+            "application_helper": "empty:",
+            "geolocations_collection": "empty:",
+            "ads-utils": "empty:",
+            "sh_image": "empty:",
+            "sh_mbox_util": "empty:",
+            "shtracker": "empty:",
+            "sh_global_registry": "empty:",
+            "priceValidator": "empty:",
+            "sh_currency_format": "empty:",
+            "url-parser": "empty:",
+
+            "component": "empty:",
+            "login_component": "empty:",
+            "login": "empty:",
+            "global_header": "empty:",
+            "common-globalheader": "empty:",
+            "banner": "empty:",
+            "common-banner": "empty:",
+            "event-parkingpass-component": "empty:",
+            "jquery-drawer-component": "empty:",
+            "common-batchModel": "empty:",
+
+            "sh-boomerang": "empty:",
+            "page-ready-checker": "empty:",
+            "boomerang-utils": "empty:",
+            "i18n": "empty:",
+            "templates-bundle": "empty:",
+            "scriptsProps": "empty:"
+        }
+    }
+}

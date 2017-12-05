@@ -1,0 +1,35 @@
+<div class="similar-ticket-wrapper">
+    <div class="similar-ticket-sorry">
+        <div class="sorry-msg">SORRY</div>
+        <div class="ticket-msg">It looks like somebody already grabbed that ticket.</div>
+    </div>
+    <div class="msg-separator">
+        <hr></hr>
+    </div>
+    <div class="header-msg">Check this one out!</div>
+    <div class="similar-vfs">
+        <img class="similar-vfs-image"></img>
+        <span class="novfs-text hide">No seat view available</span>
+    </div>
+    <div class="similar-listing-info">
+        {>"/*@echo appNameVersioned*//partials/seat_info" /}
+    </div>
+    <div class="dash-separator"></div>
+    <div class="similar-button checkout">
+        <button class="button_primary">
+                Get it
+        </button>
+    </div>
+</div>
+
+<div class="similar-find-ticket">
+    <span class="find-ticket-msg">Find another ticket</span>
+    <span class="find-ticket-arrow"> > </span>
+</div>
+
+<div class="find-ticket-container hide">
+    <div class="sorry-msg">SORRY</div>
+    <div class="find-ticket-msg">It looks like someone already grabbed that ticket. Try finding another before it's too late!</div>
+    <div class="dash-separator"></div>
+    <div class="find-ticket-button checkout"><button class="button_primary">Find another ticket</button></div>
+</div>

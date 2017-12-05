@@ -1,0 +1,18 @@
+{! 9626707 is eventId for SuperBowl Event !}
+{@eq key=gc.event_id value="9626707"}
+	<div class="superbowl-header"></div>
+{/eq}
+<div id="disclosure_container">
+    <div id="disclosure_header">
+        <i id="disclosure_flag" class="sh-iconset sh-iconset-flag"></i>
+            {@i18n key="event.disclosures.imp.text"/}
+    </div>
+    <div id="disclosure_message">{alertMessage|s}</div>
+    <button type="button" class="button-secondary" id="disclosure_button">
+    	{@eq key=gc.event_id value="9626707"}
+    		{@i18n key="event.disclosures.gotit.btn"/}
+    	{:else}
+    		{@i18n key="event.disclosures.agree.btn"/}
+    	{/eq}
+    </button>
+</div>

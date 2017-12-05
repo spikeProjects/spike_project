@@ -1,0 +1,26 @@
+<div id="slider-wrapper">
+    <div id="min-price" class="left">
+        <div class="left">
+            <div>
+        	   {@format value=sliderMinValue style="money" math="round"  currency=currency substyle="style1"/}
+            </div>
+            <div class="priceEachText right">
+               {@i18n key="event.common.ticketdetails.each.text"/}
+            </div>
+        </div>
+    </div>
+    <div class="track left">
+        <div class="track-selection"></div>
+        <div id="min-handle"></div>
+        <div id="max-handle"></div>
+    </div>
+    <div id="max-price" class="right">
+        <div>
+    	   {@format value=sliderMaxValue style="money" math="round"  currency=currency substyle="style1"/}
+           <span class="plus-max">+</span>
+        </div>
+        <div class="priceEachText">
+            {@i18n key="event.common.ticketdetails.each.text"/}
+        </div>
+    </div>
+</div>

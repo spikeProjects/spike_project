@@ -1,0 +1,1 @@
+(function(){dust.register("event-5.1.2-SNAPSHOT/enlarge_vfs",body_0);function body_0(chk,ctx){return chk.write("<div class=\"image\"></div><div class=\"seatmap-overlay\"></div>");}return body_0;})();

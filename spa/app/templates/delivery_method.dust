@@ -1,0 +1,2 @@
+<span class="delivery-spinner spinner hide"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></span>
+<span class="deliverydate hide"> {@i18n key="event.common.byo.by"/} <span class="date">{@format value=deliveryDate style="date.expanded" /}</span></span>

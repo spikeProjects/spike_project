@@ -1,0 +1,16 @@
+<div class="seat-info-text">
+    <span class="seatInfo">
+        {@eq key=qty value=1 type="number"}
+            {@i18n key="event.common.ticketdetails.seat.one" /}
+        {:else}
+            {@i18n key="event.common.ticketdetails.seats.info" /}
+        {/eq}
+    </span>
+    <span class="seatNumbers">
+        {#seats[0].seatNumbersArray}
+            {.}{@sep}, {/sep}
+        {:else}
+            {seatNumbers}
+        {/seats[0].seatNumbersArray}
+    </span>
+</div>

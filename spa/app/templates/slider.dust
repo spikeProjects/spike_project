@@ -1,0 +1,5 @@
+{?globals.priceSlider.displayOutside}
+	<div id="price-slider" class="outer-slider hide"></div>
+{:else}
+	<div id="price-slider" class="inner-slider"></div>
+{/globals.priceSlider.displayOutside}

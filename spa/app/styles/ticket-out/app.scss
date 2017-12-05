@@ -1,0 +1,756 @@
+@import "../_globals_";
+@import "../../../node_modules/@stubhub/common-build-files/brand/styles/ticket-out/colors";
+@import "../utils/mixins";
+@import "blueprint";
+@import "common";
+@import "animations";
+@import "header";
+@import "eventlayout";
+@import "ticketlist";
+@import "staticimage";
+@import "eventdetails";
+@import "eventinfo";
+@import "filter";
+@import "eventdisclosure";
+@import "quantityfilter";
+@import "singleticket";
+@import "primarypartner";
+@import "priceSlider";
+@import "bsf";
+@import "seatmaptooltip";
+@import "tooltips";
+@import "sortfilterheader";
+@import "ticketlistfooter";
+@import "buildyourorder";
+@import "upgradeticket";
+@import "similarticket";
+@import "generaladmission";
+@import "parkingpass";
+
+$event-info-header-76ers-height: 79px;
+$event-info-header-height: 74px;
+
+/***** COMMON/BASE *******/
+html {
+    font-family: $font-family-secondary;
+    background-color: $white;
+    height:100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+body {
+    margin: 0px;
+    padding: 0;
+    overflow: hidden;
+    height:100%;
+    background-color: $white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust:none;
+}
+
+h1 {
+    font-size: 98%;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+button {
+    color: $white;
+    cursor:pointer;
+    padding:4px 10px;
+    display:inline-block;
+    border: none;
+    margin: 0;
+    outline: 0;
+    box-shadow: none;
+}
+
+/*** To hide X in IE10 ***/
+input[type=number]::-ms-clear {
+   display: none;
+}
+
+/*** To hide up-down arrown in number input field ***/
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.btn-default {
+    padding:0px;
+    background-color:transparent;
+}
+.button-primary {
+    color: $white;
+    background-color: $color-ui-secondary;
+    font-size: 81.3%;
+}
+
+.button-secondary {
+    width: 100%;
+    height: 40px;
+    background-color: $color-ui-secondary;
+    @include border-radius;
+    font-size: $font-size-14;
+}
+
+.button-tertiary {
+    @include button;
+    width: 100%;
+    height: 40px;
+    font-size: $font-size-18;
+    font-weight: 500;
+    border: 2px solid $color-ui-dark;
+    background-color: $color-text-xxlight;
+    color: $color-text-xdark;
+}
+
+.button-white {
+    @extend .button-secondary;
+    border: 1px solid $color-ui-secondary;
+    background-color: $white;
+    color: $color-ui-secondary;
+}
+
+select {
+    -webkit-appearance: none;
+    border: 1px solid $medium-gray;
+    background-color: $white;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border-radius: 0;
+    padding: 5px 10px;
+    box-shadow: none;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.hide {
+    display: none;
+}
+
+.view_ga {
+    background-color: $background-gray;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.left, .leftinfo {
+    float: left;
+}
+
+.right, .rightinfo {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.noclick {
+    pointer-events: none;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.small {
+    font-size: 10px;
+    vertical-align: super;
+    color: inherit;
+}
+
+.spinner {
+    position: relative;
+    top: 100px;
+    margin: auto;
+    width: 30px;
+    color: $color-core-secondary;
+}
+
+.ui-scrollable{
+   /* -webkit-overflow-scrolling: touch;
+    overflow-x:hidden;
+    overflow-y: auto;
+    height: 400px;*/
+}
+
+.error {
+    padding: 10px;
+    font-size: 90%;
+    text-align:center;
+    margin-top:10%;
+
+    .findmoretickets {
+        padding-top: 20px;
+    }
+}
+
+.dash-separator {
+    background-image: url('#{$img_path}/dash_line.png');
+    background-repeat: repeat-x;
+    height: 2px;
+}
+
+.blurred-image {
+    background: url('#{$img_path}/blurred_text.png') no-repeat 0 0;
+}
+
+/***** MAIN CONTAINER *******/
+#main, #app_container, #layout_container, #event_layout {
+    height:100%;
+    font-size: $font-size-16;
+}
+
+#content_container {
+    position: relative;
+    // 20 is the borders combined height
+    $height-desktop-sum: $event-info-header-height + 20;
+    height: calc(100% - #{$height-desktop-sum});
+
+    &.no-header {
+        height: calc(100% - 34px);
+    }
+
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+/***** data CONTAINER *******/
+#dataContainer {
+    width:100%;
+    position: fixed;
+    top: 55%;
+    transition-property: all 0.8s;
+    -webkit-transition: all 0.8s; /* Safari */
+}
+
+/***** EVENT DETAILS *******/
+#eventContainer {
+    /*z-index: 200;*/
+    width: 100%;
+    position: absolute;
+    top: calc(50% - 33px);
+    height: 90%;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    background-color: $white;
+    border-top: 1px solid $border-gray-light;
+    overflow: hidden;
+    &.top-zero {
+        top: 0;
+    }
+}
+
+.sh-iconset-info {
+    font-size: $font-size-4;
+    color: $color-ui-dark;
+}
+
+#event-byo-container {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 101%;
+    z-index: 4000;
+
+    &.zIndex {
+        z-index: 4002;
+    }
+
+    &.byo-hide-scroll {
+        overflow-y: hidden;
+    }
+
+    &.hide {
+        display: none;
+    }
+}
+
+.shake {
+    -webkit-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+.scroll-up {
+    animation: scroll  0.3s;
+    -webkit-animation: scroll  0.3s;
+    -moz-animation: scroll  0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+}
+
+/***** Overlay animation *****/
+body.overlay-active{
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+body.overlay-active .modal-overlay-cover {
+    visibility: visible;
+    opacity: 1;
+
+}
+.modal-overlay-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    z-index: 4001;
+    background: rgba(0, 0, 0, 0.35);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+/***** LARGE VFS *******/
+
+#large-vfs, #small-vfs {
+    position: relative;
+    width: 100%;
+    height: inherit;
+
+    .spinner {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        z-index: 9;
+    }
+
+    .image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /*z-index: 10;*/
+        background-size: cover;
+        background-position: 100%;
+    }
+
+}
+
+#large-vfs.error {
+    padding: 120px 10px 10px 10px;
+    font-size: 90%;
+}
+
+
+/***** SEATMAP *******/
+#eventMapContainer{
+    height: 232px;
+    text-align: center;
+    position: relative;
+
+    &.staticMap {
+        padding: 0 10px;
+    }
+}
+
+#seatmap {
+    position: relative;
+    /*width: 318px;*/
+    width: 100%;
+    /*height: 271px;*/
+    height: 100%; /* Adjust the map height based on the parent parent */
+    overflow: hidden;
+    cursor:move;
+    &.hold{
+        opacity:0;
+        transition: opacity 0.4s ease-in-out;
+        -webkit-transition: opacity 0.4s ease-in-out;
+    }
+}
+
+.seatmap-small {
+    position: absolute !important;
+    width: 120px !important;
+    height: 95px !important;
+    overflow: hidden;
+    top: 0px;
+    /*z-index: 99;*/
+    margin: 3px 0 0 0;
+}
+
+#small-vfs {
+    height: 95px;
+    margin: 3px 0 0 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 120px;
+}
+
+.seatmap-overlay {
+    width: 120px;
+    height: 95px;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+}
+
+/* Should we name this downArrow instead? */
+.dropdownArrow {
+    .sh-iconset-expand {
+        font-size: 2px;
+    }
+}
+
+.rightArrow {
+    .sh-iconset-expand {
+        font-size: 2px;
+        @include rotation(270deg);
+    }
+}
+
+.valuebar1, .valuebar2, .valuebar3, .valuebar4, .valuebar5 {
+    background-image: url('../../images//*@echo appNameVersioned*//value-bar.png');
+    height: 15px;
+    width: 23px;
+}
+
+.valuebar1 {
+    background-position: -32px -70px;
+}
+
+.valuebar2 {
+    background-position: -5px -70px;
+}
+
+.valuebar3 {
+    background-position: -60px -5px;
+}
+
+.valuebar4 {
+    background-position: -32px -5px;
+}
+
+.valuebar5 {
+    background-position: -5px -5px;
+}
+
+.valuebar-2x {
+    .valuebar1, .valuebar2, .valuebar3, .valuebar4, .valuebar5 {
+        background-image: url('../../images//*@echo appNameVersioned*//value-bar2x.png');
+        height: 30px;
+        width: 45px;
+    }
+
+    .valuebar1, .valuebar2 {
+        background-position: -10px -50px;
+    }
+
+    .valuebar3 {
+        background-position: -120px -10px;
+    }
+
+    .valuebar4 {
+        background-position: -65px -10px;
+    }
+
+    .valuebar5 {
+        background-position: -10px -10px;
+    }
+}
+
+/*TO DO: remove this once better font icon for close available*/
+.sh-iconset, .close-icon, .select-dropdown {
+    .sh-iconset-close {
+        cursor: pointer;
+        font-size: $font-size-4;
+        color: $color-ui-xdark;
+    }
+
+    .sh-iconset-close:before {
+        content: "\2715";
+    }
+}
+
+#advancedfilter-x-done.sh-iconset-close{
+    color: $color-ui-xdark;
+}
+#advancedfilter-x-done.sh-iconset-close:before{
+    content: "\2715";
+}
+
+.ep-sh-iconset {
+    i.sh-iconset.sh-iconset-parking-2,
+    i.sh-iconset.sh-iconset-aisleseat,
+    i.sh-iconset.sh-iconset-obstructed,
+    i.sh-iconset.sh-iconset-handicap,
+    i.sh-iconset.sh-iconset-alert-1,
+    i.sh-iconset.sh-iconset-instantdnld,
+    i.sh-iconset.sh-iconset-primarypartner {
+        color: $color-ui-dark;
+    }
+}
+
+/* Checkbox CSS*/
+.checkbox-label {
+    cursor: pointer;
+
+    input {
+        display: none;
+    }
+
+    .checkbox-icon {
+        background-color: $color-text-xxlight;
+        border: 2px solid $color-ui-dark;
+        display: inline-block;
+        height: 28px;
+        margin-right: 10px;
+        width: 28px;
+        vertical-align: middle;
+        @include border-radius(2px);
+    }
+
+    @media only screen and (min-width: $desktop-size) {
+        .checkbox-icon:hover {
+            border: 2px solid $color-brand-tertiary;
+        }
+    }
+
+    input:checked + .checkbox-icon {
+        @include checkboxChecked;
+        background-color: rgba(26, 199, 199, .10);
+        border: 2px solid $color-brand-tertiary;
+    }
+
+    .checkbox-text {
+        vertical-align: middle;
+    }
+}
+
+/*App-common chat widget*/
+#common-chat-sh-invitation {
+    z-index: 4005;
+}
+
+/*App-common Global header z-index for BYO*/
+#global-content {
+    z-index: 4001;
+}
+
+#global-content ul.submenu {
+    z-index: 4001;
+}
+
+#global-content .footer-items {
+    z-index: 4001;
+}
+
+@-webkit-keyframes byoAnimation {
+    from {height: 0px; overflow-y: hidden; }
+    to {height: 100%; overflow-y: hidden;}
+}
+
+@keyframes byoAnimation {
+    from {height: 0px; overflow-y: hidden;}
+    to {height: 100%; overflow-y: hidden;}
+}
+
+.no-scroll-bar {
+    overflow: hidden;
+    -ms-overflow-style: none;
+}
+
+@media only screen and (max-width: $tablet-size) {
+    #eventContainer {
+        overflow: visible;
+        height: 100%;
+    }
+}
+/* For both mobile and tablet */
+@media only screen and (max-width: $desktop-size) {
+    ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+/* mobile */
+@media only screen and (max-width: $tablet-size) {
+    #content_container {
+        &.scroll-up {
+            /* Account for hidden page header */
+            height: 100%;
+        }
+    }
+}
+/* tablet */
+@media only screen and (min-width: $tablet-size) {
+    #main {
+        height: calc(100% - 54px);
+    }
+
+    #content_container {
+        position: relative;
+        // 40 is the borders combined height
+        $height-desktop-sum: $event-info-header-height + 40;
+        height: calc(100% - #{$height-desktop-sum});
+    }
+
+    #event_layout {
+        display: table;
+        width: 100%;
+        .parking-header & {
+            position: absolute;
+        }
+    }
+
+    #eventMapContainer {
+        display: table-cell;
+        position: absolute;
+        width: calc(100% - 340px);
+        height: calc(100% - 73px);
+
+        &.hide {
+            display: none;
+        }
+
+        &.staticMap {
+            padding: 10px;
+            width: calc(100% - 360px);
+            height: calc(100% - 93px);
+        }
+    }
+
+    #eventContainer {
+        border: 1px solid $border-gray-light;
+        @include border-radius;
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 40px);
+
+        max-width: 320px;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        width: 320px;
+        overflow: hidden;
+
+        &.hide {
+            display: none;
+        }
+
+        #sortfilter_header {
+            flex-grow: 0;
+            flex-shrink: 0;
+            @include border-top-radius;
+            #sortfilter-selector {
+                .sortfilter-selector-cont {
+                    .sh-iconset-close {
+                        font-size: $font-size-20;
+                    }
+                }
+            }
+        }
+    }
+
+    #arrowButton {
+        display:none;
+    }
+
+    .scroll-up {
+        -webkit-animation: animationFrames  0.5s;
+        -moz-animation: animationFrames  0.5s;
+        -webkit-animation-fill-mode: backwards;
+        -moz-animation-fill-mode: backwards;
+        animation: animationFrames  0.5s;
+        animation-fill-mode: backwards;
+    }
+
+    #event-byo-container {
+        display: block;
+        top: 0;
+        @include animation-name(byoAnimation, 0.5s);
+
+        @media only screen and (min-width: $tablet-size) {
+            &.upgrade-height {
+                height: 115%;
+            }
+        }
+    }
+}
+/*desktop*/
+@media only screen and (min-width: $desktop-size) {
+
+    #content_container {
+        background-color: $white;
+        margin: 0px auto 0px;
+        max-width: $desktop-size;
+    }
+
+    #event_layout {
+        box-sizing:border-box;
+    }
+
+    #eventMapContainer {
+        width: calc(100% - 350px);
+
+        &.staticMap {
+            padding: 20px;
+            width: calc(100% - 390px);
+            height: calc(100% - 113px);
+        }
+    }
+
+    #eventContainer {
+        right: 0px;
+        max-width: 350px;
+        top: 20px;
+        width: 350px;
+    }
+
+    .error {
+        margin-top:0px;
+        padding:10% 0;
+    }
+}

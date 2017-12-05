@@ -1,0 +1,67 @@
+@import "common";
+@import "../utils/mixins";
+
+/*Parking Accordion CSS*/
+
+.parking-container {
+    &.accordion {
+        .parking-component {
+            .addparking-text {
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.add-parking-box {
+    cursor: pointer;
+    padding: 20px 10px;
+
+    @media only screen and (min-width: $tablet-size) {
+        display: none;
+    }
+
+    .upgrade-icon {
+        float: left;
+
+        svg {
+            fill: $deliver-gray;
+            height: 15px;
+            width: 15px;
+        }
+    }
+
+    .upgrade-arrow {
+        position: absolute;
+        right: 25px;
+        top: 20px;
+    }
+
+    .header-text {
+        float: left;
+        color: $deliver-gray;
+        font-size: $font-size-14;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .price-diff {
+        clear: both;
+        color: $light-gray;
+        font-size: $font-size-12;
+        padding-top: 4px;
+        margin-left: 25px;
+
+        .price_value {
+            font-weight: bold;
+        }
+    }
+
+    .upgraded-text {
+        clear: both;
+        color: $border-dark-blue;
+        font-size: $font-size-12;
+        padding-top: 4px;
+        margin-left: 25px;
+    }
+}

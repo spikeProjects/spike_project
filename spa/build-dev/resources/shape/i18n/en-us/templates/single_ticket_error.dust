@@ -1,0 +1,7 @@
+<div class="ticket-error-wrapper">
+    <div class="single-ticket-error"><span>Sorry, looks like someone already grabbed that ticket.</span></div>
+    <div class="single-another-ticket">
+        <div>We hope you find another ticket that comes close.</div>
+        <button class="button-secondary find-another-ticket">Find another ticket</button>
+    </div>
+</div>

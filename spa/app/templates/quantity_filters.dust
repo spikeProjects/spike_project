@@ -1,0 +1,5 @@
+<div id="qty_filter_header">
+    <div class="qty_header">{@i18n key="event.common.qtypicker.howmany" /}</div>
+    {>"/*@echo appNameVersioned*//partials/quantity_select_carousel"/}
+</div>
+<div id="no_event_listings" class="hide">{@i18n key="event.common.msg.notickets.ga"/}</div>

@@ -1,0 +1,22 @@
+<div class="back-button hide"><i class="sh-iconset sh-iconset-headerback"></i></div>
+<div class="filterButton hide"><i class="sh-iconset sh-iconset-settings"></i></div>
+<div class="partner-logo"></div>
+<div class="infoButton"><i class="sh-iconset sh-iconset-ellipsis"></i></div>
+<div class='event-description event-details-item'>
+    <div class="eventTitle">{eventNameLinked|s}</div>
+    <div class='event-date event-details-item'>
+        {#displayAttributes.hideEventDate}
+            TBD
+        {:else}
+            <span class="event-date-weekday">{@format value=eventDateLocal style="date.weekday_short"/},</span> {@format value=eventDateLocal style="date.month_short"/} {@format value=eventDateLocal style="date.day"/}
+        {/displayAttributes.hideEventDate}
+        <span> at </span>
+        {#displayAttributes.hideEventTime}
+            TBD
+        {:else}
+            {@format value=eventDateLocal style="time" /}
+        {/displayAttributes.hideEventTime}
+        <i id="event-details-flag" class="sh-iconset sh-iconset-flag hide"></i>
+    </div>
+    <div class="eventDateSeo hide">{@format value=eventDateLocal style="date.expanded"/} at {@format value=eventDateLocal style="time" /}</div>
+</div>

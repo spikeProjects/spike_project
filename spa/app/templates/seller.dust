@@ -1,0 +1,69 @@
+<div class="bsf-title">
+    <span id="bsf-title">{@i18n key="event.details.bsf.title"/}</span>
+    <span class="right bsf-overlay-close close-icon">
+        <i class="sh-iconset sh-iconset-close"></i>
+    </span>
+</div>
+
+{?companyName}
+    <div id="bsf-companyName"><span>{companyName}</span></div>
+{/companyName}
+
+{?firstName}
+<span id="bsf-firstName">{firstName}</span>{?lastName}, <span id="bsf-lastName">{lastName}</span>{/lastName}<br/>
+{/firstName}
+
+{#address}
+    <div id="bsf-address1"><span>{address1}</span></div>
+    {?address2}<div id="bsf-address2"><span>{address2}</span></div>{/address2}
+    {@i18n key="event.details.bsf.cityAndPostCode"/}<br/>
+    <div id="bsf-country"><span>{country}</span></div>
+{/address}
+
+{?displaySellerContactInfo}
+    {#phone}
+        <div id="bsf-phone"><span>{@i18n key="event.details.bsf.phone.label"/}{phone}</span></div>
+    {/phone}
+
+    {?email}
+        <div id="bsf-email"><span>{@i18n key="event.details.bsf.email.label"/}{email}</span></div>
+    {/email}
+{/displaySellerContactInfo}
+
+{?tradeRegister}
+    <div id="bsf-registraion"><span>{@i18n key="event.details.bsf.companyRegNo.label"/}{tradeRegister}</span></div>
+{/tradeRegister}
+
+{?vatId}
+    <div id="bsf-VAT"><span>{@i18n key="event.details.bsf.vat.label"/}{vatId}</span></div>
+{/vatId}
+
+{?addInfo}
+    <div class="sellerInfoPanel">
+        <div class="addInfoLable">{@i18n key="event.details.bsf.addInfo"/}</div>
+        <div class="addInfoContent">
+            {addInfo}
+        </div>
+    </div>
+{/addInfo}
+
+{?returnPolicy}
+    <div class="bsf-returnPolicy">{@i18n key="event.details.bsf.returnPolicy.label"/}</div>
+    <div>{returnPolicy}</div>
+{/returnPolicy}
+
+{?termsCondition}
+    <div class="bsf-termsConditions">{@i18n key="event.details.bsf.termsCondition.label"/}</div>
+    <div>{termsCondition}</div>
+{/termsCondition}
+
+<div class="bsf-contactInfo">
+    {@i18n key="event.details.bsf.contactInfo.label"/}&nbsp;
+    <a href="/contact-us/" target="_blank">
+        {@i18n key="event.details.bsf.contactInfo.call"/}
+    </a>
+    &nbsp;{@i18n key="event.details.bsf.contactInfo.or"/}&nbsp;
+    <a href="/contact-us/" target="_blank">
+        {@i18n key="event.details.bsf.contactInfo.mail"/}
+    </a>
+</div>

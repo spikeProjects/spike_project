@@ -1,0 +1,2 @@
+<span class="delivery-spinner spinner hide"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></span>
+<span class="deliverydate hide"> by <span class="date">{@format value=deliveryDate style="date.expanded" /}</span></span>

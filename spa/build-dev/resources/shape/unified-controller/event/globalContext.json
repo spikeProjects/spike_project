@@ -1,0 +1,16 @@
+{
+  "appName": "event",
+  "OMN": {
+    "pageName": "UE: Event Details",
+    "pageType": "UE: Event Details"
+    },
+  "appVersion": "5.1.2-SNAPSHOT",
+  "appCommonVersion": "4.6.2",
+  "icmsTemplatePath": "/resources/shape/templates",
+  "metaTagViewport": "width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no",
+  "bugsnagApikey": "d2800ed4b22286af4233c0543b6f47f6",
+  "bloomreachIds": {"1": "5107"},
+  "uservoice": {
+        "forumId": "298287"
+  }      
+}

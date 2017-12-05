@@ -1,0 +1,5 @@
+<span class="drawer-buttons">
+    <span class="drawer-nav-up">{buttonContentUp}</span>
+    <span class="drawer-nav-down">{buttonContentDown}</span>
+    <span class="drawer-nav-split">{buttonContentSplit}</span>
+</span>

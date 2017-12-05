@@ -1,0 +1,7 @@
+<div class="static-image-item">
+    {@eq key=imageLink value=""}
+        <img class="static-image" />
+    {:else}
+        <a target="_blank" href="{imageLink}"><img class="static-image" /></a>
+    {/eq}
+</div>

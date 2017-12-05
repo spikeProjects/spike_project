@@ -1,0 +1,590 @@
+@import "../utils/mixins";
+@import "common";
+
+// Tooltip container style
+@mixin tooltip-container()
+{
+    position: relative;
+    display: inline;
+}
+
+// Default tooltip style
+@mixin tooltip-layout()
+{
+    @include border-radius($border-radius-default);
+    font-family: $font-family-secondary;
+    background: $white none repeat scroll 0 0;
+    border: 1px solid $border-gray-light;
+    color: $deliver-gray;
+    padding: 5px 10px;
+    position: absolute;
+    text-align: center;
+    box-shadow: $bluenew-box-shadow;
+    right: -10px;
+    bottom: 23px;
+    font-size: $font-size-12;
+    display: none;
+    max-width: 280px;
+    min-width: 50px;
+}
+
+// Default tooltip arrow
+@mixin tooltip-arrow()
+{
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    bottom: -8px;
+}
+
+// Default tooltip hover state
+@mixin tooltip-hover-state()
+{
+    display: block;
+    z-index: 999;
+}
+
+@mixin tooltip-display-bottom()
+{
+    bottom: -105px;
+    left: -70px;
+    line-height: 16px;
+    width: 115px;
+    z-index: 1000;
+    border: none;
+    display: none;
+    text-align: left;
+
+    &:before {
+        @include tooltip-arrow;
+        border-bottom: 8px solid $border-gray-light;
+        border-top: none;
+        top: -9px;
+        left: 70px;
+    }
+
+    &:after {
+        @include tooltip-arrow;
+        border-bottom: 8px solid $white;
+        border-top: none;
+        top: -8px;
+        left: 70px;
+    }
+}
+
+/*Common css for before and after tooltip code*/
+@mixin eventapp-tooltip-beforeafter() {
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+
+.tooltip-value {
+    @include tooltip-container;
+
+    div, .ttMessage {
+        @include tooltip-layout;
+        bottom: auto;
+        right: auto;
+        font-size: $font-size-16;
+        text-align: left;
+
+        &:before {
+            @include eventapp-tooltip-beforeafter;
+            border-bottom: 10px solid $border-gray-light;
+            top: -10px;
+            left: 188px;
+        }
+
+        &:after {
+            @include eventapp-tooltip-beforeafter;
+            border-bottom: 10px solid $white;
+            top: -9px;
+            left: 188px;
+        }
+    }
+
+    &:hover, &:focus, &:active {
+        div {
+            @include tooltip-hover-state;
+        }
+    }
+}
+
+// Tooltip arrow appear to the right of tooltip
+@mixin tooltip-left()
+{
+    > div {
+        bottom: -3px;
+        right: 20px;
+
+        &:before {
+            border-left: 8px solid $border-gray-light;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            bottom: 1px;
+            right: -16px;
+        }
+
+        &:after {
+            border-left: 8px solid $white;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            bottom: 1px;
+            right: -15px;
+        }
+    }
+}
+
+// Tooltip arrow appear to the left of tooltip
+@mixin tooltip-right()
+{
+    > div {
+        bottom: -3px;
+        left: 20px;
+
+        &:before {
+            border-right: 8px solid $border-gray-light;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            bottom: 1px;
+            left: -16px;
+        }
+
+        &:after {
+            border-right: 8px solid $white;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            bottom: 1px;
+            left: -15px;
+        }
+    }
+}
+
+// Tooltip arrow appears below tooltip
+@mixin tooltip-top()
+{
+    > div {
+        &:before {
+            border-top: 8px solid $border-gray-light;
+            bottom: -9px;
+            right: 8px;
+        }
+
+        &:after {
+            border-top: 8px solid $white;
+            bottom: -8px;
+            right: 8px;
+        }
+    }
+}
+
+// Tooltip arrow appears above tooltip
+@mixin tooltip-bottom()
+{
+    > div {
+        top: 25px;
+        bottom: auto;
+
+        &:before {
+            border-bottom: 8px solid $border-gray-light;
+            top: -9px;
+            right: 8px;
+        }
+
+        &:after {
+            border-bottom: 8px solid $white;
+            top: -8px;
+            right: 8px;
+        }
+    }
+}
+
+// Default Tooltip
+.tooltip {
+    @include tooltip-container;
+
+    > div {
+        @include tooltip-layout;
+
+        &:before, &:after {
+            @include tooltip-arrow;
+        }
+    }
+
+    &:hover, &:focus, &:active {
+        cursor: pointer;
+
+        div {
+            @include tooltip-hover-state;
+        }
+    }
+
+    &.tooltip-left {
+        @include tooltip-left;
+    }
+
+    &.tooltip-right {
+        @include tooltip-right;
+    }
+
+    &.tooltip-top {
+        @include tooltip-top;
+    }
+
+    &.tooltip-bottom {
+        @include tooltip-bottom;
+    }
+}
+
+#tickets-wrapper {
+    .sh-iconset-alert-1 {
+        &.tooltip {
+            > div {
+                width: 120px;
+            }
+        }
+    }
+}
+
+.seatnumber-info-icon {
+    display: inline-block;
+    width: 32px;
+    text-align: center;
+    &:hover, &:focus {
+        cursor: pointer;
+        div {
+            @include tooltip-hover-state;
+        }
+    }
+}
+
+.sh-iconset-info {
+    @include tooltip-container;
+
+    &.infoIcon {
+        padding-left: 3px;
+    }
+
+    .seat-info-text {
+        @include tooltip-layout;
+        left: -80px;
+        top: 20px;
+        width: 230px;
+        bottom: auto;
+        right: auto;
+        font-size: $font-size-14;
+        text-align: left;
+        line-height: 20px;
+
+        &:before {
+            @include eventapp-tooltip-beforeafter;
+            border-bottom: 10px solid $border-gray-light;
+            top: -10px;
+            left: 79px;
+        }
+
+        &:after {
+            @include eventapp-tooltip-beforeafter;
+            border-bottom: 10px solid $white;
+            top: -9px;
+            left: 79px;
+        }
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+
+        div {
+            @include tooltip-hover-state;
+        }
+    }
+
+    .byo-seatinfo-tooltip {
+        @include tooltip-layout;
+        border-top: 4px solid $primary-blue;
+        left: -180px;
+        top: 25px;
+        width: 180px;
+        bottom: auto;
+        right: auto;
+        font-size: $font-size-14;
+        text-align: left;
+        line-height: 20px;
+        cursor: auto;
+
+        &:before {
+            @include eventapp-tooltip-beforeafter;
+            border-bottom: 10px solid $primary-blue;
+            top: -13px;
+            left: 176px;
+        }
+
+        &:after {
+            @include eventapp-tooltip-beforeafter;
+            border-bottom: 10px solid $primary-blue;
+            top: -14px;
+            left: 176px;
+        }
+    }
+}
+
+// Dropdown container
+@mixin select-dropdown-container()
+{
+    @include border-radius($border-radius-default);
+    @include box-shadow($box-shadow);
+    width: 170px;
+    background-color: $white;
+    color: $color-text-xdark;
+    position: absolute;
+    top: 35px;
+    right: -65px;
+    z-index: 10;
+}
+
+.select-dropdown {
+    @include select-dropdown-container;
+    &:before {
+        @include tooltip-arrow;
+        border-bottom: 8px solid $border-gray-light;
+        top: -9px;
+        right: 62px;
+    }
+
+    &:after {
+        @include tooltip-arrow;
+        border-bottom: 8px solid $white;
+        top: -8px;
+        right: 62px;
+    }
+
+    ul {
+        padding: 10px 0;
+        margin: 0;
+
+        li {
+            padding: 5px 10px;
+            line-height: 16px;
+            position: relative;
+            font-size: $font-size-14;
+
+            i.sh-iconset-ok {
+                display: none;
+                font-size: $font-size-4;
+                position: absolute;
+                right: 10px;
+                top: 5px;
+            }
+        }
+
+        li.selected {
+            display: block;
+
+            i.sh-iconset-ok {
+                display: block;
+            }
+        }
+    }
+}
+
+.sortfilter-selector-cont, .sortfilter-qty-selector {
+    .sortfilter-title {
+        font-size: $font-size-16;
+        display: block;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .sortfilter-selection-title {
+            color: $color-text-xdark;
+        }
+    }
+
+    div.select-dropdown {
+        display: none;
+        max-height: 60%;
+        overflow-y: scroll;
+        ul {
+            li {
+
+                &:hover {
+                    background-color: lighten(hsl(0, 0%, 80%), 10%);
+                    color: $dark-gray;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+#sortfilter-selector {
+    float: right;
+    position: relative;
+
+    .sortfilter-selector-cont {
+        float: right;
+        position: relative;
+    }
+}
+
+.sortfilter-qty-selector {
+    float: left;
+
+    .select-dropdown {
+        left: 35px;
+        width: 115px;
+
+        &:before {
+            @include tooltip-arrow;
+            border-bottom: 8px solid $border-gray-light;
+            top: -9px;
+            left: 50px;
+        }
+
+        &:after {
+            @include tooltip-arrow;
+            border-bottom: 8px solid $white;
+            top: -8px;
+            left: 50px;
+        }
+    }
+}
+
+.tblhdr-wrapper {
+    clear: both;
+}
+
+#recotooltip {
+    @include tooltip-container;
+
+    width: auto;
+    height: auto;
+
+    position: fixed;
+    z-index: 1001;
+
+    &.overlayAnimate {
+        z-index: 4002;
+    }
+
+    &.modal {
+        @include center;
+    }
+
+    .ttMessage {
+        @include tooltip-layout;
+        bottom: auto;
+        right: auto;
+        font-size: $font-size-14;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        top: 0;
+
+        &.tt-arrow-up, &.tt-arrow-down {
+            &:before, &:after {
+                @include eventapp-tooltip-beforeafter;
+                left: 270px;
+            }
+        }
+
+        &.tt-arrow-down {
+            &:before {
+                border-top: 10px solid $border-gray-light;
+                bottom: -10px;
+            }
+
+            &:after {
+                border-top: 10px solid $white;
+                bottom: -9px;
+            }
+        }
+
+        &.tt-arrow-up {
+            &:before {
+                border-bottom: 10px solid $border-gray-light;
+                top: -10px;
+            }
+
+            &:after {
+                border-bottom: 10px solid $white;
+                top: -9px;
+            }
+        }
+
+        .message {
+            text-align: left;
+            padding-top: 20px;
+        }
+
+        .closeTooltip {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            background-color: $stubhub-blue;
+            color: $white;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+
+            &.hide {
+                display: none;
+            }
+        }
+    }
+
+    .barssection {
+        display: inline-block;
+    }
+    .allbars, .arrow, .arrowMessage {
+        display: block;
+        width: 192px;
+        min-width: 192px;
+        max-width: 192px;
+        margin: 0 auto;
+    }
+    .allbars {
+        .valuecell {
+            width: 22%;
+        }
+    }
+
+    .arrow {
+        position: relative;
+        left: -2px;
+        white-space: nowrap;
+        padding-top: 7px;
+
+        .arrowtail {
+            width: 191px;
+            height: 2px;
+            position: relative;
+            display: inline-block;
+            @include gradient(left, $border-gray-new, $link-color);
+        }
+
+        .arrowright {
+            @include rotation(-90deg);
+            color: $link-color;
+            position: relative;
+            width: 4px;
+            left: -4px;
+            top: 3px;
+        }
+    }
+
+    .arrowMessage {
+        color: $link-color;
+        text-align: right;
+    }
+}
+

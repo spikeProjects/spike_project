@@ -1,0 +1,9 @@
+
+<div id="disclosure_container">
+    <div id="disclosure_header">
+        <i id="disclosure_flag" class="sh-iconset sh-iconset-flag"></i>
+            IMPORTANT EVENT INFORMATION
+    </div>
+    <div id="disclosure_message">{alertMessage|s}</div>
+    <button type="button" class="button-secondary" id="disclosure_button">Yes, I've read it</button>
+</div>

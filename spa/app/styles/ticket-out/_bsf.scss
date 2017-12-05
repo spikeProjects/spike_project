@@ -1,0 +1,136 @@
+@import "../utils/mixins";
+@import "common";
+
+/** bsf of ticket **/
+.faceValueInfo {
+    color: $color-text-dark;
+    font-size: $font-size-14;
+    text-align: left;
+    padding: 0 0 7px 0;
+    border-bottom: 1px solid $border-gray-light;
+}
+
+.ticket-details-ga-container {
+    .faceValueInfo {
+        border-width: 0;
+        padding: 0;
+    }
+}
+
+.faceValueInfo + .sellerInfo {
+    border-top: 0;
+    margin-top: 0;
+}
+
+.ticketClassInfo {
+    color: #919191;
+    font-size: $font-size-12;
+    text-align: left;
+    margin-top: 5px;
+    padding: 0 0 7px 0;
+
+    i.sh-iconset {
+        margin-right: 8px;
+        color: $link-color;
+    }
+}
+.sellerInfo {
+    text-align: right;
+    display: table;
+    width: 100%;
+    padding: 10px 0 0 0;
+    border-top: 1px solid $border-gray-light;
+    cursor: pointer;
+    color: $color-text-dark;
+    font-size: $font-size-14;
+    margin-top: 7px;
+
+    .sellerInfoWrapper {
+        display: table-row;
+    }
+
+    .userDesc {
+        display: table-cell;
+        vertical-align: middle;
+        width: 95%;
+        text-align: left;
+    }
+
+    .viewUserInfo {
+        text-align: right;
+        display: table-cell;
+        width: 5%;
+        padding-right: 3px;
+        vertical-align: middle;
+    }
+}
+
+
+/** bsf layout **/
+body.overlay-active {
+    #bsf{
+        &.overlayAnimate {
+            opacity: 1;
+            visibility: visible;
+            z-index: 4002;
+            @include transform(scale(1) translate(-50%, -50%));
+            @include filter(none);
+        }
+    }
+}
+
+#bsf {
+    color: $color-text-dark;
+    font-size: $font-size-14;
+    padding: 15px;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    background-color: $white;
+    min-height: 120px;
+    border: 1px solid $light-gray;
+    @include border-radius(2px);
+    width: 65%;
+    min-width:320px;
+    max-width: 640px;
+    @include box-sizing(border-box);
+    top:50%;
+    left:50%;
+    @include transform(scale(0.8,0.8) translate(-62%, -62%));
+    @include transform-origin(50% 50%);
+    @include transition(0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940));
+    .bsf-title {
+        font-weight: 700;
+        font-size: $fontSizeNormal;
+        padding-bottom: 8px;
+        padding-right: 20px;
+        .bsf-overlay-close .sh-iconset-close{
+            font-size: $font-size-30;
+            padding: 10px;
+            position: absolute;
+            right: 0;
+            top: -50px;
+        }
+    }
+
+    .sellerInfoPanel, #bsf-phone, #bsf-registraion {
+        padding-top: 10px;
+    }
+
+    .addInfoContent {
+        max-height: 340px;
+        overflow: auto;
+    }
+
+    .bsf-returnPolicy, .bsf-termsConditions {
+        font-weight: 700;
+        font-size: $fontSizeNormal;
+        padding: 20px 0 8px;
+    }
+
+    .bsf-contactInfo {
+        margin-top: 20px;
+        padding-top: 12px;
+        border-top: 1px solid $border-gray-light;
+    }
+}

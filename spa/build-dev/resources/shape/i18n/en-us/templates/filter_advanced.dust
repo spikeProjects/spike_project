@@ -1,0 +1,10 @@
+{@eq key=isAdvancedFiltersEnabled value="true" type="boolean"}
+
+    <div id="filter-dropdown">
+        {>"/*@echo appNameVersioned*//filter_advanced_delivery_type" /}
+        {^gc.isAddParking}
+            {>"/*@echo appNameVersioned*//filter_advanced_seat_feature" /}
+        {/gc.isAddParking}
+    </div>
+
+{/eq}

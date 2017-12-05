@@ -1,0 +1,33 @@
+<div class="tblhdr-wrapper">
+    <div class="sectionhdr" data-sort="section" data-sort-direction={@if test="sortBy == 'sectionname' && sortDir == 'asc'"}asc{:else}desc{/if} data-sort-value="sectionname" data-tracking-prefix="Section Sorting">Section{?sortArrows}<span class=dropdownArrow {@if test="sortBy == 'sectioname' && sortDir == 'asc'"}upArrow{/if}><i class="sh-iconset sh-iconset-expand"></i></span>{/sortArrows}</div>
+    <div class="rowhdr {?globals.event_meta.isParking}invisible{/globals.event_meta.isParking}" data-sort="row" data-sort-direction={@if test="sortBy == 'row' && sortDir == 'asc'"}asc{:else}desc{/if} data-sort-value="row" data-tracking-prefix="Row Sorting">Row{?sortArrows}<span class=dropdownArrow {@if test="sortBy == 'row' && sortDir == 'asc'"}upArrow{/if}><i class="sh-iconset sh-iconset-expand"></i></span>{/sortArrows}</div>
+    <div class="qtyhdr">
+        <button class={@ne key=qty value="-1"}applyQuantity{/ne}>
+            <span class="qtyText">
+                {@eq key=qty value="-1"}
+                    Qty
+                {/eq}
+                {@gte key=qty value="1"}
+                    {qty}
+                {/gte}
+            </span>
+            <span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+        </button>
+        <select id="qtyselector" class="dropdown">
+            {@eq key=gc.isAddParking value="true" type="boolean"}
+                <option value="1" {@eq key=qty value="1"}selected{/eq}>1 Ticket</option>
+                <option value="2" {@eq key=qty value="2"}selected{/eq}>2 Tickets</option>
+                <option value="3" {@eq key=qty value="3"}selected{/eq}>3 Tickets</option>
+                <option value="4" {@eq key=qty value="4"}selected{/eq}>4 Tickets</option>
+            {:else}
+                <option value="-1">Any</option>
+                <option value="1" {@eq key=qty value="1"}selected{/eq}>1 Ticket</option>
+                <option value="2" {@eq key=qty value="2"}selected{/eq}>2 Tickets</option>
+                <option value="3" {@eq key=qty value="3"}selected{/eq}>3 Tickets</option>
+                <option value="4" {@eq key=qty value="4"}selected{/eq}>4 Tickets</option>
+                <option value="5&#43;" {@eq key=qty value="5+"}selected{/eq}>5+ Tickets</option>
+            {/eq}
+        </select>
+    </div>
+    <div class="pricehdr" data-sort="price" data-sort-direction={@if test="(sortBy == 'currentPrice' || 'listingPrice') && (sortDir == 'asc')"}asc{:else}desc{/if} data-sort-value="currentPrice" data-tracking-prefix="Price Sorting">Price{@eq key=gc.country value="de"}*{/eq}{?sortArrows}<span class="dropdownArrow upArrow"><i class="sh-iconset sh-iconset-expand"></i></span>{/sortArrows}</div>
+</div>

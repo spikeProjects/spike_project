@@ -1,0 +1,69 @@
+<div class="bsf-title">
+    <span id="bsf-title">Seller Info</span>
+    <span class="right bsf-overlay-close close-icon">
+        <i class="sh-iconset sh-iconset-close"></i>
+    </span>
+</div>
+
+{?companyName}
+    <div id="bsf-companyName"><span>{companyName}</span></div>
+{/companyName}
+
+{?firstName}
+<span id="bsf-firstName">{firstName}</span>{?lastName}, <span id="bsf-lastName">{lastName}</span>{/lastName}<br/>
+{/firstName}
+
+{#address}
+    <div id="bsf-address1"><span>{address1}</span></div>
+    {?address2}<div id="bsf-address2"><span>{address2}</span></div>{/address2}
+    <span id="bsf-city">{city}</span>, <span id="bsf-postCode">{postcode}</span><br/>
+    <div id="bsf-country"><span>{country}</span></div>
+{/address}
+
+{@eq key=gc.country value="de"}
+    {#phone}
+        <div id="bsf-phone"><span>Phone number:&nbsp;{phone}</span></div>
+    {/phone}
+
+    {?email}
+        <div id="bsf-email"><span>E-Mail Address:&nbsp;{email}</span></div>
+    {/email}
+{/eq}
+
+{?tradeRegister}
+    <div id="bsf-registraion"><span>Company registration number:&nbsp;{tradeRegister}</span></div>
+{/tradeRegister}
+
+{?vatId}
+    <div id="bsf-VAT"><span>VAT-ID number:&nbsp;{vatId}</span></div>
+{/vatId}
+
+{?addInfo}
+    <div class="sellerInfoPanel">
+        <div class="addInfoLable">Additional information:&nbsp;</div>
+        <div class="addInfoContent">
+            {addInfo}
+        </div>
+    </div>
+{/addInfo}
+
+{?returnPolicy}
+    <div class="bsf-returnPolicy">Return Policy Text</div>
+    <div>{returnPolicy}</div>
+{/returnPolicy}
+
+{?termsCondition}
+    <div class="bsf-termsConditions">Terms and Conditions</div>
+    <div>{termsCondition}</div>
+{/termsCondition}
+
+<div class="bsf-contactInfo">
+    If you have any questions about the seller,&nbsp;
+    <a href="/contact-us/" target="_blank">
+        give us a call
+    </a>
+    &nbsp;or&nbsp;
+    <a href="/contact-us/" target="_blank">
+        send us an email
+    </a>
+</div>

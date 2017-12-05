@@ -1,0 +1,136 @@
+@import "../utils/mixins";
+@import "common";
+
+#price-slider {
+    clear: both;
+    display: block;
+    font-size: $font-size-14;
+    height: 42px;
+    color: $color-text-xdark;
+
+    &.outer-slider {
+        @media only screen and (max-width: ($tablet-size - 1)) {
+            display: none;
+            position: fixed;
+            top: 140px;
+            width: 90%;
+            z-index: 3001;
+
+            #min-price, #max-price {
+                margin-top: 4px;
+            }
+
+            &.display-slider {
+                display: block;
+            }
+
+            &.hide-slider {
+                display: none;
+            }
+        }
+        #min-price, #max-price {
+            margin-top: 11px;
+        }
+        #max-price {
+            padding-right: 4px;
+        }
+    }
+
+    &.inner-slider {
+        padding: 15px 16px 0px 20px;
+        height: 30px;
+
+        #slider-wrapper {
+            .track {
+                margin-top: 6px;
+            }
+        }
+    }
+
+    .track-handle {
+        @media only screen and (max-width: ($tablet-size - 1)) {
+            height: 23px;
+            width: 23px;
+            top: -12px;
+        }
+        background-color: $white;
+        @include border-radius(50%);
+        cursor: pointer;
+        height: 18px;
+        position: absolute;
+        top: -10px;
+        width: 18px;
+    }
+
+    &.hide {
+        display: none;
+    }
+
+    div {
+        display: block;
+    }
+
+    #min-price {
+        display: inline-block;
+        margin-top: -1px;
+        width: 20%;
+    }
+
+    #slider-wrapper {
+        line-height: 1em;
+        width: 100%;
+
+        .track {
+            background: $gunmetal-gray;
+            border: 1px solid $gunmetal-gray;
+            height: 1px;
+            margin: 18px 20px 0 0;
+            position: relative;
+            width: 55%;
+
+            .track-selection {
+                background-color: $color-core-tertiary;
+                height: 3px;
+                position: absolute;
+                top: -1px;
+                width: 100%;
+            }
+
+            #min-handle {
+                border: 1px solid $color-ui-xdark;
+                left: -5%;
+                @extend .track-handle;
+
+            }
+
+            #max-handle {
+                border: 1px solid $color-ui-xdark;
+                right: -5%;
+                @extend .track-handle;
+            }
+        }
+    }
+
+    #max-price {
+        display: inline-block;
+        margin-top: -1px;
+        text-align: right;
+        width: 15%;
+
+        & > div {
+            white-space: nowrap;
+        }
+    }
+
+    .priceEachText {
+        color: $color-text-dark;
+        font-size: $font-size-10;
+        font-weight: 300;
+        line-height: 10px;
+
+        &.right {
+            text-align: right;
+        }
+    }
+
+}

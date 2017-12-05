@@ -4,10 +4,32 @@ define(function (require) {
 	var containerId = 'ChinaMap';
 	var centers = require('centers');
 
-    return {
-
+	var utils = {
         getHello: function () {
             return 'Hello World';
+        },
+
+        determinePrefix: function() {
+        	var csstransform = '';
+
+        	$('#ChinaMap').each(function() {
+	            if (this.style.KhtmlTransform !== undefined) {
+	                csstransform = '-khtml-transform';
+	            }
+	            if (this.style.WebkitTransform !== undefined) {
+	                csstransform = '-webkit-transform';
+	            }
+	            if (this.style.MozTransform !== undefined) {
+	                csstransform = '-moz-transform';
+	            }
+	            if (this.style.OTransform !== undefined) {
+	                csstransform = '-o-transform';
+	            }
+	            if (this.style.msTransform !== undefined) {
+	                csstransform = 'msTransform';
+	            }
+        	});
+        	return csstransform;
         },
 
 	    adjustPosition: function() {
@@ -21,6 +43,8 @@ define(function (require) {
 	        	height: 500,
 	        	gap: 40		//padding 
 	        };
+
+	        var csstransform = utils.determinePrefix();
 
 	        var wrapper = document.querySelector('.wrapper');
 	        var parentWidth = $(wrapper).width();
@@ -42,18 +66,15 @@ define(function (require) {
 	        	ratio = $(wrapper).width()/(initial.width+initial.gap);
 	        }
 
-	        var childWidth = ratio*(initial.width+initial.gap);
-	        var childHeight = ratio*(initial.height+initial.gap);
-
 	        var map = document.querySelector('#ChinaMap');
-	        console.log(ratio);
+
+
 	        $(map).css({
-	            'transform': 'scale(' + ratio + ',' + ratio + ')',
-	            // 'left': '50%',
-	            // 'top': '50%',
-	            'marginLeft': -childWidth/ 2 + 'px',
-	            'marginTop': -childHeight/ 2 + 'px',
-	        });
+                'transform': 'scale(' + ratio + ',' + ratio + ')'
+            })
+
+
+	        // $(map).css(csstransform, 'matrix(' + ratio + ', 0, 0, ' + ratio + ', ' + 0 + ', ' + 0 + ')');
 
 	    },
 	    /**
@@ -245,4 +266,6 @@ define(function (require) {
 	        return data;
 	    }
     };
+
+    return utils;
 });

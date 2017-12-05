@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta http-equiv="x-dns-prefetch-control" content="on">
+        <link rel="dns-prefetch" href="https://buy.stubhub.com">
+
+        <title>StubHub Event Page</title>
+        <link rel='stylesheet' type="text/css" href='<!-- @echo appCommonLocalStaticHost -->/resources/shape/styles/<!-- @echo appCommonNameVersioned -->/common-main.ticket-out.css' />
+        <link rel="stylesheet" href="<!-- @echo appSearchStaticHost -->/resources/shape/styles/search-<!-- @echo appSearchVersioned -->/module-main.ticket-out.css" />
+        <link rel='stylesheet' type="text/css" href='/resources/shape/styles/<!-- @echo appNameVersioned -->/app.ticket-out.min.css' />
+        <link rel="stylesheet" href="/resources/shape/styles/<!-- @echo appNameVersioned -->/module-main.ticket-out.css" />
+
+        <script>
+            var SH = SH || {};
+            SH.icmsServer = '<!-- @echo appCommonLocalIcmsHost -->';
+            SH.event = SH.event || {};
+            SH.event.referrer = document.referrer;
+            SH.country = 'us';
+            SH.locale = 'en-us';
+            SH.shlocale = 'en-us';
+            SH.appCommon = {};
+            SH.app = {};
+            SH.app.staticHost = '//slcq036-cache11.stubhubstatic.com';
+            SH.appCommon.staticHost = "<!-- @echo appCommonLocalStaticHost -->"; //set in grunt_config; default is '//localhost:1111/'
+            SH.appCommonVersion = '<!-- @echo appCommonVersion -->';
+            SH.bugsnag = {
+                'apikey' : 'd2800ed4b22286af4233c0543b6f47f6'
+            };
+        </script>
+        <script src='<!-- @echo appCommonLocalStaticHost -->/resources/shape/scripts/<!-- @echo appCommonNameVersioned -->/common-boot.js' ></script>
+    </head>
+    <body>
+        <noscript>Your browser does not support Javascript, please enable it!</noscript>
+        <div class="gh-container">
+
+            <header id="header" class="header">
+            <div id="banner-container"></div>
+                <div class="gh-navigation">
+                    <div class="gh-navigation-content"></div>
+                    <div class="search-container borderless-search-bar"></div>
+                </div>
+                <div id="message-banner-container"></div>
+                <!-- BEGIN "header" fragment -->
+                <th:block th:replace="${applicationModel.fragmentName} :: header (${applicationModel}, ${env})"/>
+                <!-- END "header" fragment -->
+            </header>
+            </div>
+        <main id="main">
+            <div id="app_container"></div>
+            <div id="login-container"></div>
+        </main>
+
+        <div class="mboxDefault mbox-name-target-global-mbox" id="mbox_container"></div>
+
+        <footer id="footer">
+        <!-- BEGIN "footer" fragment -->
+
+        <!-- END "footer" fragment -->
+        </footer>
+
+        <script src="<!-- @echo appCommonLocalStaticHost -->/resources/shape/scripts/<!-- @echo appCommonNameVersioned -->/common-main.js"></script>
+        <script src="/resources/shape/scripts/<!-- @echo appNameVersioned -->/<!-- @echo defaultLocale -->/module-main.js"></script>
+        <script src="/resources/shape/scripts/<!-- @echo appNameVersioned -->/module-main.js"></script>
+        <script src="<!-- @echo appSearchStaticHost -->/resources/shape/scripts/search-<!-- @echo appSearchVersioned -->/<!-- @echo defaultLocale -->/module-main.js"></script>
+        <script src="<!-- @echo appSearchStaticHost -->/resources/shape/scripts/search-<!-- @echo appSearchVersioned -->/module-main.js"></script>
+        <script type="text/javascript">
+            // Adding the getCookie function required by TeaLeaf for apps on www.stubhub.com (this app doesn't use TeaLeaf)
+            // Also using it for below DC cookie check
+            function getCookie(name) {
+                var start = document.cookie.indexOf(name + '=');
+                var len = start + name.length + 1;
+                if (!start && (name !== document.cookie.substring(0, name.length))) {
+                    return null;
+                }
+                if (start === -1) {
+                    return null;
+                }
+                var end = document.cookie.indexOf(';', len);
+                if (end === -1) {
+                    end = document.cookie.length;
+                }
+                //Unescape is deprecated in Javascript 1.5, but need to validate in tealeaf if escape is used before switching to decodeURI
+                return unescape(document.cookie.substring(len, end));
+            }
+
+            // setting omniture defaults
+            if (window.s !== undefined) {
+                s.prop40 = 'mobile';
+                s.prop65 = 'Unified Experience';
+                s.eVar18 = 'US';
+                s.eVar26 = 'www';
+                s.eVar54 = 'Mobile';
+            }
+        </script>
+
+        <script type="text/javascript">
+            var SH = SH || {};
+            SH.trkAccount = 'mweb-us';
+            var tokens = {
+                    srwd: 'JYf0azPrf1RAvhUhpGZudVU9bBEa',
+                    stubhub: 'gWwh4zP4l90Cj4wQCslKHpB67_8a',
+                    cors: 'JYf0azPrf1RAvhUhpGZudVU9bBEa'
+                };
+
+            // Contains versioned app name
+            SH.appName = 'event';
+            // Plain version number
+            SH.appVersion = '<!-- @echo appVersion -->';
+            SH.appFolder = SH.appName + '-' + SH.appVersion;
+
+            SH.envHostname = document.location.hostname;
+            SH.environment = 'Development';
+            SH.target_host = '';
+            SH.configBaseUrl = '';
+            SH.token = '';
+            SH.corsToken = '';
+
+            /*QA*/
+            //srwd00 and Localhost are for local machines
+            SH.token = tokens.srwd;
+
+            //CORS token is read by logging and tracking api's and is different from QA token
+            SH.corsToken = tokens.cors;
+            SH.configBaseUrl = '';
+            SH.target_host = '<!-- @echo targetHost -->';   //Point to QA environment for API's
+
+            SH.boomerangUrl = 'http://webperformance.stubcorp.dev:7000/';
+            SH.appCommonBaseUrl = SH.configBaseUrl + '/resources/shape/scripts/common-' + SH.appCommonVersion + '/';
+            SH.appBaseUrl = SH.configBaseUrl + '/resources/shape/scripts/' + SH.appName + '-' + SH.appVersion + '/';
+            SH.tracker = {
+                targetHost: 'https://track.' + SH.target_host
+            };
+            SH.OMN = {pageName: 'UE: Event Details', pageType: 'UE: Event Details'};
+            //as set by UC
+            SH.targetHost = SH.target_host;
+
+            // Adding skin name for 76ers.
+            SH.skinName = 'default'; //'76ers';
+
+            // Add global registry for local workspace
+            SH.gsConfig = SH.gsConfig || {};
+            SH.gsConfig.currencies = SH.gsConfig.currencies || {};
+            SH.gsConfig.domain = SH.gsConfig.domain || {};
+            SH.gsConfig.locales = SH.gsConfig.locales || {};
+            SH.gsConfig.countries = SH.gsConfig.countries || [];
+            SH.gsConfig.features = SH.gsConfig.features || [];
+
+            var siteIdMap = {
+                'us': '1',
+                'gb': '2',
+                'de': '3',
+                'fr': '4',
+                'mx': '5'
+            };
+            SH.gsConfig.siteId = siteIdMap[SH.country] || '1';
+
+            if (SH.gsConfig.siteId === '1') {
+                SH.gsConfig.siteDescription = 'US SITE';
+                SH.gsConfig.currencies = {
+                    "defaultCurrency":{"currencyCode":"USD","currencyId":1,"currencySymbol":"$"},
+                    "supportedCurrencies":[{"currencyCode":"USD","currencyId":1,"currencySymbol":"$"}]
+                    };
+                SH.gsConfig.domain = {
+                    "domainDescription":"StubHub US",
+                    "domainId":1,
+                    "domainName":"srwd00.com"
+                    };
+                SH.gsConfig.locales = {
+                    "defaultLocale":"en-US",
+                    "supportedLocales":["en-US","es-MX","fr-CA"]
+                    };
+                SH.gsConfig.countries.push.apply(SH.gsConfig.countries,
+                    [
+                    {"countryCode":"US","countryId":1,"geoId":196976,"locales":["en-US","es-MX"],"phoneCallingCode":"1"},
+                    {"countryCode":"CA","countryId":2,"geoId":197077,"locales":["fr-CA"],"phoneCallingCode":"1"}
+                    ]);
+                SH.gsConfig.features.push.apply(SH.gsConfig.features,
+                    [
+                    {'featureDescription':'gs.features.1.common.pdoExperience','featureName':'gs.features.1.common.pdoExperience','featureValue':'TOGGLE'},
+                    {'featureDescription':'gs.features.1.event.ABTestActive','featureName':'gs.features.1.event.ABTestActive','featureValue':'TRUE'},
+                    {'featureDescription':'value can be true/false.','featureName':'gs.features.1.event.advancedFiltersEnabled','featureValue':'true'},
+                    {'featureDescription':'Show Face Value in Event Page','featureName':'gs.features.1.event.faceValue','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.1.event.quantityQuestion','featureValue':'false'},
+                    {'featureDescription':'Show Buyer Cost in Event page','featureName':'gs.features.1.event.showBuyerCost','featureValue':'FALSE'},
+                    {'featureDescription':'Display after \'x\' tickets.','featureName':'gs.features.1.event.staticImages.interval','featureValue':'3'},
+                    {'featureDescription':'Display price slider inside/outside','featureName':'gs.features.1.eventpage.sliderPositionOutside','featureValue':'true'},
+                    {'featureDescription':'Ticket Reco Experience for event','featureName':'gs.features.1.eventpage.ticketRecommendation','featureValue':'VALUEBARLOWEST'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.enableBuildYourOrder','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.parkingAddOn','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.parkingAddOn.alwaysOn','featureValue':'2746'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.cartEnabled','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.upsellAccordion','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.displayUpgrade','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.1.event.showServiceFeeInfo','featureValue': 'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.showWithFees','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.displayTotalCost','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.1.event.qqBlendedMaxQty','featureValue':'10'},
+                    {'featureDescription':'','featureName': 'gs.features.1.event.blendedLogicApplied','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.1.eventpage.mapZoneSelection','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.1.eventpage.displaySellerContactInfo','featureValue': 'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.1.eventpage.displayTicketlistFooter','featureValue': 'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.1.eventpage.combinePaperDelivery','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.event.quantitySelectorStyle_11_2016','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.1.eventpage.visaCheckoutOrderDetail','featureValue': 'FALSE'}
+                ]);
+            }
+            if (SH.gsConfig.siteId === '2') {
+                SH.gsConfig.siteDescription = 'UK SITE';
+                SH.gsConfig.currencies = {
+                    'defaultCurrency': {
+                        'currencyCode': 'GBP',
+                        'currencyId': 2,
+                        'currencySymbol': 'GBP'
+                    },
+                    'supportedCurrencies': [{
+                        'currencyCode': 'GBP',
+                        'currencyId': 2,
+                        'currencySymbol': 'GBP'
+                    }]
+                };
+                SH.gsConfig.domain = {
+                    'domainDescription': 'StubHub UK',
+                    'domainId': 2,
+                    'domainName': 'stubhub.co.uk'
+                };
+                SH.gsConfig.locales = {
+                    'defaultLocale': 'en-GB',
+                    'supportedLocales': ['en-GB', 'fr-FR', 'es-MX', 'de-DE']
+                };
+                SH.gsConfig.countries.push.apply(SH.gsConfig.countries,
+                    [
+                        {
+                            'countryCode': 'GB',
+                            'countryId': 21,
+                            'geoId': 6628,
+                            'locales': ['en-GB'],
+                            'phoneCallingCode': '44'
+                        }
+                    ]);
+                SH.gsConfig.features.push.apply(SH.gsConfig.features,
+                    [
+                    {'featureDescription':'gs.features.2.common.pdoExperience','featureName':'gs.features.2.common.pdoExperience','featureValue':'TOGGLE'},
+                    {'featureDescription':'gs.features.2.event.ABTestActive','featureName':'gs.features.2.event.ABTestActive','featureValue':'TRUE'},
+                    {'featureDescription':'value can be true/false.','featureName':'gs.features.2.event.advancedFiltersEnabled','featureValue':'true'},
+                    {'featureDescription':'Show Face Value in Event Page','featureName':'gs.features.2.event.faceValue','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.2.event.quantityQuestion','featureValue':'false'},
+                    {'featureDescription':'Show Buyer Cost in Event page','featureName':'gs.features.2.event.showBuyerCost','featureValue':'FALSE'},
+                    {'featureDescription':'Display after \'x\' tickets.','featureName':'gs.features.2.event.staticImages.interval','featureValue':'3'},
+                    {'featureDescription':'Display price slider inside/outside','featureName':'gs.features.2.eventpage.sliderPositionOutside','featureValue':'true'},
+                    {'featureDescription':'Ticket Reco Experience for event','featureName':'gs.features.2.eventpage.ticketRecommendation','featureValue':'VALUEBARLOWEST'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.enableBuildYourOrder','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.parkingAddOn.alwaysOn','featureValue':'NONE'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.parkingAddOn','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.cartEnabled','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.upsellAccordion','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.displayUpgrade','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.2.event.showServiceFeeInfo','featureValue': 'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.2.sellapp.BSFEnabled','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.showWithFees','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.2.eventpage.displaySellerContactInfo','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.2.eventpage.displayTicketlistFooter','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.2.eventpage.displayTotalCost','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.2.eventpage.mapZoneSelection','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.2.eventpage.combinePaperDelivery','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.2.eventpage.visaCheckoutOrderDetail','featureValue': 'FALSE'}
+                    ]);
+
+            }
+
+            if (SH.gsConfig.siteId === '3') {
+                SH.gsConfig.siteDescription = 'EUR SITE';
+                SH.gsConfig.currencies = {
+                    'defaultCurrency':{'currencyCode':'EUR','currencyId':3,'currencySymbol':'EUR'},
+                    'supportedCurrencies':[{'currencyCode':'EUR','currencyId':3,'currencySymbol':'EUR'}]
+                };
+                SH.gsConfig.domain = {
+                    'domainDescription':'StubHub DE',
+                    'domainId':3,
+                    'domainName':'srwd00.de'
+                };
+                SH.gsConfig.locales = {
+                    'defaultLocale':'de-DE',
+                    'supportedLocales':['de-DE','fr-FR']
+                };
+                SH.gsConfig.countries.push.apply(SH.gsConfig.countries,
+                    [
+                    {'countryCode':'DE','countryId':61,'geoId':9923,'locales':['de-DE'],'phoneCallingCode':'49'},
+                    {'countryCode':'FR','countryId':81,'geoId':6623,'locales':['fr-FR'],'phoneCallingCode':'33'}
+                    ]);
+                SH.gsConfig.features.push.apply(SH.gsConfig.features,
+                    [
+                    {'featureDescription':'gs.features.3.common.pdoExperience','featureName':'gs.features.3.common.pdoExperience','featureValue':'TOGGLE'},
+                    {'featureDescription':'gs.features.3.event.ABTestActive','featureName':'gs.features.3.event.ABTestActive','featureValue':'TRUE'},
+                    {'featureDescription':'value can be true/false.','featureName':'gs.features.3.event.advancedFiltersEnabled','featureValue':'true'},
+                    {'featureDescription':'Show Face Value in Event Page','featureName':'gs.features.3.event.faceValue','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.3.event.quantityQuestion','featureValue':'false'},
+                    {'featureDescription':'Show Buyer Cost in Event page','featureName':'gs.features.3.event.showBuyerCost','featureValue':'TRUE'},
+                    {'featureDescription':'Display after \'x\' tickets.','featureName':'gs.features.3.event.staticImages.interval','featureValue':'3'},
+                    {'featureDescription':'Display price slider inside/outside','featureName':'gs.features.3.eventpage.sliderPositionOutside','featureValue':'true'},
+                    {'featureDescription':'Ticket Reco Experience for event','featureName':'gs.features.3.eventpage.ticketRecommendation','featureValue':'VALUEBARLOWEST'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.enableBuildYourOrder','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.parkingAddOn.alwaysOn','featureValue':'NONE'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.parkingAddOn','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.cartEnabled','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.upsellAccordion','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.displayUpgrade','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.3.event.showServiceFeeInfo','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.3.sellapp.BSFEnabled','featureValue': 'FALSE'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.showWithFees','featureValue':'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.3.eventpage.displaySellerContactInfo','featureValue': 'FALSE'},
+                    {'featureDescription':'','featureName': 'gs.features.3.eventpage.displayTicketlistFooter','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.3.eventpage.displayTotalCost','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.3.eventpage.mapZoneSelection','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.3.eventpage.combinePaperDelivery','featureValue': 'TRUE'},
+                    {'featureDescription':'','featureName': 'gs.features.3.eventpage.visaCheckoutOrderDetail','featureValue': 'FALSE'}
+                    ]);
+            }
+
+            define('global_context', [], function() {
+
+                return {
+                    //filled in from viewselector controller
+                    eventId: '',
+                    target_host: SH.target_host,
+                    app_token: SH.token,
+                    appCommonVersion: SH.appCommonVersion,
+                    appName: SH.appName,
+                    appVersion: SH.appVersion,
+                    appFolder: SH.appName + '-' + SH.appVersion,
+                    country: SH.country,
+                    environment: SH.environment,
+                    configBaseUrl: SH.configBaseUrl,
+                    loggerURL: '//log.' + SH.target_host + '.com',
+                    corsToken: 'Bearer ' + SH.corsToken,
+                    accessToken: 'Bearer ' + SH.token,
+                    staticUrl: SH.app.staticHost,
+                    addToken: true,
+                    locale: SH.locale,
+                    shlocale: SH.locale,
+                    trkAccount: SH.trkAccount,
+                    enableTracker: true,
+                    OMN: SH.OMN,
+                    url_headers: {
+                        'Authorization': 'Bearer ' + SH.token,
+                        'target_host' : SH.target_host
+                    },
+                    gsConfig: SH.gsConfig
+                };
+            });
+        </script>
+
+        <script type="text/javascript">
+            requirejs.config(SH.requirejs.config);
+
+            require(['/resources/shape/scripts/' + SH.appName + '-' + SH.appVersion + '/config.js', 'global_context', 'common-i18n-main'], function(config) {
+                // require(['global_header'], function() {
+                //     require(['main'], function() {
+                //         //3/6/2015 - commenting boomerang out, until HTTPS support is enabled.
+                //         if (typeof SH.boomerangUrl !== 'undefined' && !! SH.boomerangUrl) {
+                //             require(['sh-boomerang'], function(BM) {
+                //                 BM.init('app_unified_event_page',
+                //                     SH.boomerangUrl,
+                //                     [{s: '#event-details', name: 'sh_event_details'},
+                //                      {s: '#ticketlist', name: 'sh_tickets_list'},
+                //                      {s: '#svgcontainer', name: 'sh_seatmap'}
+                //                     ]);
+                //             });
+                //         }
+                //     });
+                // });
+
+                // app
+                require(['common-login'], function() {
+                    require(['sh-ajax-module', 'main']);
+                });
+            });
+            </script>
+    </body>
+</html>

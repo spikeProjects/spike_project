@@ -1,0 +1,39 @@
+<div id="tickets" class="ui-scrollable">
+    <div class="spinner"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+    <div id="tickets-wrapper"></div>
+    <div class="see-more hide">{@i18n key="event.common.seemore.text"/}</div>
+    <div class="no-tickets-message hide">
+        <div class="no-tickets-message-cont">
+            <h3 class="no-tickets-head">{@i18n key="event.common.msg.seealltickets.heading" /}</h3>
+            <div class="no-tickets-body">
+                {@eq key=ticketlist.length value=0}
+                    {?gc.isAddParking}
+                        {@i18n key="event.common.msg.goback.text"/}
+                    {:else}
+                        {@i18n key="event.common.msg.seealltickets.text"/}
+                    {/gc.isAddParking}
+                {:else}
+                    {@i18n key="event.common.msg.seealltickets.text"/}
+                {/eq}
+            </div>
+        </div>
+        {@eq key=ticketlist.length value=0}
+            {?gc.isAddParking}
+                <button class="button-secondary parking-go-back-button">{@i18n key="event.ticketlist.goback.button.text" /}</button>
+            {:else}
+                <button class="button-secondary see-all-tickets-button">{@i18n key="event.ticketlist.seealltickets.button.text" /}</button>
+            {/gc.isAddParking}
+        {:else}
+            <button class="button-secondary see-all-tickets-button">{@i18n key="event.ticketlist.seealltickets.button.text" /}</button>
+        {/eq}
+    </div>
+
+    {>"/*@echo appNameVersioned*//primarypartner_gettickets" /}
+    <div id="upcoming-events" class="hide">
+        <h3 class="no-tickets-head">{@i18n key="event.common.msg.seealltickets.heading" /}</h3>
+        <div class="message">
+            {@i18n key="event.ticketlist.upcomingevents.message.text" /}
+        </div>
+        <button class="button-secondary see-upcoming-events-button">{@i18n key="event.common.gettickets.seetickets.text" /}</button>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+// primary colors
+
+$primary-brand-color: #DD0031;
+$primary-secondary-brand-color: #FFF;
+
+$secondary-brand-color: #005ABB;
+$secondary-secondary-brand-color: #FFF;
+
+$tertiary-brand-color: #002E6D;
+
+$primary-brand-font-color: #FFF;
+$primary-secondary-brand-font-color: $primary-brand-color;
+$secondary-brand-font-color: #FFF;
+$secondary-secondary-brand-font-color: $secondary-brand-color;
+
+$input_text_color_default: #585858;
+$input_text_color_default_hover: #DFE0E3;
+
+// hover states success / review
+$primary-brand-hover-color: #CE0643;
+$primary-secondary-brand-hover-color: #F4DCE3;
+
+// hover states info / overlay
+$secondary-brand-hover-color: $tertiary-brand-color;
+$secondary-secondary-brand-hover-color: #D8E5F2;
+
+// active states
+$primary-brand-active-color: $primary-brand-color;
+$secondary-brand-active-color: $secondary-brand-color;
+
+// disabled states success / review
+$primary-brand-disabled-color: #F58696;
+$primary-primary-brand-disabled-color: #F58696;
+
+// disabled states info / overlay
+$secondary-brand-disabled-color: #81ADDD;
+$secondary-secondary-brand-disabled-color: #D8E5F2;
+
+// Link color
+$link-color: #B1CCDF;

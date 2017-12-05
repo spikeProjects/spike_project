@@ -1,0 +1,11 @@
+<div class="x-container close-icon qty-close">
+    {>"/*@echo appNameVersioned*//partials/icon-svg-close"/}
+</div>
+
+<div id="qty_filter_header" class="{theme}">
+    <div class="slash-separator-container"><div class="slash-separator"></div></div>
+    <div class="qty_header">HOW MANY TICKETS?</div>
+    {>"/*@echo appNameVersioned*//partials/quantity_select_carousel" /}
+    <div id="no_event_listings" class="hide">We don't have any listings available for this event right now.</div>
+    <div class='btn-view-all qty_index view-all'>View all quantities</div>
+</div>

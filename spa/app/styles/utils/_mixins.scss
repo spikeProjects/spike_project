@@ -1,0 +1,185 @@
+//Mixins file
+//Manage the browser prefixes here
+
+//default radius is 5px
+@mixin border-radius($radius:2px)
+{
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+@mixin border-top-radius($radius:2px)
+{
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    -moz-border-top-left-radius: $radius;
+    -moz-border-top-right-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    -webkit-border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius:2px)
+{
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -moz-border-bottom-left-radius: $radius;
+    -moz-border-bottom-right-radius: $radius;
+    -webkit-border-bottom-left-radius: $radius;
+    -webkit-border-bottom-right-radius: $radius;
+}
+
+@mixin border-radiuses($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0)
+{
+    -webkit-border-top-right-radius: $topright;
+    -webkit-border-bottom-right-radius: $bottomright;
+    -webkit-border-bottom-left-radius: $bottomleft;
+    -webkit-border-top-left-radius: $topleft;
+
+    -moz-border-radius-topright: $topright;
+    -moz-border-radius-bottomright: $bottomright;
+    -moz-border-radius-bottomleft: $bottomleft;
+    -moz-border-radius-topleft: $topleft;
+
+    border-top-right-radius: $topright;
+    border-bottom-right-radius: $bottomright;
+    border-bottom-left-radius: $bottomleft;
+    border-top-left-radius: $topleft;
+
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+@mixin box-shadow($arguments)
+{
+    -webkit-box-shadow: $arguments;
+    -moz-box-shadow: $arguments;
+    -ms-box-shadow: $arguments;
+    -o-box-shadow: $arguments;
+    box-shadow: $arguments;
+}
+
+@mixin box-sizing($sizing: border-box)
+{
+    -webkit-box-sizing: $sizing;
+    -moz-box-sizing: $sizing;
+    -ms-box-sizing: $sizing;
+    -o-box-sizing: $sizing;
+    box-sizing: $sizing;
+}
+
+//takes all the arguments
+@mixin transform($arguments...)
+{
+    -webkit-transform: $arguments;
+    -moz-transform: $arguments;
+    -ms-transform: $arguments;
+    -o-transform: $arguments;
+    transform: $arguments;
+}
+
+@mixin transform-origin($x:center, $y:center)
+{
+    -webkit-transform-origin: $x $y;
+    -moz-transform-origin: $x $y;
+    -ms-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    transform-origin: $x $y;
+}
+
+@mixin transform-style($arguments...)
+{
+    -webkit-transform-style: $arguments;
+    -moz-transform-style: $arguments;
+    -ms-transform-style: $arguments;
+    -o-transform-style: $arguments;
+    transform-style: $arguments;
+}
+
+@mixin rotation($deg:5deg)
+{
+    @include transform(rotate($deg));
+}
+
+@mixin scale($ratio:1.5)
+{
+    @include transform(scale($ratio));
+}
+
+@mixin transition($duration:0.2s, $ease:ease-out)
+{
+    -webkit-transition: all $duration $ease;
+    -moz-transition: all $duration $ease;
+    -ms-filter: all $duration $ease;
+    -o-transition: all $duration $ease;
+    transition: all $duration $ease;
+}
+
+@mixin translate($x:0, $y:0)
+{
+    @include transform(translate($x, $y));
+}
+
+@mixin filter($arguments...)
+{
+    -webkit-filter: $arguments;
+    -moz-filter: $arguments;
+    -ms-filter: $arguments;
+    -o-filter: $arguments;
+    filter: $arguments;
+}
+
+@mixin gradient($fromColor, $toColor, $direction:left)
+{
+    background: $fromColor; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($direction, $fromColor, $toColor); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($direction, $fromColor, $toColor); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($direction, $fromColor, $toColor); /* For Firefox 3.6 to 15 */
+    background: -ms-linear-gradient($direction, $fromColor, $toColor); /* IE 10+ */
+    background: linear-gradient($direction, $fromColor, $toColor); /* Standard syntax */
+}
+
+@mixin animation-name($name, $duration)
+{
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    animation-name: $name;
+    animation-duration: $duration;
+}
+@mixin button() {
+    @include border-radius;
+    background-color: $link-color;
+    padding: 0;
+    min-height: 25px;
+    height: 25px;
+    line-height: 25px;
+    min-width: 45px;
+}
+
+@mixin applyQuantity() {
+    opacity: 1;
+    border: 1px solid $border-gray-light;
+    color: $deliver-gray;
+    background-color: $white;
+}
+
+@mixin checkboxChecked()
+{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAABGdBTUEAALGPC/xhBQAAAVRJREFUKBWVUj1LA0EUnGdSGBAJikkwoAHxA9MIprPRJpFEG8FgaSeCrT9C/4GNlSARLCyyMYeXM/aC4K8QGysTNcc5632iBLwHe/vevDdzs3sniBtKTcFxGkgmj1GpPEosvmXl0OuZFFgm740im4l/C5hmHv3+PclLHmeUeX7kp7CsMSh1NFTMNGdJfiBhIZgR6SKVqguJ4wQVm2vcz1CtHkLECQaVmmOvw3omwEQ6yGS2USq9awdXHln3Dyh4ztp11motMu8Sj5LbSKe3NFkTBO32Kmzb4OCEBry4RCJxQvyWdc4H6Uwx36HLDx9zv4JhrGAwuKPIpN/gbnNFL/kGhUIdxeJnZAau1XL5ieQNvuE10gzJItfIZnd/k/WsK6CzWu2Zz3WuF64wRBq87T2e+SsEw+zvj+ReXIeOpjl2wfPu05k+TowwjHk0m6cUCR0OoX8D/c5vMvKLx5gAAAAASUVORK5CYII=");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin center()
+{
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+@mixin center-vertical() {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+}

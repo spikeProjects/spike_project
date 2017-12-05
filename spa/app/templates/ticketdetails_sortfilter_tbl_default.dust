@@ -1,0 +1,17 @@
+<div class="sortfilter-tbl">
+    <div class="sectioncell{?gc.isAddParking} byo-add-parking{/gc.isAddParking}">
+    {@if test="sectionName == 'General Admission' && seatNumbers == 'General Admission'"}
+        {@i18n key="event.common.ticket.ga"/}
+    {:else}
+        {sectionName}
+    {/if}
+    </div>
+    {^gc.isAddParking}
+        <div class="rowcell {?globals.event_meta.isParking}invisible{/globals.event_meta.isParking}">{seats[0].row}</div>
+    {/gc.isAddParking}
+    <div class="pricecell">
+        {#usePrice}
+            {>"/*@echo appNameVersioned*//ticketdetails_price" eachText="{@i18n key="event.common.ticketdetails.each.text"/}" /}
+        {/usePrice}
+    </div>
+</div>

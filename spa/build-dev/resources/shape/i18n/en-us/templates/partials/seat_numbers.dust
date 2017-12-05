@@ -1,0 +1,16 @@
+<div class="seat-info-text">
+    <span class="seatInfo">
+        {@eq key=qty value=1 type="number"}
+            You'll get 1 of these seats:
+        {:else}
+            You'll get {qty} of these seats together:
+        {/eq}
+    </span>
+    <span class="seatNumbers">
+        {#seats[0].seatNumbersArray}
+            {.}{@sep}, {/sep}
+        {:else}
+            {seatNumbers}
+        {/seats[0].seatNumbersArray}
+    </span>
+</div>

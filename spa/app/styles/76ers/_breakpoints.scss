@@ -1,0 +1,13 @@
+/* events page break points */
+$tablet-size: 768px;
+$desktop-size: 1200px;
+$screen-width-small: 767px;
+
+/* stubhub breakpoints */
+/*
+$breakpoint-small: "only screen and (min-width: 320px) and (max-width: 639px)";
+$breakpoint-medium: "only screen and (min-width: 640px) and (max-width: 949px)";
+$breakpoint-large: "only screen and (min-width: 950px) and (max-width: 1280px)";
+$breakpoint-xlarge: "only screen and (min-width: 1281px)";
+*/
+@import "../../../node_modules/@stubhub/common-build-files/brand/styles/breakpoints";

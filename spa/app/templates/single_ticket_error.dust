@@ -1,0 +1,7 @@
+<div class="ticket-error-wrapper">
+    <div class="single-ticket-error"><span>{@i18n key="event.common.singleticket.error.message"/}</span></div>
+    <div class="single-another-ticket">
+        <div>{@i18n key="event.common.singleticket.error.anotherticket"/}</div>
+        <button class="button-secondary find-another-ticket">{@i18n key="event.common.singleticket.error.findeticket"/}</button>
+    </div>
+</div>

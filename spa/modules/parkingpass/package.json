@@ -1,0 +1,22 @@
+{
+  "name": "parkingpass",
+  "version": "1.1.0",
+  "description": "StubHub Common UI Platform Component library",
+  "scripts": {},
+  "repository": "Stubhub/app-eventpage-splitscreen",
+  "author": {
+    "name": "Rahul Chavan",
+    "email": "rchavan@stubhub.com"
+  },
+  "contributors": {
+      "contributor" : {
+          "name": "Hugh Chapman",
+          "email": "hchapman@stubhub.com"
+      }
+  },
+  "engines": {
+    "node": "4.x"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

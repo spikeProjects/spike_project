@@ -1,0 +1,113 @@
+<div class="listing-header">
+    <div class="sectionhdr">SECTION</div>
+    <div class="rowhdr">ROW</div>
+    <div class="seathdr">SEATS</div>
+</div>
+
+<div class="listing-details">
+    <div class="sectioncell">
+        {@if test="sectionName == 'General Admission' && seats[0].seatNumber == 'General Admission'"}
+            General Admission
+        {:else}
+            {sectionName}
+        {/if}
+    </div>
+    <div class="rowcell">{seats[0].row}</div>
+    <div class="seatcell">
+        {@eq key=seats[0].seatNumber value="General Admission"}
+            -
+        {:else}
+            {seats[0].seatNumberFirst}{@gt key=quantity value=1 type="number"} - {seats[0].seatNumberLast}{/gt}
+        {/eq}
+    </div>
+</div>
+
+<div class="seatinfo">
+    {@eq key=seats[0].seatNumber value="General Admission"}
+        <div class="seatInfoText"><span class="noseatInfo"></span></div>
+    {:else}
+        {>"/*@echo appNameVersioned*//partials/seat_numbers" /}
+    {/eq}
+</div>
+
+<div class="upgrade-feature-icons-wrapper ep-sh-iconset">
+    {@gt key=features.length value=0}
+        {#features}
+            <span class="upgrade-feature-icons">
+                {@ne key=featureIcon value="none"}
+                    <i class="sh-iconset sh-iconset-{featureIcon}"></i>
+                {/ne}
+                {?displayAlertIcon}
+                    {>"/*@echo appNameVersioned*//partials/icon-svg-disclosure"/}
+                {/displayAlertIcon}
+            </span>
+        {/features}
+    {/gt}
+</div>
+
+<div class="view-more-container hide">
+    <div class="upgrade-feature-details">
+        {@gt key=features.length value=0}
+            <div class="feature-header">SEAT FEATURES & TICKET DISCLOSURES</div>
+        {/gt}
+
+        {@gt key=features.length value=0}
+            {#features}
+                <div class="upgrade-features">
+                    <div class="feature-icon ep-sh-iconset">
+                        {@ne key=featureIcon value="none"}
+                            <i class="sh-iconset sh-iconset-{featureIcon}"></i>
+                        {/ne}
+                        {?displayAlertIcon}
+                            {>"/*@echo appNameVersioned*//partials/icon-svg-disclosure"/}
+                        {/displayAlertIcon}
+                    </div>
+                    <div class="feature-name">{listingAttribute}</div>
+                </div>
+            {/features}
+        {/gt}
+
+        <div class="upgrade-features">
+            <div class="dash-separator"></div>
+        </div>
+
+        <div class="upgrade-features">
+            <div class="upgrade-delivery-container">
+                <div class="upgrade-delivery-header">DELIVERY</div>
+                <div class="upgrade-delivery-info">
+                    {@select key=deliveryTypeList[0].id}
+                        {@eq value=1}
+                            Electronic
+                            <span class="upgrade-delivery-date">by <span class="date">{@format value=deliveryDate style="date.expanded" /}</span></span>
+                        {/eq}
+                        {@eq value=2}
+                            Instant Download within minutes of your order
+                        {/eq}
+                        {@default}
+                            {@if test="deliveryType.length == 1 && deliveryType[0].id == 4"}
+                                Pickup tickets on event day
+                            {:else}
+                                UPS
+                                <span class="upgrade-delivery-date">by <span class="date">{@format value=deliveryDate style="date.expanded" /}</span></span>
+                            {/if}
+                        {/default}
+                    {/select}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upgrade-see-more-container">
+    <div class="upgrade-see-more-separator"></div>
+    <div class="upgrade-see-more">
+        <span class="upgrade-see-more-text">View more</span>
+        <span class="upgrade-see-more-icon"> + </span>
+    </div>
+</div>
+
+<div class="upgrade-total">
+    <div class="upgrade-ticket-price">TICKET PRICE</div>
+    <span class="upgrade-amount">{@format value=usePrice.amount style="money" currency=currency substyle="style1"/}</span>
+    <span class="upgrade-each">{@eq key=globals.event_meta.country value="CA"}{usePrice.currency}/{/eq}each</span>
+</div>

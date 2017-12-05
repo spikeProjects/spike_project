@@ -1,0 +1,5 @@
+<div id="tabbar" class="tabbar {@eq key=globals.TicketReco.showTicketReco value=globals.TicketReco.experience.DEFAULT}invisible{/eq}">
+    <button class="lowestprice {@eq key=sortBy value=globals.defaultSorting.FIELD.PRICE}selected{/eq}" data-sort="price" data-sort-value="currentPrice" data-sort-direction="asc" data-tracking-prefix="Price Sorting">{@i18n key="event.common.ticketreco.lowestprice" /}</button>
+    <button class="bestvalue {@eq key=sortBy value=globals.defaultSorting.FIELD.VALUE}selected{/eq}" data-sort="value" data-sort-value="value" data-sort-direction="desc" data-tracking-prefix="Value Sorting">{@i18n key="event.common.ticketreco.bestvalue" /}</button>
+    <button class="bestseats {@eq key=sortBy value=globals.defaultSorting.FIELD.SEATS}selected{/eq}" data-sort="seats" data-sort-value="quality" data-sort-direction="desc" data-tracking-prefix="Quality Sorting">{@i18n key="event.common.ticketreco.bestseats" /}</button>
+</div>

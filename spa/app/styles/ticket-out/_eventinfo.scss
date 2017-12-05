@@ -1,0 +1,208 @@
+@import "../utils/mixins";
+@import "common";
+
+body.overlay-active {
+    #eventInfo {
+        &.overlayAnimate {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transform:scale(1) translate(-50%, -50%);
+            transform:scale(1) translate(-50%, -50%);
+            -webkit-filter:none;
+            filter:none;
+        }
+    }
+}
+
+#eventInfo {
+    position: fixed;
+    /*display: none;*/
+    visibility: hidden;
+    opacity: 0;
+    background-color: $white;
+    min-height: 120px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #919191;
+    border-radius:2px;
+    font-size: 87.5%;
+    width:320px;
+    min-width:320px;
+    box-sizing: border-box;
+    top:50%;
+    left:50%;
+    -webkit-transform:scale(0.8,0.8) translate(-62%, -62%);
+    transform:scale(0.8,0.8) translate(-62%, -62%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    z-index: 4002;
+
+    &.bottom-line {
+        border-bottom: 1px solid $border-gray-light;
+    }
+
+    .eventInfoHeader {
+        font-size: $font-size-16;
+        overflow:hidden;
+        border-bottom: 1px solid $border-blue;
+        line-height: 30px;
+        .title {
+            display:inline;
+            float:left;
+            padding: 8px 10px;
+            color: $light-gray;
+        }
+        .closeEventInfo {
+            display: inline;
+            float: right;
+            padding: 8px 10px;
+            color: $link-color;
+            cursor: pointer;
+        }
+    }
+    .event-card {
+        clear:both;
+        overflow: hidden;
+        position: relative;
+
+        .container {
+            margin: 0;
+            padding: 0;
+            left: 0;
+            width: 100%;
+
+            .event-meta {
+                float: left;
+                width: 63px;
+                height: 63px;
+                padding-top: 10px;
+                padding-left: 10px;
+            }
+
+            .event-details {
+                font-size: $font-size-12;
+                padding: 10px 13px 15px;
+                float: left;
+                width: calc(100% - 73px);
+                box-sizing: border-box;
+
+                .header {
+                    display: block;
+                    margin-bottom: 10px;
+                    color: $dark-gray;
+                    font-size: $font-size-16;
+                    font-weight: normal;
+                    max-height: 325px;
+                    overflow: hidden;
+                }
+
+                #event-info-flag {
+                    margin: 0 0 0px 20px;
+                    width: 30px;
+                    line-height: 16px;
+                }
+
+                .event-location-info {
+                    color: $medium-gray;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: $tablet-size) {
+    //hide disclosure flag in event info popup for mobile since it is already avilable in the event header
+    //BUT only for NON_GA view
+    .view_non_ga {
+        #eventInfo {
+            #event-info-flag {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-size) {
+    #eventInfo {
+        background-color: $background-gray;
+        @include border-radius(0px);
+        border: none;
+        border-bottom: 1px solid $border-gray-light;
+        @include box-sizing(border-box);
+        height: $ep-eventinfo-height;
+        left: 0px;
+        min-height: $ep-eventinfo-height;
+        opacity: 1;
+        position: static;
+        top: 0px;
+        transform: scale(1);
+        transform: translateZ(0);
+        -webkit-transform: scale(1);
+        -webkit-transform: translateZ(0);
+        visibility: visible;
+        width: 100%;
+        z-index: auto;
+
+        .eventInfoHeader {
+            display:none;
+        }
+
+        .event-card{
+            .container {
+                top:0px;
+
+                .event-details {
+                    padding: 8px 20px;
+                    height: $ep-eventinfo-height - $ep-eventinfo-border;
+                    max-height: $ep-eventinfo-height - $ep-eventinfo-border;
+                    position: relative;
+
+                    #event-info-flag {
+                        &.show {
+                            display:inline-block;
+                        }
+                    }
+
+                    .event-details-box {
+                        position: relative;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                    }
+
+                    .header {
+                        margin-bottom: 8px;
+                        line-height: 1.2em;
+                        min-height: 1em;
+                        max-height: 2.4em;
+                        overflow: hidden;
+                        word-wrap: break-word;
+                        text-overflow: ellipsis;
+                    }
+
+                    .event-location-info {
+                        position: relative;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: $desktop-size) {
+    #eventInfo {
+        .event-card {
+            margin: 0 auto;
+            width: 1200px;
+            .container {
+                .event-details {
+                    width: calc(100% - 350px - 73px);
+                }
+            }
+        }
+    }
+}

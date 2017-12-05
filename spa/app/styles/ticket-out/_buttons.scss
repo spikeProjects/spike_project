@@ -1,0 +1,72 @@
+
+.btn-core{
+  .disabled, .disabled svg{
+    cursor: default;
+  }
+  cursor: pointer;
+  text-align: center;
+  min-height: 36px;
+  min-width: 36px;
+}
+
+.btn-small{
+  @extend .btn-core;
+  width: 38px;
+  height: 38px;
+  font-size: 26px;
+}
+
+.btn-medium {
+  @extend .btn-core;
+  width: 68px;
+  height: 48px;
+  font-size: 36px;
+}
+
+.btn-large {
+  @extend .btn-core;
+  width: 134px;
+  height: 95px;
+  font-size: 45px;
+}
+
+.btn-nav-small {
+  @extend .btn-core;
+  width: 38px;
+  height: 38px;
+  font-size: 26px;
+  &.disabled, [disabled] {
+    width: 37px;
+    height: 37px;
+  }
+  &:hover:not(.disabled){
+    border-width: 2px;
+  }
+}
+
+.btn-nav-medium {
+  @extend .btn-core;
+  width: 48px;
+  height: 48px;
+  font-size: 36px;
+  &.disabled, [disabled] {
+    width: 48px;
+    height: 48px;
+  }
+  &:hover:not(.disabled){
+    border-width: 2px;
+  }
+}
+
+.btn-nav-large {
+  @extend .btn-core;
+  height: 95px;
+  width: 95px;
+  &.disabled {
+    width: 95px;
+    height: 95px;
+  }
+  &:hover:not(.disabled) {
+    border-width: 2px;
+  }
+}

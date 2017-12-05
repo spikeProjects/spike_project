@@ -1,0 +1,8 @@
+<div class='drawer-container'>
+        <span class="drawer-buttons">
+            <span class="drawer-nav-up">/\</span>
+            <span class="drawer-nav-down">\/</span>
+        </span>
+        <div class='drawer-object'>
+        </div>
+</div>

@@ -1,0 +1,10 @@
+{?singleTicketError}
+        {>"/*@echo appNameVersioned*//single_ticket_error" /}
+{:else}
+    <div class="single-ticket-wrapper"></div>
+    <div class="single-ticket-see-more hide">
+        <div class="view_more">{@i18n key="event.common.seemore.text"/}</div>
+        <div class="font_dark_grey">{@i18n key="event.common.msg.bestprice"/}</div>
+        <div class="font_light_grey">{@i18n key="event.common.msg.sellersprice"/}</div>
+    </div>
+{/singleTicketError}

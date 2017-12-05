@@ -1,0 +1,346 @@
+@import "common";
+@import "../utils/mixins";
+
+.upgrade-ticket-container {
+    padding: 20px 10px;
+    .selected-check {
+        background-color: $color-core-tertiary;
+        height: 48px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 48px;
+
+        svg {
+            display: block;
+            fill: $white;
+            height: 24px;
+            left: 15px;
+            position: absolute;
+            top: 11px;
+            width: 24px;
+        }
+    }
+    .upgrade-header {
+        margin-bottom: 17px;
+
+        .price-diff {
+            color: $color-text-xdark;
+            font-size: $font-size-18;
+            font-weight: 500;
+            font-family: $font-family-primary;
+        }
+    }
+
+    .upgrade-pip {
+        float: right;
+        width: 100%;
+
+        @media only screen and (min-width: $tablet-size) {
+            width: 45%;
+        }
+
+        .vfs-map-wrapper {
+            width: 100%;
+            height: 153px;
+
+            @media only screen and (min-width: $tablet-size) and (orientation: portrait) {
+                height: 80px;
+            }
+
+            @media only screen and (min-width: $tablet-size) and (orientation: landscape) {
+                height: 113px;
+            }
+
+            @media only screen and (min-width: $desktop-size) {
+                height: 113px;
+            }
+        }
+
+        .upgrade-vfs {
+            cursor: pointer;
+            float: left;
+            height: inherit;
+            margin: 0 5px 0 0;
+            position: relative;
+            width: 60%;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            &.upgrade-no-vfs {
+                cursor: text;
+                background-image: url('#{$img_path}/no-vfs-concert1x.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: inherit;
+            }
+
+            .expand-icon {
+                background-color: $expand-white;
+                bottom: 2px;
+                height: 22px;
+                left: 2px;
+                position: absolute;
+                width: 22px;
+
+                g {
+                    fill: $deliver-gray;
+                }
+            }
+        }
+
+        .upgrade-seatmap {
+            border: 1px solid #E6E9Eb;
+            cursor: pointer;
+            float: right;
+            height: inherit;
+            position: relative;
+            width: 34%;
+
+            @media only screen and (min-width: $desktop-size) {
+                width: 35%;
+            }
+
+            &.disabled {
+                opacity: 0.5;
+                pointer-events: none;
+
+                .expand-icon {
+                    opacity: 0.5;
+                }
+            }
+
+            .expand-icon {
+                background-color: $expand-gray-light;
+                bottom: 2px;
+                height: 22px;
+                left: 2px;
+                position: absolute;
+                width: 22px;
+                z-index: 1;
+
+                g {
+                    fill: $white;
+                }
+            }
+
+            svg:nth-child(2) {
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+
+        .compare-seats-button {
+            clear: both;
+
+            &.disabled {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+            button {
+                background-color: $white;
+                border: 2px solid $color-core-tertiary;
+                color: $color-core-tertiary;
+                height: 36px;
+                font-size: $font-size-16;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                margin: 20px 0;
+                padding: 5px;
+                width: 100%;
+                max-width: 100%;
+
+                @media only screen and (min-width: $tablet-size) {
+                    margin: 20px 0 50px;
+                }
+            }
+        }
+    }
+
+    .upgrade-info-wrapper {
+        width: 100%;
+    }
+
+    .upgrade-listing-info {
+        margin-bottom: 20px;
+        margin-top: 17px;
+    }
+
+    .upgrade-button {
+        clear: both;
+        position: relative;
+        width: 100%;
+
+        &.disabled {
+            cursor: text;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .upgrade-spinner {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+        }
+    }
+}
+
+.upgrade-listing {
+    .ticket-notavailable {
+        @include box-sizing(border-box);
+        padding: 20px 10px;
+        width: 100%;
+
+        .sorry-msg {
+            font-family: $font-family-primary;
+            font-size: $font-size-22;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .ticket-msg {
+            color: $deliver-gray;
+            padding-bottom: 30px;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-size) {
+    .upgrade-ticket-container {
+        .upgrade-listing-info {
+            float: left;
+            margin-top: 0;
+            margin-bottom: 50px;
+            position: relative;
+            width: 52%;
+        }
+
+        .upgrade-button {
+            margin: 0 auto;
+            max-width: 292px;
+            width: 61%;
+        }
+    }
+}
+
+/*Upgrade Accordion CSS*/
+
+#event-build-your-order {
+    .checkout {
+        @media only screen and (min-width: $tablet-size) {
+            display: block;
+        }
+    }
+
+    .accordion-checkout {
+        margin: 15px 10px 0;
+        width: calc(100% - 20px);
+
+        @media only screen and (min-width: $tablet-size) {
+            display: none;
+        }
+    }
+
+    .upgrade-listing {
+        &.accordion {
+            padding: 0;
+
+            &.upgrade-selected {
+                @media only screen and (max-width: ($tablet-size - 1)) {
+                    background-color: transparentize($color-core-tertiary, 0.9);
+                    border: 2px solid $color-core-tertiary;
+
+                    .remove-upgrade {
+                        button {
+                            border: 2px solid $color-core-tertiary;
+                            color: $color-text-xxlight;
+                        }
+                    }
+                }
+                .header {
+                    .upgrade-icon {
+                        svg {
+                            fill: $color-ui-xdark;
+                        }
+                    }
+
+                    .header-text {
+                        color: $color-ui-xdark;
+                    }
+                }
+            }
+
+            .upgrade-box {
+                cursor: pointer;
+                padding: 20px 10px;
+
+                @media only screen and (min-width: $tablet-size) {
+                    display: none;
+                }
+
+                .upgrade-icon {
+                    float: left;
+
+                    svg {
+                        fill: $color-core-tertiary;
+                        height: 15px;
+                        width: 15px;
+                    }
+                }
+
+                .upgrade-arrow {
+                    position: absolute;
+                    right: 25px;
+                    top: 20px;
+                }
+
+                .header-text {
+                    float: left;
+                    color: $color-core-tertiary;
+                    font-size: $font-size-14;
+                    font-weight: bold;
+                    margin-left: 10px;
+                }
+
+                .price-diff {
+                    clear: both;
+                    color: $light-gray;
+                    font-size: $font-size-12;
+                    padding-top: 4px;
+                    margin-left: 25px;
+
+                    .price_value {
+                        font-weight: bold;
+                    }
+                }
+
+                .upgraded-text {
+                    clear: both;
+                    color: $color-core-tertiary;
+                    font-size: $font-size-12;
+                    padding-top: 4px;
+                    margin-left: 25px;
+                }
+            }
+
+            .upgrade-ticket-container {
+                @media only screen and (max-width: ($tablet-size - 1)) {
+                    padding: 0 10px 20px;
+
+                    .selected-check {
+                        display: none;
+                    }
+
+                    .upgrade-header {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

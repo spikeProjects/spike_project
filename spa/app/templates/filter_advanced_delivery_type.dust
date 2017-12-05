@@ -1,0 +1,23 @@
+<div id="delivery-cont" class="dropdown-cont" tabindex="0">
+    <div id="deliveryHeader" class="delivery-header">{@i18n key="event.common.filters.delivery.text"/}
+        <span class="filter-feature-arrow">
+            <span class="down-arrow">{>"/*@echo appNameVersioned*//partials/icon-svg-downarrow"/}</span>
+            <span class="up-arrow hide">{>"/*@echo appNameVersioned*//partials/icon-svg-uparrow"/}</span>
+        </span>
+    </div>
+    <div class="filter-accordion hide">
+        <ul id="delivery-dropdown">
+            {#deliveryTypes}
+                <li {@eq key=checked value="true"}class="selected"{/eq}>
+                    <label class="checkbox-label">
+                        <div class="checkbox-icon" data-name="delivery" data-id="{id}" data-category="{description}"></div>
+                        {@ne key=iconset value=""}
+                            <i class="sh-iconset {iconset}"></i>
+                        {/ne}
+                        <div class="checkbox-text">{description}</div>
+                    </label>
+                </li>
+            {/deliveryTypes}
+        </ul>
+    </div>
+</div>

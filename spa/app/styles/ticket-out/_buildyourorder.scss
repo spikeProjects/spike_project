@@ -1,0 +1,1382 @@
+@import "common";
+@import "../utils/mixins";
+
+.byo-black-overlay-screen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.59);
+    z-index: 20;
+}
+
+.byo-upgrade-map-wrapper {
+    position: fixed;
+    top: 50px;
+    z-index: 30;
+    left: 0;
+    right: 0;
+
+    @media only screen and (min-width: $tablet-size) {
+        top: 15px;
+    }
+
+    svg {
+        height: 100%;
+        width: 100%;
+    }
+    .sh-iconset-close {
+        cursor: pointer;
+        position: relative;
+        float: right;
+        right: 15px;
+        top: 40px;
+        z-index: 31;
+        color: $icon-gray;
+        font-size: $font-size-30;
+        &:before {
+            content: '\2715';
+        }
+    }
+
+    .selectedTooltip {
+        cursor: pointer;
+
+        &.tooltip-selected {
+            z-index: 100;
+        }
+    }
+
+    .upgradeTooltip {
+        &.tooltip-selected {
+            z-index: 100;
+        }
+    }
+}
+
+.byo-upgrade-seatmap {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    @media only screen and (min-width: $tablet-size) {
+        width: 445px;
+        height: 445px;
+    }
+    @media only screen and (min-width: $desktop-size) {
+        width: 520px;
+        height: 520px;
+    }
+}
+
+.upgradeTooltip, .selectedTooltip {
+    top: 10px;
+    @media only screen and (min-width: $tablet-size) {
+        top: 25px;
+    }
+}
+
+.byomap-tooltip, .upgradeTooltip, .selectedTooltip {
+    background: $white;
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 195px;
+    z-index: 99;
+    font-weight: 700;
+    &.upgrade {
+        border-top: 4px solid $color-core-tertiary;
+        cursor: pointer;
+        &.below {
+            border-top: none;
+            border-bottom: 4px solid $color-core-tertiary;
+        }
+    }
+    &.selected {
+        border-bottom: 4px solid $color-core-secondary;
+        &.below {
+            border-top: none;
+            border-bottom: 4px solid $color-core-secondary;
+        }
+    }
+    .content {
+        color: $light-gray;
+        font-size: $font-size-12;
+    }
+    .levelInfo {
+        width: 120px;
+        float: left;
+    }
+    .rowInfo {
+        float: right;
+    }
+    .levelInfo, .rowInfo {
+        font-size: $font-size-14;
+        color: $deliver-gray;
+        &:after {
+            clear: both;
+        }
+    }
+}
+
+#event-build-your-order {
+    /* Animations */
+    @keyframes byoScrollTop {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0%);
+        }
+    }
+
+    @-webkit-keyframes byoScrollTop {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0%);
+        }
+    }
+
+    @keyframes enterRight {
+        0% {
+            transform: translateX(-100%);
+        }
+        65%{
+            transform: translateX(10%);
+        }
+        80%{
+            transform: translateX(0%);
+        }
+        90%{
+            transform: translateX(4%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @-webkit-keyframes enterRight {
+        0% {
+            transform: translateX(-100%);
+        }
+        65%{
+            transform: translateX(10%);
+        }
+        80%{
+            transform: translateX(0%);
+        }
+        90%{
+            transform: translateX(4%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes exitRight {
+        0% {
+            transform: translateX(0%);
+        }
+        30%{
+            transform: translateX(20%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @-webkit-keyframes exitRight {
+        0% {
+            transform: translateX(0%);
+        }
+        30%{
+            transform: translateX(20%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @include box-sizing(border-box);
+    overflow-y: auto;
+    padding-top: 0px;
+    padding-bottom: 100px;
+    z-index: 10;
+
+    .byo-event-info {
+        display: none;
+
+        @media only screen and (min-width: $tablet-size) {
+            display: block;
+
+            .event-meta {
+                float: left;
+                height: 63px;
+                padding-right: 10px;
+                width: 63px;
+            }
+
+            .event-details {
+                box-sizing: border-box;
+                font-size: $font-size-12;
+                float: left;
+                margin-bottom: 13px;
+                width: calc(100% - 73px);
+
+                .header {
+                    display: block;
+                    margin-bottom: 10px;
+                    color: $color-text-xdark;
+                    font-size: $font-size-16;
+                    font-weight: normal;
+                    max-height: 325px;
+                    overflow: hidden;
+                }
+
+                .event-location-info {
+                    color: $color-text-xdark;
+                }
+            }
+            .separator {
+                border-bottom: 1px solid $color-ui-light;
+                clear: both;
+                height: 1px;
+            }
+        }
+    }
+
+    .novfs-text {
+        color: $white;
+        font-size: $font-size-12;
+        position: absolute;
+        border: 1px solid $white;
+        padding: 5px;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        white-space: nowrap;
+        max-width: 80%;
+
+        @media only screen and (min-width: $tablet-size) {
+            font-size: $font-size-10;
+        }
+    }
+
+    .upgrade-listing-info, .similar-listing-info {
+        .sectionhdr, .rowhdr, .seathdr {
+            color: $color-text-dark;
+            display: inline-block;
+            font-family: $font-family-primary;
+            font-size: $font-size-14;
+            font-weight: 500;
+            line-height: 18px;
+            cursor: auto;
+        }
+
+        .sectionhdr {
+            width: 50%;
+        }
+
+        .seathdr {
+            text-align: right;
+            width: 30%;
+        }
+
+        .listing-details {
+            margin-top: 5px;
+
+            .sectioncell, .rowcell, .seatcell {
+                color: $color-text-xdark;
+                display: inline-block;
+                font-size: $font-size-16;
+                font-weight: 700;
+                vertical-align: top;
+            }
+
+            .sectioncell {
+                width: 50%;
+            }
+
+            .seatcell {
+                text-align: right;
+                width: 30%;
+            }
+        }
+
+        .seatinfo {
+            color: $color-text-dark;
+            font-size: $font-size-14;
+            margin: 10px 0 17px 0;
+
+            .seatNumbers {
+                margin-left: 5px;
+            }
+        }
+
+        .upgrade-feature-icons-wrapper {
+            .upgrade-feature-icons {
+                margin-right: 10px;
+
+                .icon-disclosure {
+                    position: relative;
+                    top: 1px;
+                    width: 15px;
+                    height: 13px;
+                    fill: $color-ui-dark;
+                }
+
+                i {
+                    font-size: 5px;
+                }
+            }
+        }
+
+        .upgrade-feature-details {
+            .feature-header {
+                color: $color-text-dark;
+                font-size: $font-size-14;
+                font-weight: 500;
+                font-family: $font-family-primary;
+                margin-bottom: 10px;
+            }
+
+            .upgrade-features {
+                clear: both;
+
+                .icon-disclosure {
+                    width: 12px;
+                    height: 12px;
+                    fill: $color-ui-dark;
+                }
+
+                .feature-icon {
+                    float: left;
+                    width: 20px;
+                    margin-bottom: 5px;
+
+                    i.sh-iconset, .sh-iconset-alert-1 {
+                        font-size: $font-size-5;
+                    }
+                }
+
+                .feature-name {
+                    color: $color-text-xdark;
+                    float: left;
+                    font-size: $font-size-14;
+                    margin-bottom: 5px;
+                    margin-left: 10px;
+                    width: calc(100% - 30px);
+                }
+
+                .dash-separator {
+                    margin: 55px 0 15px 0;
+                }
+
+                .upgrade-delivery-header {
+                    color: $color-text-dark;
+                    font-size: $font-size-14;
+                    font-weight: 500;
+                    font-family: $font-family-primary;
+                    margin-bottom: 10px;
+                }
+
+                .upgrade-delivery-info {
+                    color: $color-text-xdark;
+                    margin-bottom: 10px;
+                    font-size: $font-size-14;
+
+                    .upgrade-delivery-date {
+                        margin-left: 5px;
+                        .date {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        .upgrade-see-more-container {
+            clear: both;
+            padding-top: 5px;
+
+            .upgrade-see-more-separator {
+                margin: 9px 0;
+                border-bottom: 1px solid $color-ui-light;
+            }
+
+            .upgrade-see-more {
+                cursor: pointer;
+                color: $link-color;
+                font-size: $font-size-12;
+                padding-bottom: 25px;
+
+                .upgrade-see-more-icon {
+                    color: $deliver-gray;
+                    font-size: $font-size-20;
+                    margin-top: -6px;
+                    position: absolute;
+                    right: 20px;
+                }
+            }
+        }
+
+        .upgrade-total {
+            .upgrade-ticket-price {
+                color: $color-text-dark;
+                font-size: $font-size-14;
+                font-weight: 500;
+                font-family: $font-family-primary;
+                margin-bottom: 5px;
+            }
+
+            .upgrade-amount {
+                color: $color-text-xdark;
+                font-size: $font-size-24;
+                font-weight: 700;
+                display: inline-block;
+            }
+
+            .upgrade-each {
+                color: $color-text-xdark;
+                font-size: $font-size-12;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .byo-header {
+        margin: 0 0 10px 0;
+
+        h3 {
+            border-top: 5px solid $color-core-secondary;
+            color: $color-text-xdark;
+            display: inline-block;
+            font-family: $font-family-primary;
+            font-size: $font-size-20;
+            font-weight: normal;
+            margin: 0 0 0 10px;
+            padding-top: 20px;
+
+            @media only screen and (min-width: $desktop-size) {
+                padding-top: 10px;
+            }
+        }
+
+        .sh-iconset {
+            float: right;
+            position: absolute;
+            top: -35px;
+            right: 10px;
+
+            /* IE hack */
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                top: -10px;
+            }
+        }
+
+        .sh-iconset-close {
+            color: $icon-gray;
+            font-size: $font-size-30;
+        }
+    }
+
+    .similar-ticket-container {
+        border: 1px solid $border-gray-light;
+        border-top: 5px solid $color-core-secondary;
+        @include box-sizing(border-box);
+        background: url('#{$img_path}/sold-out.png') no-repeat calc(100% - 50px) 0;
+        margin: 0 10px;
+        padding: 15px 0 0;
+        position: relative;
+        width: #{"calc(100% - 20px)"};
+
+        @media only screen and (min-width: $tablet-size) {
+           float: left;
+           margin: 0px 0px 0px 10px;
+           padding-left: 10px;
+           width: #{"calc(100% - 422px)"};
+        }
+
+       @media only screen and (min-width: $desktop-size) {
+            padding-left: 0;
+            width: 742px;
+        }
+    }
+
+    .seat-info {
+        width: 100%;
+        position: relative;
+        overflow: hidden; /*BYO Seat Map overflow hidden when zoomed in*/
+        border-bottom: 1pt solid $border-gray-light;
+        min-height: 170px;
+        @media only screen and (min-width: $tablet-size) {
+            float: left;
+            border-bottom: none;
+            min-height: 200px;
+            padding-left: 10px;
+            width: #{"calc(100% - 415px)"};
+        }
+        @media only screen and (min-width: $desktop-size) {
+            width: 750px;
+            min-height: 350px;
+
+            .single-ticket-vfs {
+                &.byo-small-vfs {
+                    width: 140px;
+                    height: 120px;
+                }
+            }
+        }
+
+        #byo-seatmap {
+            @include box-sizing(border-box);
+            width: 230px;
+            height: inherit;
+            margin: 0 auto;
+
+            @media only screen and (min-width: $tablet-size) {
+                width: 325px;
+            }
+
+            @media only screen and (min-width: $desktop-size) {
+                width: 450px;
+            }
+
+            .markers {
+                cursor: pointer;
+            }
+
+            .switchIconMap {
+                display: none;
+            }
+
+            &.byo-small-map {
+                margin: 5px;
+                width: 90px;
+                height: 90px;
+                position: absolute;
+                cursor: pointer;
+                z-index: 2;
+                box-shadow: $pip-shadow;
+                border: 2px solid $white;
+
+                @media only screen and (min-width: $tablet-size) {
+                    width: 120px;
+                    height: 120px;
+                }
+
+                .byomap-tooltip {
+                    display: none;
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none; /*no pointer events on PIP*/
+
+                    @media only screen and (min-width: $tablet-size) {
+                        width: 116px;
+                        height: 116px;
+                    }
+                }
+
+                .switchIconMap {
+                    display: block;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0;
+                    height: 22px;
+                    width: 22px;
+                    z-index: 4;
+                    background-color: $expand-gray-light;
+                    path {
+                        fill: $expand-white-dark;
+                    }
+                }
+            }
+
+            svg {
+                width: 230px;
+                height: 230px;
+                z-index: 3;
+
+                @media only screen and (min-width: $tablet-size) {
+                    width: 100%;
+                    height: 325px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                @media only screen and (min-width: $desktop-size) {
+                    height: 450px;
+                }
+            }
+
+            .zoomcontrol {
+                display: none;
+            }
+        }
+
+        .single-ticket-vfs {
+            @include box-sizing(border-box);
+            width: 100%;
+            .spinner {
+                top: 50%;
+                left: 50%;
+                position: absolute;
+                @include transform(translate(-50%, -50%));
+            }
+            .switchIconVfs {
+                display: none;
+            }
+            .noVfsText {
+                color: $white;
+                font-size: $font-size-14;
+                position: absolute;
+                border: 1px solid $white;
+                padding: 5px 20px;
+                top: 50%;
+                left: 50%;
+                @include transform(translate(-50%, -50%));
+                white-space: nowrap;
+                max-width: 80%;
+
+                @media only screen and (min-width: $tablet-size) {
+                    font-size: $font-size-18;
+                    padding: 10px 30px;
+                }
+            }
+
+            &.byo-small-vfs {
+                position: absolute;
+                width: 110px;
+                top: 0;
+                margin: 5px;
+                cursor: pointer;
+                z-index: 5;
+
+                @media only screen and (min-width: $tablet-size) {
+                    width: 120px;
+                    height: 100px;
+                }
+
+                @media only screen and (min-width: $desktop-size) {
+                    width: 140px;
+                    height: 120px;
+                }
+
+                .noVfsText {
+                    font-size: $font-size-8;
+                    padding: 2px 5px;
+                }
+                .switchIconVfs {
+                    display: block;
+                    position: absolute;
+                    bottom: 5px;
+                    left: 2px;
+                    height: 22px;
+                    width: 22px;
+                    background-color: $expand-white;
+                    path {
+                        fill: $expand-gray-dark;
+                    }
+
+                    @media only screen and (min-width: $tablet-size) {
+                        bottom: -2px;
+                    }
+                }
+                img {
+                    height: 90px;
+                    border: 2px solid $white;
+                    box-shadow: $pip-shadow;
+
+                    @media only screen and (min-width: $tablet-size) {
+                        height: 100px;
+                    }
+
+                    @media only screen and (min-width: $desktop-size) {
+                        height: 120px;
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            .expand-byo-vfs {
+                display: none;
+            }
+        }
+        .disclaimer {
+            color: $color-text-dark;
+            font-size: $font-size-12;
+            padding: 10px;
+
+            @media only screen and (min-width: $tablet-size) {
+                padding: 10px 0 0;
+            }
+         }
+     }
+
+    .listing-info {
+        width: #{"calc(100% - 20px)"};
+        padding: 0 10px;
+
+        .byo-event-info {
+            display: none;
+        }
+
+        @media only screen and (min-width: $tablet-size) {
+            float: right;
+            width: 380px;
+
+            .byo-event-info {
+                display: block;
+            }
+
+            .current-listing {
+                margin-top: 0px;
+            }
+
+            .checkout-summary {
+                .qty-container {
+                    .qty-box {
+                        width: 175px;
+                    }
+
+                    .byo-quantity {
+                        width: 175px;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (min-width: $desktop-size) {
+            width: 400px;
+        }
+
+        .blurred-text {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding: 0 10px;
+
+            @media only screen and (min-width: $tablet-size) {
+                padding: 0;
+            }
+
+            .blurred-image {
+                height: 390px;
+                width: 100%;
+            }
+        }
+
+        .upgraded-wrapper {
+            clear: both;
+            margin-bottom: 16px;
+            margin-top: 24px;
+
+            @media only screen and (min-width: $tablet-size) {
+                margin-bottom: 25px;
+                margin-top: 0px;
+            }
+
+            hr {
+                border: 2px solid $color-core-tertiary;
+                margin: 0;
+            }
+
+            .upgraded-text {
+                background-color: $color-core-tertiary;
+                color: $color-text-xxlight;
+                font-size: $font-size-14;
+                font-weight: 500;
+                height: 27px;
+                line-height: 27px;
+                text-align: center;
+                vertical-align: middle;
+                width: 166px;
+            }
+        }
+
+        .listing-info-wrapper {
+            clear: both;
+        }
+
+        .selected-hdr {
+            font-family: "Interstate";
+            font-size: $font-size-18;
+            color: $deliver-gray;
+            margin: 17px 0px 19px 0px;
+        }
+
+        .current-listing {
+            margin-top: 17px;
+
+            @media only screen and (min-width: $tablet-size) {
+                margin-top: 0;
+            }
+
+            .listing-header {
+                .sectionhdr, .rowhdr, .seathdr {
+                    color: $color-text-dark;
+                    display: inline-block;
+                    font-size: $font-size-14;
+                    font-weight: 500;
+                    font-family: $font-family-primary;
+                    line-height: 18px;
+                    cursor: auto;
+                }
+
+                .seathdr {
+                    text-align: right;
+                }
+            }
+
+            .listing-details {
+                margin-top: 5px;
+
+                .sectioncell, .rowcell, .seatcell {
+                    color: $color-text-xdark;
+                    display: inline-block;
+                    font-size: $font-size-16;
+                    font-weight: 700;
+                    vertical-align: top;
+                }
+
+                .seatcell {
+                    text-align: right;
+                }
+            }
+
+            .see-more-separator {
+                margin: 9px 0;
+                border: 1px solid $border-color;
+            }
+
+            .see-more-byo {
+                cursor: pointer;
+                color: $link-color;
+                font-size: $font-size-12;
+                padding-bottom: 10px;
+
+                .see-more-icon {
+                    color: $deliver-gray;
+                    font-size: $font-size-20;
+                    margin-top: -6px;
+                    position: absolute;
+                    right: 20px;
+                }
+            }
+
+            .sectionhdr, .sectioncell {
+                width: 65%;
+            }
+
+            .rowhdr, .rowcell {
+                text-align: left;
+                width: 15%;
+            }
+
+            .seathdr, .seatcell {
+                text-align: left;
+                width: 20%;
+            }
+
+            .seat-feature {
+                margin: 17px 0;
+            }
+
+            .seatinfo {
+                margin-bottom: 17px;
+            }
+
+            .seat-info-text {
+                color: $color-text-dark;
+                font-size: $font-size-14;
+                padding-top: 10px;
+
+                .seatNumbers {
+                    margin-left: 5px;
+                }
+            }
+
+            .qtyinfo {
+                color: $light-gray;
+                font-size: $font-size-12;
+                margin-bottom: 10px;
+            }
+
+            .seat-feature-header {
+                color: $color-text-dark;
+                font-size: $font-size-14;
+                font-weight: 500;
+                font-family: $font-family-primary;
+                margin-bottom: 10px;
+            }
+
+            .feature-disclosures {
+                height: auto;
+            }
+
+            .featureIcons {
+                margin-bottom: 10px;
+
+                .features {
+                    display: table-row;
+                    margin-top: 5px;
+                    clear: both;
+
+                    &.hide {
+                        display: none;
+                    }
+
+                    .feature-icon {
+                        float: left;
+                        margin-bottom: 5px;
+                        width: 20px;
+
+                        .icon-disclosure {
+                            width: 15px;
+                            height: 13px;
+                            fill: $color-ui-dark;
+                        }
+
+                        i.sh-iconset, .sh-iconset-alert-1 {
+                            font-size: $font-size-5;
+                        }
+                    }
+
+                    .feature-name {
+                        color: $color-text-xdark;
+                        float: left;
+                        font-size: $font-size-14;
+                        margin-bottom: 5px;
+                        margin-left: 10px;
+                        width: calc(100% - 30px);
+                    }
+                }
+            }
+
+            .delivery-container {
+                font-size: $font-size-14;
+                margin: 17px 0;
+
+                .delivery-header {
+                    color: $color-text-dark;
+                    font-size: $font-size-14;
+                    font-weight: 500;
+                    font-family: $font-family-primary;
+                    margin-bottom: 10px;
+                }
+
+                .delivery-info {
+                    color: $color-text-xdark;
+                }
+
+                .delivery-date {
+                    .delivery-spinner {
+                        margin-left: 15px;
+                        top: auto;
+
+                        i.sh-iconset {
+                            font-size: $font-size-5;
+                        }
+                    }
+
+                    .date {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .checkout-summary {
+            @include box-sizing(border-box);
+            margin-top: 17px;
+
+            .listing-summary {
+                padding-bottom: 15px;
+                position: relative;
+            }
+
+            .dash-separator {
+                clear: both;
+                padding-bottom: 15px;
+            }
+
+            .qty-container {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+
+                .qty-text {
+                    color: $color-text-dark;
+                    font-size: $font-size-14;
+                    font-weight: 500;
+                    font-family: $font-family-primary;
+                    line-height: 22px;
+                    margin-bottom: 10px;
+
+                    @media only screen and (min-width: $tablet-size) {
+                        margin-top: -2px;
+                    }
+                }
+
+                .qty-box {
+                    @include box-sizing(border-box);
+                    border: 2px solid $color-ui-xlight;
+                    width: 100%;
+                    height: 30px;
+                    margin-top: 3px;
+                    margin-bottom: 0;
+                    padding: 0;
+                    position: relative;
+
+                    @media only screen and (min-width: $tablet-size) {
+                        width: 161px;
+                    }
+
+                    @media only screen and (min-width: $desktop-size) {
+                        width: 175px;
+                    }
+
+                    .selected-qty {
+                        color: $color-text-xdark;
+                        font-size: $font-size-18;
+                        font-weight: 500;
+                        line-height: 26px;
+                        margin-left: 15px;
+                        vertical-align: top;
+                    }
+
+                    .qty-arrow {
+                        color: $light-gray;
+                        margin-top: 3px;
+                        position: absolute;
+                        right: 12px;
+                    }
+                }
+
+                .byo-quantity {
+                    height: 32px;
+                    margin-top: -33px;
+                    opacity: 0;
+                    padding: 0;
+                    position: absolute;
+                    width: 94%;
+
+                    @media only screen and (min-width: $tablet-size) {
+                        width: 161px;
+                    }
+
+                    @media only screen and (min-width: $desktop-size) {
+                        width: 175px;
+                    }
+                }
+
+                .ticket-qty {
+                    color: $color-text-xdark;
+                    font-size: $font-size-18;
+                    font-weight: 500;
+                }
+            }
+
+            .total-parking-container {
+                overflow: hidden;
+                box-sizing: content-box;
+                @media only screen and (min-width: $tablet-size) {
+                    max-height: 0;
+                    transition: max-height 400ms cubic-bezier(0.47, 0, 0.745, 0.715);
+                    &.animate-open {
+                        max-height: 200px;
+                    }
+                }
+            }
+
+            .total-parking {
+                font-size: $font-size-14;
+
+                .total-parking-header {
+                    font-family: $font-family-primary;
+                    color: $color-text-dark;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                    position: relative;
+                }
+
+                .total-parking-icon {
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                }
+
+                .parking-icon-svg {
+                    fill: $color-ui-dark;
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .total-parking-lot-info {
+                    width: 80%;
+                    font-size: $font-size-16;
+                    font-weight: 700;
+                    color: $color-text-xdark;
+                    margin-bottom: 7px;
+                }
+
+                .total-parking-info {
+                    color: $color-text-xdark;
+                    font-size: $font-size-12;
+
+                    .total-parking-price {
+                        font-size: $font-size-24;
+                        font-weight: 700;
+                    }
+
+                    .each {
+                        margin-left: 5px;
+                    }
+                }
+
+                @media only screen and (min-width: $tablet-size) {
+                    background-color: $white;
+                    font-size: $font-size-14;
+                    -webkit-backface-visibility: hidden;
+
+                    &.animate-enter{
+                        animation: enterRight 850ms ease-in;
+                        -webkit-backface-visibility: hidden;
+                    }
+
+                    &.animate-exit{
+                        animation: exitRight 600ms ease-in forwards;
+                        -webkit-backface-visibility: hidden;
+                    }
+                }
+            }
+
+            .qty-separator {
+                padding-top: 10px;
+                clear: both;
+
+                hr {
+                    border: 1px dashed $border-gray-light;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .parking-separator {
+                border-bottom: 1px solid $color-ui-light;
+                margin: 20px 0;
+            }
+
+            .total-cont {
+                display: inline-block;
+
+                .ticket-price {
+                    color: $color-text-dark;
+                    font-size: $font-size-14;
+                    font-weight: 500;
+                    font-family: $font-family-primary;
+                    margin-bottom: 10px;
+                }
+
+                .amount {
+                    color: $color-text-xdark;
+                    font-size: $font-size-24;
+                    font-weight: 700;
+                    display: inline-block;
+                }
+
+                .each {
+                    color: $color-text-xdark;
+                    font-size: $font-size-12;
+                    margin-left: 5px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .message {
+        &.static-image {
+            // TODO: delete after superbowl
+            width: 100%;
+        }
+        color: $color-text-xdark;
+        font-size: $font-size-12;
+        margin-top: 25px;
+        text-align: left;
+        @media only screen and (min-width: $tablet-size) {
+            font-size: $font-size-14;
+            margin-top: 20px;
+        }
+        &.disclaimer {
+            color: $color-text-dark;
+            font-size: $font-size-11;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            @media only screen and (min-width: $tablet-size) {
+                font-size: $font-size-12;
+            }
+        }
+    }
+
+    .upsell-info {
+        width: 100%;
+
+        @media only screen and (min-width: $tablet-size) {
+            clear: left;
+            float: left;
+            padding-left: 10px;
+            width: #{"calc(100% - 415px)"};
+        }
+
+        @media only screen and (min-width: $desktop-size) {
+            width: 750px;
+        }
+
+        .upsell-separator {
+            background-image: url('#{$img_path}/dash_line.png');
+            background-repeat: repeat-x;
+            height: 2px;
+            margin: 25px 0;
+
+            @media only screen and (min-width: $desktop-size) {
+                display: none;
+            }
+        }
+
+        .experience {
+            color: $color-text-xdark;
+            font-family: $font-family-primary;
+            font-size: $font-size-22;
+            margin-bottom: 25px;
+            margin-left: 10px;
+
+            @media only screen and (min-width: $tablet-size) {
+                margin-left: 0;
+            }
+        }
+
+        .upgrade-listing {
+            @include box-sizing(border-box);
+            border: 2px solid $color-ui-xlight;
+            position: relative;
+            margin: 0px 10px;
+            width: calc(100% - 20px);
+
+            @media only screen and (min-width: $tablet-size) {
+                margin: 0px;
+                width: 100%;
+            }
+
+            @media only screen and (min-width: $tablet-size) {
+                margin: 16px 0px;
+            }
+
+            &.upgrade-selected {
+                background-color: transparentize($color-ui-xxlight, 1);
+                border: 2px solid $color-core-tertiary;
+            }
+
+            &.ticket-error {
+                background: url('#{$img_path}/sold-out.png') no-repeat calc(100% - 50px) 0;
+                border-top: 5px solid $color-core-tertiary;
+            }
+
+            &.disabled {
+                opacity: 0.6;
+                pointer-events: none;
+            }
+
+            .upgrade-listing-spinner {
+                position: absolute;
+                color: $color-ui-secondary;
+                @include center();
+            }
+        }
+
+    }
+
+    .parking-container {
+        @include box-sizing(border-box);
+        margin: 8px 10px 0 10px;
+        width: auto;
+
+        @media only screen and (min-width: $tablet-size) {
+            margin: 10px 0 0 0;
+        }
+
+        @media only screen and (min-width: $desktop-size) {
+            margin: 25px 0 0 0;
+        }
+    }
+
+    .fullWidth {
+        width: 100%;
+    }
+
+    .byo-separator {
+        display: none;
+    }
+
+    .checkout, .byo-add-button {
+
+        button {
+            @include border-radius(2px);
+            border: 0;
+            font-size: $font-size-20;
+            font-weight: 500;
+            height: 53px;
+            letter-spacing: 0.5px;
+            width: 100%;
+        }
+    }
+
+    .addtocart {
+        padding-top: 18px;
+    }
+
+    .checkout {
+        &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        &.sticky {
+            position: fixed;
+            top: 54px;
+            width: #{"calc(100% - 20px)"};
+            z-index: 2;
+
+            @media only screen and (min-width: $tablet-size) {
+                position: initial;
+            }
+        }
+    }
+
+    .checkout button {
+        background-color: $color-ui-secondary;
+        color: $white;
+    }
+
+    .byo-add-button button {
+        background-color: $color-core-tertiary;
+        color: $color-text-xxlight;
+        border: 1px solid $color-core-tertiary;
+        padding: 13px;
+
+        @media only screen and (min-width: $tablet-size) {
+            max-width: 292px;
+        }
+    }
+
+    .checkout button.active {
+        opacity: 1;
+    }
+}

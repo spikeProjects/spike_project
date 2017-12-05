@@ -1,0 +1,595 @@
+/* Overrides when general admission view is ON*/
+@import "../utils/mixins";
+@import "common";
+
+//override margin set for interactive layout
+.view_ga #content_container {
+    margin-top: 0;
+}
+
+body.view_ga {
+    background-color: $background-gray;
+
+    /** hide event details, but show event info **/
+    #event-details {
+        display: none;
+    }
+
+    #eventInfo {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1000;
+        position: static;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        min-height: $ep-eventinfo-height;
+        height: $ep-eventinfo-height;
+        border: 0px;
+        border-bottom: 1px solid $border-gray;
+        border-radius: 0px;
+        width: 100%;
+
+        .eventInfoHeader {
+            display: none;
+        }
+        .event-card {
+            .container {
+                top: 0px;
+                .event-details {
+                    padding: 10px;
+                    height: $ep-eventinfo-height - $ep-eventinfo-border;
+                    position: relative;
+
+                    .event-details-box {
+                        position: relative;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                    }
+
+                    .header {
+                        margin-bottom: 8px;
+                        line-height: 1.2em;
+                        max-height: 2.4em;
+                        height: initial;
+                        overflow: hidden;
+                        word-wrap: break-word;
+                        text-overflow: ellipsis;
+                        white-space: normal;
+                    }
+
+                    .event-location-info {
+                        position: relative;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    #event-info-flag {
+                        margin: 0 0 0 10px;
+                        width: 15px;
+                        line-height: 16px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+#event_ga_layout {
+
+    .font_dark_grey {
+        color: $color-text-xdark;
+        line-height: 20px;
+        font-weight: 200;
+    }
+
+    .font_light_grey {
+        color: $color-text-dark;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 200;
+    }
+
+    .ga.spinner {
+        height: 0px;
+        top: 50px;
+    }
+
+    #ticketlist_footer {
+        background-color: $background-gray;
+        border: 0 none;
+        bottom: 0px;
+        color: $light-gray;
+        display: table;
+        width: 100%;
+        border-top: 1pt solid $border-color;
+
+        &.hide {
+            display: none;
+        }
+
+        .filter-wrapper {
+            cursor: pointer;
+            padding: 0px 0 0 0px;
+            width: 100%;
+
+            i {
+                position: relative;
+                left: -10px;
+                display: inline;
+            }
+
+
+        }
+
+        #price-filter-txt, .filterButton {
+            display: inline;
+            font-size: $font-size-16;
+            position: relative;
+        }
+
+        .filterButton {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .bottom-wrapper {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+    }
+
+    #filter {
+        #filter-container {
+            overflow: visible;
+            .filter-header {
+                width: 100%;
+                display: inline-block;
+                .filter-title {
+                    padding-left: 0px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .filter-submit {
+                    padding: 0px 20px 0px 20px;
+                }
+                .filter-reset {
+                    padding: 0px 20px;
+                }
+            }
+
+        }
+    }
+
+    .no-tickets {
+        padding: 10px 0 10px 8px;
+        color: $stubhub-blue;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #single-ticket {
+        .ticket-error-wrapper {
+            margin-top: 40px;
+            padding: 0px 20px;
+            text-align: center;
+
+            .single-ticket-error {
+                border: none;
+                font-size: $font-size-22;
+                height: initial;
+                padding: 0;
+            }
+
+            .find-another-ticket {
+                max-width: 380px;
+            }
+        }
+    }
+
+    .single-ticket-wrapper {
+        padding: 15px 10px;
+        background-color: $white;
+        .ticket_details {
+            background-color: $background-gray;
+            position: relative;
+
+            @media only screen and (min-width: $desktop-size) {
+                left: -7px;
+            }
+        }
+
+        .ticket_details.seller-ticket {
+            background-color: $border-color;
+        }
+    }
+
+    .moreinfo {
+        clear: both;
+
+        .delivery {
+            font-size: $font-size-14;
+            color: $color-text-dark;
+
+            .separator {
+                padding: 0 5px;
+            }
+        }
+
+        .instantDownload {
+            color: $color-core-secondary;
+        }
+    }
+
+}
+
+/** ga ticket details **/
+#tickets_view, .tickets_wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tickets_wrapper {
+    .throbber {
+        padding: 30px 7px;
+        font-size: 12px;
+        color: #4D4D4D;
+        text-align: center;
+
+        .spinner {
+            position: static;
+            font-size: 14px;
+            padding: 15px 0;
+        }
+
+        .emphasis {
+            color: $dark-blue;
+        }
+
+    }
+
+    #view_ticket {
+        padding: 15px 10px;
+
+        .more_ga_tickets {
+            padding-top: 15px;
+            display: none;
+        }
+        .more_ga_tickets:first-child {
+            padding-top: 0px;
+        }
+    }
+}
+
+#listings_not_found, #zero_listings_found {
+    text-align: center;
+    padding: 35px 25px;
+
+    #listings_not_found_head {
+        font-size: 12px;
+    }
+
+    .findmoretickets {
+        padding-top: 20px;
+    }
+}
+
+#no_event_listings {
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+}
+
+.ticket_details {
+    background-color: $white;
+    padding: 10px 12px 10px;
+    text-align: center;
+    box-shadow: 0px 2px 4px transparentize($color-ui-xxxdark, 0.7);
+
+    .font_dark_blue {
+        color: $link-color;
+    }
+
+    &.seller-ticket {
+        background-color: $border-color;
+
+        .seller-ticket-message {
+            color: $light-gray;
+            font-size: $font-size-16;
+            padding-bottom: 30px;
+            text-align: left;
+        }
+    }
+}
+
+.price_dollars {
+    font-size: 1.5em;
+    font-weight: 200;
+    line-height: 32px;
+    color: $color-text-xdark;
+    font-family: "Interstate";
+}
+
+.price_cents_box {
+    height: 16px;
+    line-height: 16px;
+}
+
+.price_cents, .price_currency {
+    color: $dark-gray;
+    font-size: $fontSizeXSmall;
+    font-weight: 200;
+    margin-left: 7px;
+}
+
+.delivery {
+    padding-top: 5px;
+    font-size: $fontSizeSmall;
+}
+
+.ticket_info {
+    width: 55%;
+    text-align: right;
+}
+
+.price_details {
+    width: 45%;
+    text-align: left;
+    font-size: $fontSizeSmall;
+}
+
+.buy_section {
+    padding: 20px 0px 10px;
+
+    .quantity {
+        position: relative;
+        width: 39%;
+        width: calc(40% - 2px);
+        margin-right: 4px;
+        height: 40px;
+        select {
+            &::-ms-expand {
+                display: none;
+            }
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: 1px solid $light-gray;
+            background-color: $white;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border-radius: 0;
+            padding-left: calc(50% - 50px);
+            box-shadow: none;
+            font-size: 14px;
+        }
+        .dropdownArrow {
+            pointer-events: none;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            color: #333;
+        }
+    }
+    .buy_tickets {
+        button {
+            width: 400px;
+            max-width: 100%;
+            height: 40px;
+            font-size: 1.143em;
+            border: 0;
+            opacity: 0.7;
+            border-radius: 2px;
+        }
+
+        button.active {
+            opacity: 1;
+        }
+
+        .button-primary {
+            span {
+                position: relative;
+                top: -3px;
+            }
+        }
+    }
+}
+
+.buy_section.single_ticket {
+    .buy_tickets {
+        width: calc(60% - 2px);
+    }
+}
+
+.disclosure {
+    padding-top: 10px;
+    text-align: left;
+}
+
+.info_icon {
+    width: 16px;
+    line-height: 16px;
+    border-radius: 50%;
+    border: 1px solid;
+    margin-right: 5px;
+    background-color: $light-gray;
+    color: #FFF;
+    font-weight: 300;
+    text-align: center;
+}
+
+#view_more_content {
+    text-align: center;
+    padding: 20px 10px;
+
+    #view_more {
+        cursor: pointer;
+        text-align: center;
+        color: $link-color;
+        padding-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: $tablet-size) {
+    #ticketlist_footer {
+        #price-filter-txt, .filterButton {
+            display: inline;
+            position: relative;
+        }
+    }
+}
+
+// Tablet
+@media only screen and (min-width: $tablet-size) {
+    body.view_ga {
+        #eventInfo {
+            border-bottom: none;
+
+            .event-card {
+                border-left: 1px solid $border-gray-light;
+                border-right: 1px solid $border-gray-light;
+                border-bottom: 1px solid $border-gray-light;
+            }
+        }
+    }
+
+    #event_ga_layout {
+        position: absolute;
+        width: 100%;
+
+        .single-ticket-wrapper {
+            padding: 30px 0;
+        }
+
+        #filter {
+            height: inherit;
+            #filter-container {
+                overflow: visible;
+                height: inherit;
+            }
+        }
+        .ga.spinner {
+            top: 100px;
+        }
+
+        .filter-txt {
+            top:0px;
+            left:0px;
+            font-size: $font-size-16;
+        }
+
+        #filter {
+            border-right: none;
+            width: 100%;
+            bottom: 0;
+            .filter-container {
+                margin: 0 auto;
+                width: 645px;
+
+                #price-filter {
+                    float: left;
+                    padding-bottom: 25px;
+                    width: 400px;
+                    .to-price {
+                        margin-right: 80px;
+                        width: 160px;
+                    }
+                }
+
+                .lbl-price {
+                    display: inline-block;
+                    float: left;
+                    padding: 31px 0px 0px 0px;
+                }
+
+                .filter-item input {
+                    width: 150px;
+                }
+
+                .fee-option {
+                    float: left;
+                    margin-top: 15px;
+                    width: 225px;
+
+                    .tblftr-wrapper {
+                        text-align: right;
+                    }
+
+                    .withfeeslabel {
+                        margin-right: -4px;
+                    }
+                }
+            }
+        }
+    }
+
+    .tickets_wrapper {
+        #view_ticket {
+            padding: 30px 0 40px 0;
+            min-height: 200px;
+
+            .more_ga_tickets {
+                padding-top: 30px;
+            }
+        }
+    }
+
+    .ticket_details {
+        width: 630px;
+        font-size: $fontSizeMedium1;
+        padding: 15px 15px 20px 15px;
+        margin: auto;
+    }
+
+    .buy_tickets {
+        .button-primary {
+            font-size: $fontSizeLarge;
+            line-height: 1.1;
+            height: 60px;
+        }
+    }
+}
+
+// Desktop
+@media only screen and (min-width: $desktop-size) {
+    .view_ga #content_container {
+        border-left: 1px solid $border-gray;
+        border-right: 1px solid $border-gray;
+    }
+
+    .tblftr-wrapper {
+        position: relative;
+        top: 0px;
+    }
+
+    #content_container {
+        height: 100%;
+    }
+
+    #quantityfilter_view {
+        border-left: #bbb solid 1.5px;
+        border-right: #bbb solid 1.5px;
+    }
+
+    #ga_container {
+        border: #bbb solid 1.5px;
+    }
+
+    .ticket_details {
+        background-color: $background-gray;
+    }
+    #event_ga_layout {
+        #ticketlist_footer,#filter,#serviceFee-ga{
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    }
+}

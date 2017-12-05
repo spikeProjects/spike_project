@@ -1,0 +1,6 @@
+<div id="partner-gettickets" class="hide partner-gettickets">
+    <h3 class="message">Bummer.</h3>
+    <div class="information">We can't find any tickets for that event right now. Check out what we have available for other upcoming events, or try getting tickets directly from the {primaryPerformer|s} site.</div>
+    <button class="button-secondary see-upcoming-events-button">See upcoming events</button>
+    <button class="button-white see-partner-tickets-button">Go to team's website</button>
+</div>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0180)http://localhost:7777/san-francisco-giants-tickets-giants-vs-cubs-5-20-2016/event/9443935/?mbox=1&abbyo=true&rS=6&qtyq=true&sliderpos=false&qqd=1&qty=1&ticketRank=1&byo=1&byo_qty=1 -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+        <title>parkingpass</title>
+        <link rel="stylesheet" type="text/css" href="/resources/shape/styles/common-4.2.0-SNAPSHOT/common-main.css">
+        <script>
+            var SH = SH || {};
+            SH.country = 'us';
+            SH.locale = 'en-us';
+            SH.shlocale = 'en-us';
+            SH.appCommon = {};
+            SH.app = {};
+            SH.app.staticHost = '//slcq036-cache11.stubhubstatic.com';
+            SH.appCommon.staticHost = "//0.0.0.0:8888"; //set in grunt_config; default is '//localhost:1111/'
+            SH.appCommonVersion = '4.2.0-SNAPSHOT';
+            SH.bugsnag = {
+                'apikey' : 'd2800ed4b22286af4233c0543b6f47f6'
+            };
+        </script>
+
+        <script src="/resources/shape/scripts/common-4.2.0-SNAPSHOT/common-boot.js"></script>
+
+
+    </head>
+    <body class="view_non_ga">
+
+
+        <div class="parking-container"></div>
+
+
+        <script src="/resources/shape/scripts/common-4.2.0-SNAPSHOT/common-main.js"></script>
+        <style>.mboxDefault { visibility:hidden; }</style>
+        <script type="text/javascript">
+            // setting omniture defaults
+            if (window.s !== undefined) {
+                s.prop40 = 'mobile';
+                s.prop65 = 'Unified Experience';
+                s.eVar18 = 'US';
+                s.eVar26 = 'www';
+                s.eVar54 = 'Mobile';
+            }
+        </script>
+
+        <script type="text/javascript">
+            var SH = SH || {};
+            SH.trkAccount = 'mweb-us';
+            var tokens = {
+                    srwd: 'JYf0azPrf1RAvhUhpGZudVU9bBEa',
+                    stubhub: 'gWwh4zP4l90Cj4wQCslKHpB67_8a',
+                    cors: 'JYf0azPrf1RAvhUhpGZudVU9bBEa'
+                };
+
+            // Contains versioned app name
+            SH.appName = 'common';
+            // Plain version number
+            SH.appVersion = '4.2.0-SNAPSHOT';
+            SH.appFolder = SH.appName + '-' + SH.appVersion;
+
+            SH.envHostname = document.location.hostname;
+            SH.environment = 'Development';
+            SH.target_host = '';
+            SH.configBaseUrl = '';
+            SH.token = '';
+            SH.corsToken = '';
+
+            /*QA*/
+            //srwd00 and Localhost are for local machines
+            SH.token = tokens.srwd;
+
+            //CORS token is read by logging and tracking api's and is different from QA token
+            SH.corsToken = tokens.cors;
+            SH.configBaseUrl = '';
+            SH.target_host = 'slcq036';   //Point to QA environment for API's
+
+            SH.boomerangUrl = 'http://webperformance.stubcorp.dev:7000/';
+            SH.appCommonBaseUrl = SH.configBaseUrl + '/resources/shape/scripts/common-' + SH.appCommonVersion + '/';
+            SH.appBaseUrl = SH.configBaseUrl + '/resources/shape/scripts/' + SH.appName + '-' + SH.appVersion + '/';
+            SH.tracker = {
+                targetHost: 'https://track.' + SH.target_host
+            };
+            SH.OMN = {pageName: 'UE: Event Details', pageType: 'UE: Event Details'};
+            //as set by UC
+            SH.targetHost = SH.target_host;
+
+            // Add global registry for local workspace
+            SH.gsConfig = SH.gsConfig || {};
+            SH.gsConfig.currencies = SH.gsConfig.currencies || {};
+            SH.gsConfig.domain = SH.gsConfig.domain || {};
+            SH.gsConfig.locales = SH.gsConfig.locales || {};
+            SH.gsConfig.countries = SH.gsConfig.countries || [];
+            SH.gsConfig.features = SH.gsConfig.features || [];
+            SH.gsConfig.siteId = '1';
+
+            if (SH.gsConfig.siteId === '1') {
+                SH.gsConfig.siteDescription = 'US SITE';
+                SH.gsConfig.currencies = {
+                    "defaultCurrency":{"currencyCode":"USD","currencyId":1,"currencySymbol":"$"},
+                    "supportedCurrencies":[{"currencyCode":"USD","currencyId":1,"currencySymbol":"$"}]
+                    };
+                SH.gsConfig.domain = {
+                    "domainDescription":"StubHub US",
+                    "domainId":1,
+                    "domainName":"srwd00.com"
+                    };
+                SH.gsConfig.locales = {
+                    "defaultLocale":"en-US",
+                    "supportedLocales":["en-US","es-MX","fr-CA"]
+                    };
+                SH.gsConfig.countries.push.apply(SH.gsConfig.countries,
+                    [
+                    {"countryCode":"US","countryId":1,"geoId":196976,"locales":["en-US","es-MX"],"phoneCallingCode":"1"},
+                    {"countryCode":"CA","countryId":2,"geoId":197077,"locales":["fr-CA"],"phoneCallingCode":"1"}
+                    ]);
+                SH.gsConfig.features.push.apply(SH.gsConfig.features,
+                    [{'featureDescription':'gs.features.1.event.ABTestActive','featureName':'gs.features.1.event.ABTestActive','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.parkingAddOn','featureValue':'TRUE'},
+                    {'featureDescription':'','featureName':'gs.features.1.eventpage.cartEnabled','featureValue':'TRUE'}
+                    ]);
+            }
+
+            define('global_context', [], function() {
+
+                return {
+                    //filled in from viewselector controller
+                    eventId: '',
+                    target_host: SH.target_host,
+                    app_token: SH.token,
+                    appCommonVersion: SH.appCommonVersion,
+                    appName: SH.appName,
+                    appVersion: SH.appVersion,
+                    appFolder: SH.appName + '-' + SH.appVersion,
+                    country: SH.country,
+                    environment: SH.environment,
+                    configBaseUrl: SH.configBaseUrl,
+                    loggerURL: '//log.' + SH.target_host + '.com',
+                    corsToken: 'Bearer ' + SH.corsToken,
+                    accessToken: 'Bearer ' + SH.token,
+                    staticUrl: SH.app.staticHost,
+                    addToken: true,
+                    locale: SH.locale,
+                    shlocale: SH.locale,
+                    trkAccount: SH.trkAccount,
+                    enableTracker: true,
+                    OMN: SH.OMN,
+                    url_headers: {
+                        'Authorization': 'Bearer ' + SH.token,
+                        'target_host' : SH.target_host
+                    },
+                    gsConfig: SH.gsConfig
+                };
+            });
+        </script>
+
+        <script type="text/javascript">
+        require(['global_context'], function(gc) {
+
+            requirejs.config(SH.requirejs.config);
+
+            // app
+            require(['sitecatalyst', 'application_helper', 'common-i18n-main', 'date-stamp-dust-helper'], function(S, AppHelper) {
+
+                AppHelper.initOmniture();
+                s.pageName = SH.OMN.pageName;
+
+
+
+                require(['sh-ajax-module', 'event-parkingpass'],
+                    function(AjaxModule, ParkingPass) {
+
+                        // Mock the data with a JSON file @ /tests/func/parkingpass.json by
+                        // adding TEST: true to the attributes object
+                        parkingCard = new ParkingPass({
+                            'element': '.parking-container',
+                            'attributes': {"parkingListingId": 1189341783, "parkingSelected": true, "qty": 2, "TEST": true}
+                        });
+
+                        parkingCard.render();
+
+                    }
+                );
+
+            });
+        });
+
+            </script>
+
+
+</body></html>

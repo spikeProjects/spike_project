@@ -1,0 +1,562 @@
+@import "../utils/mixins";
+
+body > main > #app_container {
+  #content_container {
+    height: calc(100% - 65px);
+  }
+
+  @media only screen and (max-width: $tablet-size) {
+
+
+    .drawer-container {
+      .open {
+        &#eventContainer {
+          top: calc(93% - 33px);
+          &.no-header {
+            top: 100%;
+          }
+        }
+      }
+    }
+    #eventContainer {
+      &.close {
+        height: calc(100% - 176px);
+        #ticketlist_container {
+          height: 100%;
+        }
+      }
+      &.split {
+        height: calc(100% - 228px);
+        #ticketlist_container {
+          height: 53%;
+        }
+      }
+    }
+    #eventMapContainer {
+      &.close {
+        opacity: 0;
+      }
+      &.open {
+        height: 100%;
+        top: 0;
+      }
+      &.split {
+
+      }
+
+    }
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  .performer.pid-2746, .event-date-weekday{
+    color: $primary-brand-color ;
+  }
+
+  #event-build-your-order {
+    .date-stamp-standard.date-container {
+      .date-stamp-day {
+        color: $primary-brand-color;
+      }
+    }
+
+    .byo-event-info {
+      a {
+        color: $color-text-links;
+      }
+    }
+
+    .upsell-info .parking-component{
+      &.active {
+        border-color: $secondary-brand-color;
+        .more-parking {
+            color: $color-text-dark;
+        }
+      }
+      .parking-check {
+        background-color: $secondary-brand-color;
+      }
+      .more-parking {
+          color: $tertiary-brand-color;
+      }
+    }
+  }
+  #eventInfo {
+    .eventInfoHeader {
+      .closeEventInfo {
+        color: $link-color;
+      }
+    }
+    .event-card {
+      .container {
+        .date-stamp-standard.date-container {
+          .date-stamp-month-dd {
+            color: $primary-brand-font-color;
+          }
+          .date-stamp-day {
+            color: $primary-brand-color;
+          }
+        }
+        .event-details {
+          .event-details-box {
+            color: $primary-brand-color ;
+            .header {
+              color: $primary-brand-font-color;
+              font-family: $font-family-primary;
+              font-weight: normal;
+              max-height: 83px;
+              // use javascript to alter text
+              >.performer.pid-2746{
+                color: $primary-brand-color;
+              }
+              @media only screen and (min-width: $tablet-size) {
+                  font-size: 24px;
+              }
+            }
+            .event-location-info {
+              color: #dbdbdb;
+            }
+          }
+        }
+      }
+    }
+    &.quantityQuestionHeader {
+        .event-card .container .event-details .event-details-box .header {
+            @media only screen and (min-width: $desktop-size) {
+                font-size: 32px;
+            }
+        }
+    }
+  }
+  #event-details{
+    height: 68px;
+
+    &.event-details-container{
+      background-color: $tertiary-brand-color;
+      opacity: 1;
+    }
+    .partner-logo {
+      background-image: url('https://cache11.stubhubstatic.com/promotions/scratch/76ers/logo-76ers.svg');
+      width: 46px;
+      height: 68px;
+      position: absolute;
+      right: 30px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .eventTitle {
+        color: $primary-secondary-brand-color;
+        font-family: $font-family-primary;
+        white-space: initial;
+        width: 75%;
+        a {
+            color: $link-color;
+            &.performer.pid-2746 {
+              color: $primary-brand-color;
+            }
+        }
+    }
+  }
+
+  @mixin button-state($fill, $color, $border: inherit) {
+    color: $color;
+    fill: $fill;
+    .primary-color {
+      fill: $color;
+    }
+    background-color: $fill;
+    border-color: $border;
+  }
+  .primary-primary-button, .button_primary {
+    &:not(.disabled) {
+      @include button-state(
+              $primary-brand-color,
+              $primary-brand-font-color
+      );
+
+      &:hover {
+        @include button-state(
+                $primary-brand-hover-color,
+                $primary-brand-font-color
+        )
+      }
+      &:active {
+        @include button-state(
+                $primary-brand-active-color,
+                $primary-brand-font-color
+        )
+      }
+    }
+    &.disabled, [disabled] {
+      @include button-state(
+              $primary-brand-disabled-color,
+              $primary-brand-font-color
+      )
+    }
+  }
+
+  .primary-secondary-button {
+    &:not(.disabled) {
+      @include button-state(
+              $primary-secondary-brand-color,
+              $primary-secondary-brand-font-color
+      );
+      &:hover {
+        @include button-state(
+                $primary-secondary-brand-hover-color,
+                $primary-secondary-brand-font-color $primary-brand-hover-color
+        )
+      }
+      &:active {
+        @include button-state(
+                $primary-secondary-brand-color,
+                $primary-brand-color,
+                $primary-brand-color
+        )
+      }
+    }
+    &.disabled, [disabled] {
+      @include button-state(
+              $primary-secondary-brand-color,
+              $primary-brand-disabled-color,
+              $primary-brand-disabled-color
+      );
+    }
+  }
+  .secondary-primary-button, .button_secondary{
+    &:not(.disabled) {
+      @include button-state(
+              $secondary-brand-color,
+              $secondary-brand-font-color
+      );
+      &:hover {
+        @include button-state(
+                $secondary-brand-hover-color,
+                $secondary-brand-font-color
+        );
+      }
+      &:active {
+        @include button-state(
+                $secondary-brand-active-color,
+                $secondary-brand-font-color
+        );
+      }
+    }
+    &.disabled, [disabled] {
+      @include button-state(
+              $secondary-brand-disabled-color,
+              $secondary-brand-font-color
+      );
+    }
+  }
+
+  .secondary-secondary-button {
+    &:not(.disabled) {
+      @include button-state(
+              $primary-secondary-brand-color,
+              $secondary-secondary-brand-font-color
+      );
+
+      &:hover {
+        @include button-state(
+                $secondary-secondary-brand-hover-color,
+                $secondary-secondary-brand-font-color,
+                $secondary-brand-color
+        );
+      }
+      &:active {
+        @include button-state(
+                $secondary-secondary-brand-color,
+                $secondary-brand-color,
+                $secondary-brand-color
+        );
+      }
+    }
+    &.disabled, [disabled] {
+      @include button-state(
+              $primary-secondary-brand-color,
+              $secondary-secondary-brand-disabled-color,
+              $secondary-secondary-brand-disabled-color
+      );
+    }
+  }
+
+  // overrides
+
+  .qty-button {
+    &:hover:not(.disabled) {
+      @include button-state(
+              $secondary-brand-color,
+              $secondary-brand-font-color
+      );
+    }
+    &.qty-button-scroll {
+      &:not(.disabled) {
+        &:hover {
+          @include button-state(
+                  $primary-brand-color,
+                  $primary-secondary-brand-color,
+                  $primary-brand-color
+          );
+          border-width: 0px;
+        }
+      }
+    }
+  }
+
+  .spinner {
+    color: $primary-brand-color;
+  }
+  .ticket-item-error {
+    border-top: 2px solid $primary-brand-color;
+    border-bottom: 2px solid $primary-brand-color;
+  }
+  #quantityfilter.quantityOverlay {
+    float: left;
+    position: absolute;
+    width: 100%;
+    background-color: #FFF;
+    z-index: 999;
+    height: 100%;
+    -webkit-transform: inherit;
+    -moz-transform: inherit;
+    -ms-transform: inherit;
+    -o-transform: inherit;
+    transform: inherit;
+    top: 0;
+    left: inherit;
+    visibility: inherit;
+    color: inherit;
+    padding: inherit;
+    .qty_header, .qty_index {
+        color: $tertiary-brand-color;
+        font-family: $font-family-primary;
+        &.btn-view-all {
+            color: $color-text-dark;
+            font-family: $font-family-secondary;
+            font-size: 18px;
+            line-height: 46px;
+        }
+    }
+    .qty_header {
+        font-size: 32px;
+        @media only screen and (min-width: $tablet-size) {
+            font-size: 50px;
+        }
+    }
+    .qty_index {
+        font-size: 30px;
+        @media only screen and (min-width: $tablet-size) {
+            font-size: 46px;
+        }
+    }
+    .qty_index:hover {
+        background-color: $tertiary-brand-color;
+        color: $primary-secondary-brand-color;
+        &.btn-view-all {
+            background-color: $input_text_color_default_hover;
+            color: $input_text_color_default;
+        }
+    }
+    .close-icon.qty-close svg#icon-close {
+        height: 36px;
+        margin: 18px 0 0;
+        width: 36px;
+    }
+  }
+
+  .banner, #eventInfo, #event-details {
+    background-color: $tertiary-brand-color;
+    text-align: left;
+    .event-date {
+      text-align: left;
+      color: $primary-brand-font-color;
+    }
+    .header, .eventTitle {
+      color: $primary-brand-font-color;
+      // use javascript to alter text
+    }
+    #event-details #event-date {
+      text-align: left;
+      color: $primary-brand-font-color;
+    }
+  }
+  #event-build-your-order .seat-info #byo-seatmap {
+    .byomap-tooltip.selected {
+      border-color: $primary-brand-color;
+    }
+    .byomap-tooltip.upgrade, .selectedTooltip.upgrade, .upgradeTooltip.upgrade {
+      border-color: $secondary-brand-color;
+    }
+  }
+  .byo-header h3 {
+    border-top: 5px solid $primary-brand-active-color;
+    color: $tertiary-brand-color;
+    font-family: $font-family-primary;
+    font-size: 18px;
+    @media only screen and (min-width: $tablet-size) {
+        font-size: 24px;
+    }
+  }
+  .oval-97 {
+    stroke: $primary-brand-active-color;
+    fill: $primary-brand-active-color;
+  }
+  .date-stamp-standard, .date-stamp-day, .date-stamp-month-dd {
+    .date-divider-top {
+      background-color: $primary-brand-color;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-size) {
+
+  #event_layout {
+    .parking-header & {
+      height: calc(100% - 95px);
+    }
+  }
+
+  #eventContainer {
+    height: calc(100% - 70px);
+  }
+
+  #eventInfo {
+    .event-card {
+      &:after {
+        content: '';
+        background-image: url("https://cache11.stubhubstatic.com//promotions/scratch/76ers/logo-76ers.svg");
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        @include transform(translateY(-50%));
+        background-size: contain;
+      }
+      display: block;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      .event-card-overlay {
+        background-color: rgba(0,0,0,.2);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+
+  .event-description.event-details-item{
+    &::before{
+      position: absolute;
+      width: 100%;
+      .scrolled-up & {
+        height: 54px;
+      }
+      top: 0;
+      left: 0;
+      background: linear-gradient(to bottom,transparent 0,rgba(0,0,0,1) 100%);
+      z-index: 50;
+      transition: background .3s ease;
+      content: '';
+      max-height:108px;
+      background-position: center;
+      background-repeat: no-repeat;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+}
+
+
+@media only screen and (min-width: $desktop-size) {
+
+  #eventInfo {
+
+    &.quantityQuestionHeader {
+      background-position: center;
+      height: 216px;
+
+      .event-info-wrapper {
+        background-size: contain;
+        box-shadow: inset 0 -40px 100px 25px rgba(0,0,0,0.9);
+      }
+
+      .event-card {
+        clear: both;
+        overflow: hidden;
+        top: 0;
+        position: relative;
+        padding-top: 50px;
+        height: 162px;
+        &:after {
+          width: 65px;
+          height: 65px;
+        }
+
+        .quantityQuestionHeader .event-details .event-date {
+          color: $primary-brand-font-color;
+        }
+
+        .date-stamp-standard.date-container {
+          .date-stamp-month-dd {
+            color: #dbdbdb;
+          }
+        }
+        .container {
+          padding: 3px 20px;
+          .event-date {
+            text-align: left;
+            color: $primary-brand-font-color;
+          }
+          .event-details {
+            padding: inherit;
+            height: inherit;
+            max-height: inherit;
+            position: inherit;
+            width: 50%;
+            margin-left: 20px;
+            .event-details-box {
+              position: inherit;
+              top: inherit;
+              -webkit-transform: inherit;
+              -moz-transform: inherit;
+              -ms-transform: inherit;
+              -o-transform: inherit;
+              transform: inherit;
+              .event-location-info {
+                color: #dbdbdb;
+                font-size: 15px;
+              }
+              .header {
+                color: $primary-brand-font-color;
+                font-family: $font-family-primary;
+                font-size: 30.8px;
+                // use javascript to alter text
+                >.performer.pid-2746{
+                  &::before {
+                    content: '';
+                    display: block;
+                  }
+                  color: $primary-brand-color ;
+                }
+
+              }
+              .event-location-info {
+                color: #dbdbdb;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}

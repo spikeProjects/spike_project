@@ -1,0 +1,3 @@
+<div class="amount-value hidden">{@format value=amount style="money" currency=currency /}</div>
+<div class="dollar-value partials">{@format value=amount style="money" currency=currency substyle="style1"/}</div>
+<div class="priceEachText">{@eq key=globals.event_meta.country value="CA"}{currency}{/eq}{eachText}</div>

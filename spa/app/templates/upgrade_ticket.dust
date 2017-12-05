@@ -1,0 +1,68 @@
+<div class="upgrade-listing-spinner hide"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+<div class="upgrade-box {^globals.byo.upsellAccordion}hide {/globals.byo.upsellAccordion}">
+    <div class="upgrade-info">
+        <div class="header">
+            <div class="upgrade-icon">{>"/*@echo appNameVersioned*//partials/icon-svg-seat"/}</div>
+            <div class="header-text">{@i18n key="event.upgradeticket.header"/}</div>
+        </div>
+        <div class="price-diff {?globals.upgradeTicket.isTicketUpgraded}hide {/globals.upgradeTicket.isTicketUpgraded}">{@i18n key="event.common.byo.listing.upgradeDifference"/}</div>
+        <div class="upgraded-text {^globals.upgradeTicket.isTicketUpgraded}hide {/globals.upgradeTicket.isTicketUpgraded}">{@i18n key="event.upgradeticket.upgradedtext" /}</div>
+        <span class="upgrade-arrow">
+            <span class="expand-arrow">{>"/*@echo appNameVersioned*//partials/icon-svg-downarrow"/}</span>
+            <span class="collapse-arrow hide">{>"/*@echo appNameVersioned*//partials/icon-svg-uparrow"/}</span>
+        </span>
+    </div>
+</div>
+<div class="upgrade-ticket-container {?globals.byo.upsellAccordion}hide {/globals.byo.upsellAccordion}">
+    <div class="selected-check {^globals.upgradeTicket.isTicketUpgraded}hide{/globals.upgradeTicket.isTicketUpgraded}">
+        <span>
+            {>"/*@echo appNameVersioned*//partials/check_image"/}
+        </span>
+    </div>
+    <div class="upgrade-header {?globals.upgradeTicket.isTicketUpgraded}invisible{/globals.upgradeTicket.isTicketUpgraded}">
+        <div class="price-diff">{@i18n key="event.common.byo.listing.upgradeDifference"/}</div>
+    </div>
+    <div class="upgrade-info-wrapper">
+        <div class="upgrade-pip">
+            <div class="vfs-map-wrapper">
+                <div class="upgrade-vfs">
+                    <img class="upgrade-image"></img>
+                    {>"/*@echo appNameVersioned*//partials/icon-svg-expand"/}
+                    <span class="novfs-text hide">{@i18n key="event.common.byo.vfs.notavailable" /}</span>
+                </div>
+                
+                <div class="upgrade-seatmap">
+                    {>"/*@echo appNameVersioned*//partials/icon-svg-expand"/}
+                </div>
+            </div>
+
+            <div class="compare-seats-button">
+                <button class="button_primary">
+                    <span class="button-text">
+                        {@i18n key="event.upgradeticket.compareseats" /}
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="upgrade-listing-info">
+            {>"/*@echo appNameVersioned*//partials/seat_info" qty="{quantity}" /}
+        </div>
+    </div>
+    <div class="upgrade-button byo-add-button {^globals.upgradeTicket.isTicketUpgraded}add-upgrade {:else}remove-upgrade {/globals.upgradeTicket.isTicketUpgraded}">
+        <button class="button_primary">
+            <span class="button-text">
+            {^globals.upgradeTicket.isTicketUpgraded}
+                {@i18n key="event.common.byo.listing.upgrade" /}
+            {:else}
+                {@i18n key="event.common.byo.listing.removeupgrade" /}
+            {/globals.upgradeTicket.isTicketUpgraded}
+            </span>
+            <span class="upgrade-spinner hide"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></span>
+        </button>
+    </div>
+</div>
+
+<div class="ticket-notavailable hide">
+   <div class="sorry-msg">{@i18n key="event.common.ticketunavailable.header" /}</div>
+   <div class="ticket-msg"></div>
+</div>

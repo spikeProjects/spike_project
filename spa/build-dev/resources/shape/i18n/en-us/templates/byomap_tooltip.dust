@@ -1,0 +1,13 @@
+<div class="content">
+	{@eq key=markerType value="upgrade"}
+		{?priceDiff}
+			UPGRADE FOR {@format value=priceDiff style="money" currency=currency substyle="style1"/}
+		{/priceDiff}
+	{:else}
+		SELECTED SEATS
+	{/eq}
+</div>
+<div class="seatInfo">
+	<div class="levelInfo">{sectionName}</div>
+	<div class="rowInfo">Row {seats[0].row}</div>
+</div>

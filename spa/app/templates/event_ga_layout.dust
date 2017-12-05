@@ -1,0 +1,26 @@
+<div id="event_ga_layout">
+    <div id="ga_image">
+        <div class="ga_promo_text">{@i18n key="event.common.ticket.ga"/}<p>{@i18n key="event.common.ticket.gapromo"/}</p></div>
+    </div>
+    <div class='ga spinner'><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+    <div id="quantityfilter" class="hide"></div>
+    {?gc.ticket_id}
+        <div id="single-ticket">
+            <div class='spinner'><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+        </div>
+    {/gc.ticket_id}
+
+    <div id="tickets_view" class="{?gc.ticket_id}hide{/gc.ticket_id}"></div>
+    <div class="bottom-wrapper">
+        <div id="filter" class="hide"></div>
+        <div class="bottom-container">
+            <div id="ticketlist_footer" class="{^gc.ticket_id}hide {/gc.ticket_id}{?showServiceFeeInfo}service-fee {/showServiceFeeInfo}"></div>
+        </div>
+    </div>
+    {>"/*@echo appNameVersioned*//dataready_error" /}
+</div>
+
+{?hasBsfFeature}
+<div id="bsf"></div>
+{/hasBsfFeature}
+<div id="eventDisclosure" class="hide"></div>

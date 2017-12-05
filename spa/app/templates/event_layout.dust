@@ -1,0 +1,66 @@
+<div id="eventParkingHeader" class="{^gc.isAddParking}hide{/gc.isAddParking}">
+    <H3><div class="back-button"><i class="sh-iconset sh-iconset-headerback"></i></div><span class="header">{@i18n key="event.common.parking.text"/}</span></H3>
+    <span class="close-icon">
+        <i class="sh-iconset sh-iconset-close"></i>
+    </span>
+</div>
+
+<div id="event_layout">
+    <div id="eventMapContainer" class="{drawerState}">
+        <div id="large-vfs" class="hide"></div>
+        <div id="seatmap"></div>
+        <div id="small-vfs" class="hide"></div>
+        <div id="seatmap-zone-section" class="toggled hide">
+            <div>
+                <label for="section-zone-checkbox" class="switch-label zone">{@i18n key="event.common.zone.text"/}</label>
+                <span class="switch">
+                    <input class="toggle-switch" id="section-zone-checkbox" type="checkbox" value="zones" {?zonesEnabled}checked{/zonesEnabled}/>
+                    <label for="section-zone-checkbox"></label>
+                </span>
+                <label for="section-zone-checkbox" class="switch-label section">{@i18n key="event.common.section.text"/}</label>
+                <span class="reset-map {^sidzidApplied}hide{/sidzidApplied}"><i class="sh-iconset sh-iconset-maprefresh"></i></span>
+            </div>
+        </div>
+        <div id="seatmap-tooltip" class="hide"></div>
+        <div id="window-vfs" class="hide">
+            <img />
+            <span class="sh-iconset sh-close close-button"></span>
+        </div>
+    </div>
+    <div id="eventContainer" class="{drawerState}">
+        <span id="map-drawer-control-container">
+            <div id="arrowButton"><i class="sh-iconset sh-iconset-expand"></i></div>
+        </span>
+        <div id="sortfilter_header" class="sortfilter-tblhdr hide"></div>
+        {?singleTicketMode}
+            <div id="single-ticket">
+                <div class='spinner'><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+            </div>
+        {/singleTicketMode}
+        <div id="ticketlist_container" {?singleTicketMode}class="hide"{/singleTicketMode}>
+            <div id="ticketlist" {?singleTicketMode}class="hide"{/singleTicketMode} tabindex="0"></div>
+        </div>
+        {?displayTicketlistFooter}
+            <div class="serviceFeeInfo">
+                <div class='sh-icons sh-info'></div>
+                <div class='infoContainer'>{@i18n key="event.common.pdo.serviceFeeInfo"/}</div>
+            </div>
+        {/displayTicketlistFooter}
+
+        <div class="bottom-container recoExpSlider hide {?quantityFilterStyle112016}quantity-filter-style-112016{/quantityFilterStyle112016} {?isRecoExperience}recoExperience{/isRecoExperience}">
+            <div id="filter" class="hide"></div>
+        </div>
+    </div>
+    <div id="event-byo-container" class="hide">
+        {?isBYOEnabled}
+        {>"/*@echo appNameVersioned*//build_your_order" /}
+        {/isBYOEnabled}
+    </div>
+    {>"/*@echo appNameVersioned*//dataready_error" /}
+</div>
+
+{?hasBsfFeature}
+<div id="bsf"></div>
+{/hasBsfFeature}
+
+<div id="quantityfilter" class="quantityOverlay hide"></div>

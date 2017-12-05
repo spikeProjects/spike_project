@@ -1,0 +1,16 @@
+{?singleTicketError}
+        {>"/*@echo appNameVersioned*//single_ticket_error" /}
+{:else}
+    <div class="single-ticket-wrapper"></div>
+    <div class="single-ticket-see-more hide">
+        <div class="view_more">View more tickets</div>
+        <div class="font_dark_grey">We show the lowest General Admission ticket price first.</div>
+        <div class="font_light_grey">
+            {@if test="gc.country == 'gb' || gc.country == 'fr'"}
+                All prices are set by sellers, include VAT, may vary from face value and do not include service fees unless explicitly mentioned
+            {:else}
+                All prices are set by sellers.
+            {/if}
+        </div>
+    </div>
+{/singleTicketError}

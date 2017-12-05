@@ -1,0 +1,426 @@
+@import "../utils/mixins";
+@import "common";
+@import "animations";
+
+#eventParkingHeader {
+    display: none;
+
+    &.hide {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: $tablet-size) {
+    .drawer-container {
+
+        .drawer-object {
+            width: 100%;
+            background-color: #550011;
+            position: absolute;
+            bottom: 0px;
+            transition-property: all;
+            transition-duration: .5s;
+            transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        }
+        .open, .close {
+            .drawer-nav-up, .drawer-nav-down {
+                .dropdownArrow {
+                    padding: 0px 15px 0px 5px;
+                }
+            }
+        }
+
+        .drawer-buttons {
+            z-index: 2;
+
+            &#arrowButton {
+                opacity: 1;
+                padding: 0;
+                left: auto;
+                right: 24px;
+                transform: inherit;
+                .label {
+                    display: none;
+                    float: left;
+                    padding: 5px 0 0 15px;
+                    font-size: 12px;
+                }
+
+                .drawer-nav-up .sh-iconset.sh-iconset-expand::before {
+                    font-size: 2px;
+                    position: relative;
+                    top: -9px;
+                }
+                .drawer-nav-down .sh-iconset-expand {
+                    font-size: 2px;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    ::before {
+                        font-size: 2px;
+                        position: relative;
+                        top: 0px;
+                    }
+                }
+            }
+            .drawer-nav-down, .drawer-nav-up {
+                min-width: 30px;
+                height: 26px;
+                background-color: white;
+                display: inline-block;
+                text-align: center;
+                border: 1px solid $color-ui-light;
+                border-radius: 2px;
+                float: left;
+                >i {
+                    color: $color-ui-xxdark;
+                }
+                .label {
+                    color: $color-text-xdark;
+                }
+
+            }
+        }
+
+        .open {
+            &#eventContainer {
+                top: 100%;
+                
+                &.no-header {
+                    top: 100%;
+                }
+                .drawer-nav-down {
+                    display: none;
+                }
+                .drawer-nav-up {
+                    min-width: 100px;
+                    width: auto;
+                    .label {
+                        display: inline-block;
+
+                    }
+                }
+                #arrowButton {
+                    top: -66px;
+                }
+            }
+
+        }
+
+        #eventMapContainer {
+            &.close {
+                opacity: 0;
+            }
+            &.open {
+                height: 100%;
+                top: 0;
+            }
+            &.split {
+
+            }
+
+        }
+        #eventContainer.close {
+            top: 44px;
+            height: calc(100% - 112px);
+            .drawer-nav-up {
+                display: none;
+            }
+            .drawer-nav-down {
+                .label {
+                    display: inline-block;
+                }
+                min-width: 100px;
+                width: auto;
+            }
+        }
+    }
+}
+
+#seatmap-zone-section {
+    position: absolute;
+    background-color: $white;
+    top: 0px;
+    left: 30px;
+    box-sizing: border-box;
+    padding: 10px 0px;
+    color: $light-gray;
+    font-size: $font-size-12;
+    @include box-shadow(0 2px 4px rgba(136,136,136, 0.6));
+
+    &.toggled {
+        input.toggle-switch + label:before {
+            background-color: $color-core-tertiary;
+        }
+        &.zone {
+            label.zone {
+                color: $color-core-tertiary;
+            }
+        }
+        &.section {
+            label.section {
+                color: $color-core-tertiary;
+            }
+        }
+    }
+    .switch {
+        display: inline-block;
+        width:44px;
+        overflow:hidden;
+        vertical-align:middle;
+    }
+    label.switch-label {
+        color: $color-text-dark;
+        padding: 0px 18px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    input.toggle-switch + label {
+        width: 44px;
+        height: 24px;
+        border-radius: 20px;
+        transition: background 0.4s;
+    }
+    input.toggle-switch + label:before,
+    input.toggle-switch + label:after {
+        display: block;
+        position: absolute;
+        content: "";
+    }
+    input.toggle-switch + label:before {
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        right: 2px;
+        background-color: $color-core-tertiary;
+        @include border-radius(1px);
+        transition: background 0.4s;
+    }
+    input.toggle-switch + label:after {
+        top: 5px;
+        left: 6px;
+        bottom: 5px;
+        width: 16px;
+        background-color: $white;
+        @include border-radius(1px);
+        transition: margin 0.4s, background 0.4s;
+        box-sizing: border-box;
+        margin-left: 15px;
+    }
+    input.toggle-switch:checked + label:after {
+        margin-left: 0px;
+    }
+    .toggle-switch {
+        position: absolute;
+        visibility: hidden;
+    }
+    .toggle-switch + label {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        user-select: none;
+    }
+
+    .reset-map {
+        color: $gunmetal-gray;
+        cursor: pointer;
+        border-left: 1px solid gray;
+        padding: 1px 18px;
+        vertical-align: middle;
+        i {
+            font-size: $font-size-7;
+            vertical-align:middle;
+        }
+    }
+}
+
+#window-vfs {
+    border: 5px solid $white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 4002;
+    .close-button {
+        position: absolute;
+        top: 27px;
+        right: 14px;
+        color: $link-color;                     /* Fallback color Firefox, IE */
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke: 1px $link-color;
+        line-height: 0;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .drawer-container #seatmap-zone-section {
+        height: 80px;
+    }
+    #seatmap-zone-section {
+        left: calc(100% - 65px);
+        @include box-shadow(none);
+        background-color: transparent;
+        height: 85%;
+
+        &.toggled {
+            &.zone {
+                label.zone {
+                    color: $color-text-dark;
+                    display: inline-block;
+                    padding: 0 7px;
+                }
+            }
+            &.section {
+                label.section {
+                    color: $color-text-dark;
+                    display: inline-block;
+                    padding: 0 3px;
+                }
+            }
+        }
+
+        label.switch-label {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+        }
+
+        input.toggle-switch + label:after {
+            margin-left: 17px;
+        }
+
+        .reset-map {
+            border-left: none;
+            display: block;
+            position: absolute;
+            padding: 0 13px;
+            bottom: 0;
+
+            &.hide {
+                display: none;
+            }
+        }
+    }
+}
+
+/* in mobile - small */
+@media only screen and (min-width: 300px) {
+    #window-vfs {
+        height: 163px;
+        width: 300px;
+        margin-top: -82px;      /* ~(163/2) in order to center it in browser window */
+        margin-left: -150px;    /* (300/2) */
+        img {
+            height: 163px;
+            width: 300px;
+        }
+    }
+}
+
+/* in mobile - large */
+@media only screen and (min-width: 500px) {
+    #window-vfs {
+        height: 271px;
+        width: 500px;
+        margin-top: -136px;     // ~(271/2) in order to center it in browser window
+        margin-left: -250px;    // (500/2)
+        img {
+            height: 271px;
+            width: 500px;
+        }
+    }
+}
+
+/* in tablet */
+@media only screen and (min-width: $tablet-size) {
+    #seatmap-zone-section {
+        @include border-radius;
+        left: 20px;
+        top: 20px;
+    }
+
+    #window-vfs {
+        height: 412px;
+        width: 760px;
+        margin-top: -206px;     // ~(412/2) in order to center it in browser window
+        margin-left: -380px;    // (760/2)
+        img {
+            height: 412px;
+            width: 760px;
+        }
+    }
+
+    #eventParkingHeader {
+        padding: 0 0 20px 10px;
+        display: block;
+
+        h3 {
+            border-top: 5px solid $color-core-secondary;
+            color: $deliver-gray;
+            display: inline-block;
+            font-family: $font-family-primary;
+            font-size: $font-size-20;
+            font-weight: normal;
+            margin: 0;
+            padding-top: 20px;
+        }
+
+        .back-button {
+            display: inline;
+            font-size: $font-size-20;
+            line-height: 20px;
+            float: left;
+            color: $light-gray;
+            pointer-events: auto;
+            cursor: pointer;
+            min-width: 20px;
+            padding-right: 35px;
+
+            .sh-iconset-headerback {
+                font-size: $font-size-8;
+            }
+        }
+
+        .sh-iconset-close {
+            float: right;
+            position: absolute;
+            top: -35px;
+            right: 10px;
+            color: $icon-gray;
+            font-size: $font-size-32;
+        }
+
+    }
+}
+
+/* in desktop */
+@media only screen and (min-width: $desktop-size) {
+    #seatmap-zone-section {
+        top: 30px;
+    }
+
+    #window-vfs {
+        height: 542px;
+        width: 1000px;
+        margin-top: -271px;     // (542/2) in order to center it in browser window
+        margin-left: -500px;    // (1000/2)
+        img {
+            height: 542px;
+            width: 1000px;
+        }
+    }
+}
+
+/* IE hack -- This is here due to specificity with ID attribute selector (#eventParkingHeader)*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #eventParkingHeader {
+        .sh-iconset-close {
+            top: -10px;
+        }
+    }
+}
+

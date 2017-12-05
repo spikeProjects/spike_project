@@ -1,0 +1,238 @@
+<div class="ticket-item zonecolor zid-{zoneId}{@eq key=sellerOwnInd value="1" type="number"} seller-ticket{/eq} {@eq key=globals.TicketReco.showTicketReco value=globals.TicketReco.experience.VALUEBARLOWEST} valuebar{/eq}{?gc.isAddParking} byo-add-parking{/gc.isAddParking}" data-price="{#usePrice}{amount}{/usePrice}" data-qty="{quantity}" data-sv="{splitVector}" data-soption="{isSplitAvailable}" data-tid="{?listingId}{listingId}{:else}{seats[0].listingId}{/listingId}" data-sid="{sectionId}">
+    <div class="ticket-container">
+        {@eq key=sellerOwnInd value=1}
+        <div class="seller-ticket-message">{@i18n key="event.ticketdetails.sellerticket.text" /}</div>
+        {/eq}
+        <div class="single-ticket-vfs hidden"></div>
+
+        {@select key=globals.TicketReco.showTicketReco}
+             {@eq value=globals.TicketReco.experience.VALUEBARLOWEST}
+                {>"/*@echo appNameVersioned*//ticketdetails_sortfilter_tbl_tab" /}
+                {>"/*@echo appNameVersioned*//ticketdetails_moreinfo_tab" /}
+            {/eq}
+            {@default}
+                {>"/*@echo appNameVersioned*//ticketdetails_sortfilter_tbl_default" /}
+                {>"/*@echo appNameVersioned*//ticketdetails_moreinfo_tab" /}
+            {/default}
+        {/select}
+    </div>
+    <div id="ticketdetails-container-{listingId}" class="ticket-details-container {^displayPricePerTicket}hide{/displayPricePerTicket}" >
+        {@if test="!globals.event_meta.isParking || (globals.event_meta.isParking && splitVector.length > 1)"}
+        <div class="ticketinfo">
+            <div class="ticket-seat-info">
+                {^globals.event_meta.isParking}
+                <div class="ticket-seat-text hide">
+                    <div class="detailsContainer">
+                        <span class="seattext"></span>
+                        <span class="seatnumbers"></span>
+                        <i class="sh-iconset sh-iconset-info infoIcon tooltip-seatinfo hide">
+                            {>"/*@echo appNameVersioned*//partials/seat_numbers" /}
+                        </i>
+                    </div>
+                    <div class="piggyback hide">{@i18n key="event.common.ticketdetails.piggybackseats.text"/}</div>
+                </div>
+                {/globals.event_meta.isParking}
+                {@gt key=splitVector.length value=1}
+                    <div class="ticket-qty-text">{@i18n key="event.ticketdetails.howmanytickets.text"/}</div>
+                {/gt}
+            </div>
+            {@gt key=splitVector.length value=1}
+            <div class="ticket-qty-picker">
+                <span class="multiplication-sign">x</span>
+                <button {@gt key=qty value=0}class="applyQuantity"{/gt}>
+                {@gt key=qty value=0}
+                    <span class="qtyText">{qty}</span><span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+                {:else}
+                    <span class="qtyText">{@i18n key="event.common.qty.text"/}</span><span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+                {/gt}
+                </button>
+                <select class="quantity">
+                    <option value="-1" DISABLED selected>{@i18n key="event.common.qty.text"/}</option>
+                    {#splitVector}
+                    {@if test="{.} == 1"}
+                        <option value="{.}">{.} {@i18n key="event.common.ticket.text"/}</option>
+                    {:else}
+                        <option value="{.}">{.} {@i18n key="event.common.tickets.text"/}</option>
+                    {/if}
+                    {/splitVector}
+                </select>
+            </div>
+            {:else}
+            <div class="ticket-qty-picker">
+                <span class="multiplication-sign">x</span>
+                <button class="applyQuantity"><span class="qtyText">{quantity}</span></button>
+            </div>
+            {/gt}
+        </div>
+        {/if}
+        <div class="bottominfo">
+            {@gt key=splitVector.length value=1}
+                {?showServiceFeeInfo}
+                    <div class="serviceFee-container disabled">
+                        <div class="row">
+                            <div class="feestext">{@i18n key="event.details.serviceFee.text"/}</div>
+                            <div class="pricecellbottom hide">
+                                <span class="dollar-value">{@format value=5 style="money.full" currency=currency substyle="style1" /}</span>
+                            </div>
+                            <div class="emptytotal"><div class="line"></div></div>
+                        </div>
+                    </div>
+                {/showServiceFeeInfo}
+                {?hasTotalCostFeature}
+                    <div class="totalcost-container disabled">
+                        <div class="row">
+                            {?hasFaceValueFeature}
+                                <div class="feestext">{@i18n key="event.details.bsf.priceDesc"/}</div>
+                            {:else}
+                                <div class="feestext">{@i18n key="event.common.allfees.text"/}</div>
+                            {/hasFaceValueFeature}
+                            <div class="emptytotal"><div class="line"></div></div>
+                            <div class="pricecellbottom hide">
+                            {#usePrice}
+                                <span class="dollar-value">{@format value=totalCost style="money.full" currency=currency substyle="style1"/}</span>
+                            {/usePrice}
+                            </div>
+                        </div>
+                    </div>
+                {/hasTotalCostFeature}
+                {?hasBsfFeature}
+                    {?businessGuid}
+                    <div class="sellerInfo">
+                        <div class="sellerInfoWrapper">
+                            <span class="userDesc">
+                                {@i18n key="event.details.bsf.proUser"/}
+                            </span>
+                            <span class="viewUserInfo">
+                                <i class="sh-iconset sh-iconset-chevron"></i>
+                            </span>
+                        </div>
+                    </div>
+                    {/businessGuid}
+                {/hasBsfFeature}
+                <div class="fullWidth checkout disabled">
+                    <button class="button-primary {@gt key=qty value=0}active{/gt}">
+                        <span class="buyText">{@i18n key="event.common.checkout.text"/}</span>
+                    </button>
+                </div>
+                {?hasFaceValueFeature}
+                    <div class="faceValueInfo originPrice">
+                        {@i18n key="event.details.bsf.faceValue"/}
+                        <span class="faceValue">
+                            {?faceValue}
+                                {@format value=faceValue.amount style="money" currency=faceValue.currency /}
+                            {:else}
+                                {@format value=0 style="money" currency=currentPrice.currency /}
+                            {/faceValue}
+                        </span>
+                    </div>
+                {/hasFaceValueFeature}
+                {?ticketClass}
+                    <div class="ticketClassInfo">
+                        <i class="sh-iconset sh-iconset-alert-1"></i>
+                        <span class="ticketClass">
+                            {ticketClass}
+                        </span>
+                    </div>
+                {/ticketClass}
+            {:else}
+                {?showServiceFeeInfo}
+                    <div class="serviceFee-container">
+                        <div class="row">
+                            <div class="feestext">{@i18n key="event.details.serviceFee.text"/}</div>
+                            <div class="pricecellbottom">
+                                <span class="dollar-value">{@format value=5 style="money.full" currency=currency substyle="style1" /}</span>
+                            </div>
+                        </div>
+                    </div>
+                {/showServiceFeeInfo}
+                {! Is not Toggle. ie., is control/default !}
+                {?hasTotalCostFeature}
+                <div class="totalcost-container">
+                    <div class="row">
+                        {?hasFaceValueFeature}
+                            <div class="feestext">{@i18n key="event.details.bsf.priceDesc"/}</div>
+                        {:else}
+                            <div class="feestext">{@i18n key="event.common.allfees.text"/}</div>
+                        {/hasFaceValueFeature}
+                        <div class="pricecellbottom hide">
+                            {#usePrice}
+                                <span class="dollar-value">{@format value=totalCost style="money.full" currency=currency substyle="style1" /}</span>
+                            {/usePrice}
+                        </div>
+                    </div>
+                </div>
+                {/hasTotalCostFeature}
+                {?hasBsfFeature}
+                    {?businessGuid}
+                    <div class="sellerInfo">
+                        <div class="sellerInfoWrapper">
+                            <span class="userDesc">
+                                {@i18n key="event.details.bsf.proUser"/}
+                            </span>
+                            <span class="viewUserInfo">
+                                <i class="sh-iconset sh-iconset-chevron"></i>
+                            </span>
+                        </div>
+                    </div>
+                    {/businessGuid}
+                {/hasBsfFeature}
+                <div class="fullWidth checkout">
+                    <button class="button-primary active">{@i18n key="event.common.checkout.text"/}</button>
+                </div>
+                {?hasFaceValueFeature}
+                    <div class="faceValueInfo originPrice">
+                        {@i18n key="event.details.bsf.faceValue"/}
+                        <span class="faceValue">
+                            {?faceValue}
+                                {@format value=faceValue.amount style="money" currency=faceValue.currency /}
+                            {:else}
+                                {@format value=0 style="money" currency=currentPrice.currency /}
+                            {/faceValue}
+                        </span>
+                    </div>
+                {/hasFaceValueFeature}
+                {?ticketClass}
+                    <div class="ticketClassInfo">
+                        <i class="sh-iconset sh-iconset-alert-1"></i>
+                        <span class="ticketClass">
+                            {ticketClass}
+                        </span>
+                    </div>
+                {/ticketClass}
+            {/gt}
+            </div>
+            <div class="disclosureInfo">
+                {@gt key=listingAttributeList.length value=0}
+                   {#listingAttributeList}
+                        {@if test="(valueType == 'add' || valueType == 'sub') && featureIcon != 'none'"}
+                            <div class="listingattribute">
+                                <i class="sh-iconset sh-iconset-{featureIcon}"></i>{listingAttribute}
+                            </div>
+                        {/if}
+                    {/listingAttributeList}
+                 {/gt}
+
+                <div class="listingattribute more">
+                    {@gt key=iconCounts.uncategorized value=0}
+                        <i class="sh-iconset sh-iconset-alert-1"></i>
+                    {/gt}
+                    {#listingAttributeList}
+                        {@eq key=valueType value="none"}
+                            {listingAttribute}</div><div class="listingattribute more">
+                        {/eq}
+                    {/listingAttributeList}
+                </div>
+            </div>
+        </div>
+        <div class="side-vfs hide">
+            <img />
+            <span class="sh-iconset sh-add expand-vfs-button"></span>
+        </div>
+    </div>
+</div>
+
+<div class="ticket-item-error hide">
+    <h3 class="header">{@i18n key="event.common.ticketunavailable.header"/}</h3>
+    <div class="message">{@i18n key="event.common.ticketunavailable.message"/}</div>
+</div>
+<div class="spinner hide"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>

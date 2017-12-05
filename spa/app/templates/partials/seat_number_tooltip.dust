@@ -1,0 +1,11 @@
+{@eq key=seats[0].seatNumber value="General Admission"}
+    <span>-</span><span class="seatnumber-info-icon">
+        <i class="sh-iconset sh-iconset-info tooltip-seatinfo">
+            <div class="byo-seatinfo-tooltip">
+                <span>{@i18n key="event.common.byo.sellernoinfo" /}</span>
+            </div>
+        </i>
+    </span>
+{:else}
+    {?seats[0].seatNumberFirst}{seats[0].seatNumberFirst}{:else}{seatNumberFirst}{/seats[0].seatNumberFirst} {?seats[0].seatNumberLast} - {seats[0].seatNumberLast}{:else}{?seatNumberLast} - {seatNumberLast} {/seatNumberLast}{/seats[0].seatNumberLast}
+{/eq}

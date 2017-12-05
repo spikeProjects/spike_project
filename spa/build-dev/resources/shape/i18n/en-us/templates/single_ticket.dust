@@ -1,0 +1,10 @@
+<div id="singleTicket">
+    {?singleTicketError}
+        {>"/*@echo appNameVersioned*//single_ticket_error" /}
+    {:else}
+        <div class="single-ticket-wrapper">
+            <div class="spinner"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+        </div>
+        <button class="button-secondary single-ticket-see-more hide">See other tickets</button>
+    {/singleTicketError}
+</div>

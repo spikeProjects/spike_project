@@ -1,0 +1,93 @@
+<div id="filter-container">
+    <div class="filter-container">
+        {@eq key=globals.TicketReco.showTicketReco value="TOGGLE"}
+            <div class="ticketNumFilter"><span class="ticketQty">How many tickets?</span>
+                <div class="qtyhdr">
+                    <button class="sortButton"><span class="qtyText">All</span><span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span></button>
+                    <select id="qtyselector" class="dropdown">
+                        {@eq key=gc.isAddParking value="true" type="boolean"}
+                            <option value="1">1 Ticket</option>
+                            <option value="2">2 Tickets</option>
+                            <option value="3">3 Tickets</option>
+                            <option value="4">4 Tickets</option>
+                        {:else}
+                            <option value="-1">All</option>
+                            <option value="1">1 Ticket</option>
+                            <option value="2">2 Tickets</option>
+                            <option value="3">3 Tickets</option>
+                            <option value="4">4 Tickets</option>
+                            <option value="5&#43;">5+ Tickets</option>
+                        {/eq}
+                    </select>
+                </div>
+            </div>
+        {/eq}
+        {@eq key=gc.view value="NON-GA"}
+            <div class="filter-item" id="quantity-filter">
+                <div class="verticalLine"></div>
+                <div class="lbl-quantity">How many tickets?</div>
+                <i class="filter-submit sh-iconset sh-iconset-close" id="advancedfilter-x-done"></i>
+                <div id="qty_container" class="qty_content">
+                    <ul>
+                        <li><button class="btn-default {@eq key=qty value="1"}selectQty{/eq} qty_index" data-value="1">1</button></li>
+                        <li><button class="btn-default {@eq key=qty value="2"}selectQty{/eq} qty_index" data-value="2">2</button></li>
+                        <li><button class="btn-default {@eq key=qty value="3"}selectQty{/eq} qty_index" data-value="3">3</button></li>
+                        <li><button class="btn-default {@eq key=qty value="4"}selectQty{/eq} qty_index" data-value="4">4</button></li>
+                        <li><button class="btn-default {@eq key=qty value="5+"}selectQty{/eq} qty_index" data-value="5&#43;">5+</button></li>
+                    </ul>
+                </div>
+            </div>
+        {/eq}
+
+        {@eq key=gc.view value="GA"}
+           <div class="filter-item" id="price-filter">
+                <div class="price-range">
+                    <label class="lbl-price left">Set max price</label>
+                    <div class="to-price right">
+                        <label for="eitoPriceTxt">{@format style="money.symbol" /}</label>
+                        <input type="number" pattern="[0-9]*" id="eitoPriceTxt" maxlength="6" {@gt key=maxPrice value="0"}value="{maxPrice}"{/gt} min="1" tabindex="1" placeholder="0" max="999999"></input>
+                    </div>
+                </div>
+            </div>
+        {:else}
+            {>"/*@echo appNameVersioned*//slider" /}
+        {/eq}
+
+        {@ne key=gc.country value="de"}
+            {! {?globals.displayWithFeesToggle} !}
+                <div class="fee-option">
+                    <div class="tblftr-wrapper">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="feesIncluded" {?withFees}checked{/withFees}/>
+                            <span class="checkbox-icon"></span>
+                            <span class="checkbox-text">Show prices with fees</span>
+                        </label>
+                    </div>
+                </div>
+            {! {/globals.displayWithFeesToggle} !}
+        {/ne}
+    </div>
+    {@eq key=globals.TicketReco.showTicketReco value=globals.TicketReco.experience.VALUEBARLOWEST}
+        {@eq key=gc.view value="NON-GA"}
+        {>"/*@echo appNameVersioned*//filter_advanced" /}
+        {/eq}
+        <div class="filter-bottom">
+            <div class="filter-reset {^isFiltersApplied}hide{/isFiltersApplied}">Reset</div>
+            <button class="filter-submit button button-secondary" tabindex="2">Done</i></button>
+        </div>
+    {:else}
+        <div class="filter-advanced-bottom">
+        {@eq key=gc.view value="NON-GA"}
+            {>"/*@echo appNameVersioned*//filter_advanced" /}
+        {/eq}
+        </div>
+        <div class="filter-header">
+            <div class="filter-reset left {^isFiltersApplied}hide{/isFiltersApplied}">Reset</div>
+            <div class="filter-title">
+                <span class="filter-icon"><i class="sh-iconset sh-iconset-settings"></i></span>
+                <span class="filter-txt">Filter</span>
+            </div>
+            <div class="filter-submit right" tabindex="2">Done</i></div>
+        </div>
+    {/eq}
+</div>

@@ -1,0 +1,11 @@
+<svg class="icon-disclosure" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="icon-48-*-48" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="general-disclosure-outline">
+            <polygon id="Fill-1" points="12.09184 15.368832 28.22944 15.368832 28.22944 11.528832 12.09184 11.528832"></polygon>
+            <polygon id="Fill-2" points="31.7344 15.368832 35.14912 15.368832 35.14912 11.528832 31.7344 11.528832"></polygon>
+            <polygon id="Fill-3" points="12.09184 24.627072 28.22944 24.627072 28.22944 20.787072 12.09184 20.787072"></polygon>
+            <polygon id="Fill-4" points="31.7344 24.627072 35.14912 24.627072 35.14912 20.787072 31.7344 20.787072"></polygon>
+            <polygon id="Fill-5" points="4 -0.000288 4 47.152992 43.18912 47.152992 43.18912 40.432032 39.35008 40.432032 39.35008 43.312992 7.84 43.312992 7.84 3.840672 39.35008 3.840672 39.35008 38.417952 43.18912 36.610272 43.18912 -0.000288"></polygon>
+        </g>
+    </g>
+</svg>

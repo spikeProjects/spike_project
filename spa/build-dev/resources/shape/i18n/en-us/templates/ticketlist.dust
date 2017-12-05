@@ -1,0 +1,31 @@
+<div id="tickets" class="ui-scrollable">
+    <div class="spinner"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+    <div id="tickets-wrapper"></div>
+    <div class="see-more hide">View more tickets</div>
+    <div class="no-tickets-message hide">
+        <div class="no-tickets-message-cont">
+            <h3 class="no-tickets-head">Bummer.</h3>
+            <div class="no-tickets-body">
+                {@eq key=ticketlist.length value=0}
+                    We no longer have parking passes for this event. 
+                {:else}
+                    We no longer have tickets that match this selection, but there’s still some available to enjoy the event!
+                {/eq}
+            </div>
+        </div>
+        {@eq key=ticketlist.length value=0}
+            <button class="button-secondary parking-go-back-button">Go back</button>
+        {:else}
+            <button class="button-secondary see-all-tickets-button">See all tickets</button>
+        {/eq}
+    </div>
+
+    {>"/*@echo appNameVersioned*//primarypartner_gettickets" /}
+    <div id="upcoming-events" class="hide">
+        <h3 class="no-tickets-head">Bummer.</h3>
+        <div class="message">
+            We can't find any tickets for that event right now. Check out what we have available for other upcoming events.
+        </div>
+        <button class="button-secondary see-upcoming-events-button">See upcoming events</button>
+    </div>
+</div>

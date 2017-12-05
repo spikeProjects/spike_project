@@ -1,0 +1,15 @@
+<div id="{dom-id}" class="dropdown-list {dom-class}">
+    <span class="dropdown-title">
+        {@eq key=qty value="-1"}
+            {@i18n key="event.common.qty.text"/}
+        {/eq}
+        {@eq key=qty value="1"}
+            {qty} {@i18n key="event.common.ticket.text"/}
+        {/eq}
+        {@gte key=qty value="2"}
+            {qty} {@i18n key="event.common.tickets.text"/}
+        {/gte}
+    </span>
+    <span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+    {>"/*@echo appNameVersioned*//partials/quantity_list_dropdown" filterId="{dom-id}-list" /}
+</div>

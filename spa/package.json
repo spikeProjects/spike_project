@@ -1,0 +1,100 @@
+{
+  "name": "event",
+  "version": "5.6.0",
+  "logo": "    (\\_/)\n * foo(='.'=)\n *    (\")_(\")",
+  "description": "UI development tools based on Grunt",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "repository": "",
+  "author": {
+    "name": "StubHub, Inc.",
+    "email": "DL-SH-FooBunny@stubhub.com"
+  },
+  "contributors": [
+    {
+      "name": "Edward Maesen",
+      "email": "emaesen@stubhub.com"
+    },
+    {
+      "name": "Read Whittier",
+      "email": "rwhittier@stubhub.com"
+    }
+  ],
+  "copyright": "© 2015 StubHub, Inc.  All rights reserved.",
+  "license": "Released under the !!TBD!! license",
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": "0.12.0"
+  },
+  "dependencies": {
+    "async": "0.2.9",
+    "consolidate": "0.10.0",
+    "dustjs-linkedin": "2.2.2",
+    "dustjs-helpers": "1.1.1",
+    "express": "3.4.7",
+    "grunt-sh-precompile": "0.4.2",
+    "nodemon": "1.0.8"
+  },
+  "devDependencies": {
+    "@stubhub/common-build-files": "git+ssh://github.corp.ebay.com/Stubhub/app-common-build-files.git#v4.4.0",
+    "casperjs": "1.1.0-beta3",
+    "chai": "^3.2.0",
+    "dispatch": "0.2.0",
+    "eslint-config-stubhub": "^1.0.1",
+    "grunt": "0.4.5",
+    "grunt-available-tasks": "0.x",
+    "grunt-bg-shell": "2.3.1",
+    "grunt-bower-task": "0.4.0",
+    "grunt-bump": "0.3.0",
+    "grunt-casper": "0.4.2",
+    "grunt-cli": "0.1.13",
+    "grunt-connect-proxy": "0.1.10",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-compress": "0.13.0",
+    "grunt-contrib-concat": "0.5.1",
+    "grunt-contrib-connect": "0.10.1",
+    "grunt-contrib-copy": "0.8.0",
+    "grunt-contrib-cssmin": "~0.12.2",
+    "grunt-contrib-htmlmin": "0.4.0",
+    "grunt-contrib-jshint": "0.11.2",
+    "grunt-contrib-requirejs": "0.4.4",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "0.9.1",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-dustjs": "1.1.1",
+    "grunt-express": "1.2.1",
+    "grunt-hub": "x",
+    "grunt-init": "0.3.2",
+    "grunt-jasmine-html-spec-runner": "^0.2.5",
+    "grunt-karma": "^0.12.0",
+    "grunt-mocha": "0.4.12",
+    "grunt-mocha-phantomjs": "^1.0.2",
+    "grunt-newer": "1.x",
+    "grunt-preprocess": "5.1.0",
+    "gruntify-eslint": "^3.1.0",
+    "jasmine-core": "^2.3.4",
+    "jasmine-jquery": "^2.1.1",
+    "karma": "^0.13.9",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-coverage": "^0.5.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-html-reporter": "^0.2.6",
+    "karma-jasmine": "^0.3.6",
+    "karma-jasmine-ajax": "^0.1.13",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-lodash-template-preprocessor": "^0.1.2",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-requirejs": "^0.2.2",
+    "karma-should": "^1.0.0",
+    "karma-sinon": "^1.0.4",
+    "phantomjs": "^1.9.18",
+    "xml2js": "^0.4.8"
+  },
+  "optionalDependencies": {
+    "underscore": "^1.8.3"
+  }
+}

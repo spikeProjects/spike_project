@@ -1,0 +1,23 @@
+<div class="tickets_wrapper {?gc.ticket_id}hide{/gc.ticket_id}">
+    <div class="throbber hide">
+        <div class="spinner"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+    </div>
+    <div id="view_ticket" class="hide">
+    </div>
+</div>
+
+<div class="no-tickets hide">{@i18n key="event.common.msg.nomoretickets.ga"/}</div>
+
+<div id="view_more_content" class="hide">
+    <div id="view_more" class="hide">{@i18n key="event.common.seemore.text"/}</div>
+    <div class="font_dark_grey">{@i18n key="event.common.msg.bestprice"/}</div>
+    <div class="font_light_grey priceDesc">{@i18n key="event.common.msg.sellersprice"/}</div>
+</div>
+<div id="listings_not_found" class="hide">
+    <div id="listings_not_found_head">{@i18n key="event.ticketlist.quantityunavailable1.text"/}</div><br>
+    <div id="listings_not_found_body">{@i18n key="event.ticketlist.quantityunavailable2.text"/}</div>
+</div>
+<div id="zero_listings_found" class="hide">
+    <div class="notickets">{@i18n key="event.common.msg.notickets.ga"/}<br/></div>
+    <div class="findmoretickets"><a href="{upcomingEventsLink}" rel="external">{@i18n key="event.common.msg.findmoretickets"/}</a></div>
+</div>

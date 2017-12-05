@@ -1,0 +1,16 @@
+{
+    "extends": ["stubhub"],
+    "rules": {
+        "eqeqeq": 1,
+        "no-unused-vars": 1,
+        "no-redeclare": 1,
+        "no-empty": 1,
+        "no-undef": 1,
+        "semi": 1,
+        "no-extra-semi": 1,
+        "comma-dangle": 1,
+        "no-cond-assign": 1,
+        "no-extra-boolean-cast": 1,
+        "no-unreachable": 1
+    }
+}

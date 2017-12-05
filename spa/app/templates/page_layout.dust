@@ -1,0 +1,13 @@
+<div id="header_view"></div>
+<div id="eventInfo" class="{gc.brand}"></div>
+<div id="eventDisclosure" class="hide"></div>
+<div id="event-details" class="event-details-container"></div>
+<div id="content_container" class="{^gc.isAddParking}parking-header{/gc.isAddParking}">
+    <div class='spinner'><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+</div>
+<div id="data_ready_error" class="error hide">
+	<div class="somethingwrong">{@i18n key="event.common.msg.somethingwrong"/}</div>
+	<div class="findmoretickets"><a href="/" class="findmorelink" rel="external">{@i18n key="event.common.msg.findmoretickets"/}</a></div>
+</div>
+<div id="footer_view"></div>
+<div class="modal-overlay-cover"></div>

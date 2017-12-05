@@ -1,0 +1,40 @@
+<div class="event-info-wrapper">
+    <div class="eventInfoHeader">
+        <div class="title">{@i18n key="event.info.title.text"/}</div>
+        <div class="closeEventInfo">{@i18n key="event.info.close.text"/}</div>
+    </div>
+    <div class="event-card" {?showPerformerBanner} style="background-image: url({performerBannerUrl});"{/showPerformerBanner} data-currency="{currencyCode}">
+        {?showPerformerBanner}
+        <div class="event-card-overlay"></div>
+        {/showPerformerBanner}
+        <div class="container">
+            <div class="event-meta">
+                {>date_stamp_template dateType="standard" isTBD=displayAttributes.hideEventDate dateLocal=eventDateLocal /}
+            </div>
+            <div class="event-details">
+                <div class="event-details-box">
+                    <h1 class="header">{eventNameLinked|s}</h1>
+                    <div class="event-location-info">
+                        <span class="event-time">
+                        {#displayAttributes.hideEventTime}
+                            {@i18n key="event.common.tbd.text"/}
+                        {:else}
+                            {@format value=eventDateLocal style="time" /}
+                        {/displayAttributes.hideEventTime}
+                        </span>
+                        <span> {@i18n key="event.common.at.text" /} </span>
+                        {#venue.webURI}
+                            <a class="venue" href="/{venue.webURI}" target="_blank"><span class="event-venue">{venue.name}</span></a>
+                        {:else}
+                            <span class="event-venue">{venue.name}</span>
+                        {/venue.webURI}
+                        {@i18n key="event.common.location.in" /}
+                        <span class="event-location">{?showVenuePostCode} {venue.postalCode} {venue.locality}{:else} {@i18n key="event.info.location"/}{/showVenuePostCode}</span>
+                        <button id="event-info-flag" class="btn-default sh-iconset sh-iconset-flag hide" ></button>
+                    </div>
+                </div>
+            </div>
+            <div id="primary-partner-links" class="hide"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+.flex-box-display {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+.flex-container {
+  @extend .flex-box-display;
+
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  height: auto;
+}
+
+.flex-box-flex-wrap {
+  -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+
+}
+.flex-item {
+  flex: 1;
+  -webkit-flex: 1;
+}
+
+@mixin flex-box-display() {
+      display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+@mixin flex-box-flex($attr:1) {
+  flex: $attr;
+  -webkit-flex: $attr;
+}
+
+@mixin flex-box-align($attr) {
+  -ms-flex-align: $attr;
+  -webkit-align-items: $attr;
+  -webkit-box-align: $attr;
+  align-items: $attr;
+  @if $attr == 'center' {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+}

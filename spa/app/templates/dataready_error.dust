@@ -1,0 +1,4 @@
+<div id="event_error" class="error hide">
+	<div class="somethingwrong">{@i18n key="event.common.msg.toolate"/}</div>
+	<div class="findmoretickets"><a href="/" class="findmorelink" rel="external">{@i18n key="event.common.msg.findmoretickets"/}</a></div>
+</div>

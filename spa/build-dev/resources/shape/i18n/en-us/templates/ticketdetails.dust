@@ -1,0 +1,245 @@
+<div class="ticket-item zonecolor zid-{zoneId}{@eq key=sellerOwnInd value="1" type="number"} seller-ticket{/eq} {@eq key=globals.TicketReco.showTicketReco value=globals.TicketReco.experience.VALUEBARLOWEST} valuebar{/eq}{?gc.isAddParking} byo-add-parking{/gc.isAddParking}" data-price="{#usePrice}{amount}{/usePrice}" data-qty="{quantity}" data-sv="{splitVector}" data-soption="{isSplitAvailable}" data-tid="{?listingId}{listingId}{:else}{seats[0].listingId}{/listingId}" data-sid="{sectionId}">
+    <div class="ticket-container">
+        {@eq key=sellerOwnInd value=1}
+        <div class="seller-ticket-message">MY LISTING</div>
+        {/eq}
+        <div class="single-ticket-vfs hidden"></div>
+
+        {@select key=globals.TicketReco.showTicketReco}
+             {@eq value=globals.TicketReco.experience.VALUEBARLOWEST}
+                {>"/*@echo appNameVersioned*//ticketdetails_sortfilter_tbl_tab" /}
+                {>"/*@echo appNameVersioned*//ticketdetails_moreinfo_tab" /}
+            {/eq}
+            {@default}
+                {>"/*@echo appNameVersioned*//ticketdetails_sortfilter_tbl_default" /}
+                {>"/*@echo appNameVersioned*//ticketdetails_moreinfo_default" /}
+            {/default}
+        {/select}
+    </div>
+    <div id="ticketdetails-container-{listingId}" class="ticket-details-container {^displayPricePerTicket}hide{/displayPricePerTicket}" >
+        {@if test="!globals.event_meta.isParking || (globals.event_meta.isParking && splitVector.length > 1)"}
+        <div class="ticketinfo">
+            <div class="ticket-seat-info">
+                {^globals.event_meta.isParking}
+                <div class="ticket-seat-text hide">
+                    <div class="detailsContainer">
+                        <span class="seattext"></span>
+                        <span class="seatnumbers"></span>
+                        <i class="sh-iconset sh-iconset-info infoIcon tooltip-seatinfo hide">
+                            {>"/*@echo appNameVersioned*//partials/seat_numbers" /}
+                        </i>
+                    </div>
+                    <div class="piggyback hide">in two consecutive rows</div>
+                </div>
+                {/globals.event_meta.isParking}
+                {@gt key=splitVector.length value=1}
+                    <div class="ticket-qty-text">How many tickets?</div>
+                {/gt}
+            </div>
+            {@gt key=splitVector.length value=1}
+            <div class="ticket-qty-picker">
+                <span class="multiplication-sign">x</span>
+                <button {@gt key=qty value=0}class="applyQuantity"{/gt}>
+                {@gt key=qty value=0}
+                    <span class="qtyText">{qty}</span><span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+                {:else}
+                    <span class="qtyText">Qty</span><span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+                {/gt}
+                </button>
+                <select class="quantity">
+                    <option value="-1" DISABLED selected>Qty</option>
+                    {#splitVector}
+                    {@if test="{.} == 1"}
+                        <option value="{.}">{.} Ticket</option>
+                    {:else}
+                        <option value="{.}">{.} Tickets</option>
+                    {/if}
+                    {/splitVector}
+                </select>
+            </div>
+            {:else}
+            <div class="ticket-qty-picker">
+                <span class="multiplication-sign">x</span>
+                <button class="applyQuantity"><span class="qtyText">{quantity}</span></button>
+            </div>
+            {/gt}
+        </div>
+        {/if}
+        <div class="bottominfo">
+            {@gt key=splitVector.length value=1}
+                {@eq key=gc.country value="de"}
+                    <div class="serviceFee-container disabled">
+                        <div class="row">
+                            <div class="feestext">Service fee</div>
+                            <div class="pricecellbottom hidden">
+                                <span class="dollar-value">{@format value=5 style="money.full" currency=currency substyle="style1" /}</span>
+                            </div>
+                            <div class="emptytotal"><div class="line"></div></div>
+                        </div>
+                    </div>
+                    <div class="sliceLine"></div>
+                {/eq}
+                {! Is not Toggle. ie., is control/default !}
+                {@eq key=gc.country value="de"}
+                <div class="totalcost-container disabled">
+                    <div class="row">
+                        {?hasFaceValueFeature}
+                            <div class="feestext">Includes our service fee, delivery, and VAT.</div>
+                        {:else}
+                            <div class="feestext">Fees included</div>
+                        {/hasFaceValueFeature}
+                        <div class="emptytotal"><div class="line"></div></div>
+                        {@gt key=qty value=0}
+                            <div class="pricecellbottom">
+                        {:else}
+                            <div class="pricecellbottom hidden">
+                        {/gt}
+                        {#currentPrice}
+                            <span class="dollar-value">{@format value=totalCost style="money.full" currency=currency substyle="style1"/}</span>
+                        {/currentPrice}
+                        </div>
+                    </div>
+                </div>
+                {/eq}
+                {?hasBsfFeature}
+                    {?businessGuid}
+                    <div class="sellerInfo">
+                        <div class="sellerInfoWrapper">
+                            <span class="userDesc">
+                                Seller’s legal information
+                            </span>
+                            <span class="viewUserInfo">
+                                <i class="sh-iconset sh-iconset-chevron"></i>
+                            </span>
+                        </div>
+                    </div>
+                    {/businessGuid}
+                {/hasBsfFeature}
+                <div class="fullWidth checkout disabled">
+                    <button class="button-primary {@gt key=qty value=0}active{/gt}">
+                        <span class="buyText">Checkout</span>
+                    </button>
+                </div>
+                {?hasFaceValueFeature}
+                    <div class="faceValueInfo originPrice">
+                        Face value (each):&nbsp;
+                        <span class="faceValue">
+                            {?faceValue}
+                                {@format value=faceValue.amount style="money" currency=faceValue.currency /}
+                            {:else}
+                                {@format value=0 style="money" currency=currentPrice.currency /}
+                            {/faceValue}
+                        </span>
+                    </div>
+                {/hasFaceValueFeature}
+                {?ticketClass}
+                    <div class="ticketClassInfo">
+                        <i class="sh-iconset sh-iconset-alert-1"></i>
+                        <span class="ticketClass">
+                            {ticketClass}
+                        </span>
+                    </div>
+                {/ticketClass}
+            {:else}
+                {@eq key=gc.country value="de"}
+                    <div class="serviceFee-container">
+                        <div class="row">
+                            <div class="feestext">Service fee</div>
+                            <div class="pricecellbottom">
+                                <span class="dollar-value">{@format value=5 style="money.full" currency=currency substyle="style1" /}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sliceLine"></div>
+                {/eq}
+                {! Is not Toggle. ie., is control/default !}
+                {@eq key=gc.country value="de"}
+                <div class="totalcost-container">
+                    <div class="row">
+                        {?hasFaceValueFeature}
+                            <div class="feestext">Includes our service fee, delivery, and VAT.</div>
+                        {:else}
+                            <div class="feestext">Fees included</div>
+                        {/hasFaceValueFeature}
+                        <div class="pricecellbottom">
+                            {#currentPrice}
+                                <span class="dollar-value">{@format value=totalCost style="money.full" currency=currency substyle="style1" /}</span>
+                            {/currentPrice}
+                        </div>
+                    </div>
+                </div>
+                {/eq}
+                {?hasBsfFeature}
+                    {?businessGuid}
+                    <div class="sellerInfo">
+                        <div class="sellerInfoWrapper">
+                            <span class="userDesc">
+                                Seller’s legal information
+                            </span>
+                            <span class="viewUserInfo">
+                                <i class="sh-iconset sh-iconset-chevron"></i>
+                            </span>
+                        </div>
+                    </div>
+                    {/businessGuid}
+                {/hasBsfFeature}
+                <div class="fullWidth checkout">
+                    <button class="button-primary active">Checkout</button>
+                </div>
+                {?hasFaceValueFeature}
+                    <div class="faceValueInfo originPrice">
+                        Face value (each):&nbsp;
+                        <span class="faceValue">
+                            {?faceValue}
+                                {@format value=faceValue.amount style="money" currency=faceValue.currency /}
+                            {:else}
+                                {@format value=0 style="money" currency=currentPrice.currency /}
+                            {/faceValue}
+                        </span>
+                    </div>
+                {/hasFaceValueFeature}
+                {?ticketClass}
+                    <div class="ticketClassInfo">
+                        <i class="sh-iconset sh-iconset-alert-1"></i>
+                        <span class="ticketClass">
+                            {ticketClass}
+                        </span>
+                    </div>
+                {/ticketClass}
+            {/gt}
+            </div>
+            <div class="disclosureInfo">
+                {@gt key=listingAttributeList.length value=0}
+                   {#listingAttributeList}
+                        {@if test="(valueType == 'add' || valueType == 'sub') && featureIcon != 'none'"}
+                            <div class="listingattribute">
+                                <i class="sh-iconset sh-iconset-{featureIcon}"></i>{listingAttribute}
+                            </div>
+                        {/if}
+                    {/listingAttributeList}
+                 {/gt}
+
+                <div class="listingattribute more">
+                    {@gt key=iconCounts.uncategorized value=0}
+                        <i class="sh-iconset sh-iconset-alert-1"></i>
+                    {/gt}
+                    {#listingAttributeList}
+                        {@eq key=valueType value="none"}
+                            {listingAttribute}</div><div class="listingattribute more">
+                        {/eq}
+                    {/listingAttributeList}
+                </div>
+            </div>
+        </div>
+        <div class="side-vfs hide">
+            <img />
+            <span class="sh-iconset sh-add expand-vfs-button"></span>
+        </div>
+    </div>
+</div>
+
+<div class="ticket-item-error hide">
+    <h3 class="header">SORRY</h3>
+    <div class="message">It looks like somebody already grabbed that ticket.</div>
+</div>
+<div class="spinner hide"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>

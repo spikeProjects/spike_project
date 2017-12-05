@@ -1,0 +1,67 @@
+@import "common";
+@import "../utils/mixins";
+
+.filter-wrapper {
+    .qtyhdr {
+        color: $white;
+        position: relative;
+        display: inline-block;
+        float: right;
+        margin-right: 12px;
+
+        button {
+            @include button;
+            padding: 0 5px;
+            background-color: $selected-blue;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        button.applyQuantity {
+            @include applyQuantity;
+        }
+
+        #qtyselector {
+            position: absolute;
+            top: 5px;
+            padding: 0;
+            height: 27px;
+            left: 0;
+            opacity: 0;
+            font-size: $font-size-14;
+        }
+
+        i {
+            margin-left: 5px;
+            position: relative;
+            top: -2px;
+        }
+    }
+    .filterButton {
+        position: relative;
+        left: 50%;
+
+        i {
+            position: relative;
+            left: -58px;
+            margin-left: 5px;
+        }
+        .bluetext {
+            color: $selected-blue;
+        }
+
+        #price-filter-txt {
+            top: -2px;
+            position:relative;
+        }
+    }
+
+    .ticketQty {
+        position: relative;
+        left: 20px;
+    }
+
+    .filterTitle {
+        height: 100%;
+    }
+}

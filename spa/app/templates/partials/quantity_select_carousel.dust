@@ -1,0 +1,20 @@
+<div {?filterId} id='{filterId}' {/filterId} {?filterClass}class='{filterClass}'{/filterClass}>
+    {#quantityFilter.buttons}
+    {@select key=label}
+        {@eq value="+"}
+            <span {?id} id='{id}' {/id} class='qty-button-scroll {buttonClass} {buttonState}' >
+                {>"/*@echo appNameVersioned*//partials/icon-svg-plus"/}
+            </span>
+        {/eq}
+        {@eq value="-"}
+            <span {?id} id='{id}' {/id} class='left-nav qty-button-scroll {buttonClass} {buttonState}'>
+                {>"/*@echo appNameVersioned*//partials/icon-svg-minus"/}
+            </span>
+        {/eq}
+        {@default}
+            <div {?id} id='{id}' {/id} class='qty_index {buttonClass} {buttonState}' data-value='{value}'>{label}</div>
+        {/default}
+    {/select}
+    {/quantityFilter.buttons}
+
+</div>

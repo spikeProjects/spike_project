@@ -1,0 +1,41 @@
+.drawer-container {
+    height: 500px;
+    width: 300px;
+    background-color:gray;
+    position: relative;
+}
+
+.drawer-object {
+    width:100%;
+    background-color: #550011;
+    position: absolute;
+    bottom: 0px;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.drawer-buttons {
+    z-index: 2;
+}
+.drawer-nav-down, .drawer-nav-up {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+}
+.drawer-nav-down:hover, .drawer-nav-up:hover {
+    background-color: #fff000;
+}
+.open {
+    height: 0%;
+}
+
+.split {
+    height: 50%;
+}
+
+.close {
+    height: 90%;
+}

@@ -1,0 +1,104 @@
+/*app-name*/
+
+$app-name: "app-eventpage-splitscreen-2.0.15";
+
+/*common fonts*/
+$font-family-primary: Interstate, HelveticaNeue, Helvetica, Roboto, Segoe, Arial, Sans-Serif;
+$font-family-secondary: HelveticaNeue, Helvetica, Roboto, Segoe, Arial, Sans-Serif;
+
+/*font-sizes*/
+$font-size-3: 3px;
+$font-size-4: 4px;
+$font-size-5: 5px;
+$font-size-6: 6px;
+$font-size-7: 7px;
+$font-size-8: 8px;
+$font-size-10: 10px;
+$font-size-11: 11px;
+$font-size-12: 12px;
+$font-size-13: 13px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-22: 22px;
+$font-size-24: 24px;
+$font-size-30: 30px;
+$font-size-32: 32px;
+
+$baseFontSize: 14px;
+
+$fontSizeXXXLarge: 2.286em; // ~32px
+$fontSizeXXLarge: 2em; // ~28px
+$fontSizeXLarge: 1.667em; // ~23px
+$fontSizeLarge: 1.5em; // ~21px
+$fontSizeMedium2: 1.33em; // ~18px
+$fontSizeMedium1: 1.143em; // ~16px
+$fontSizeNormal: 1em; // ~14px
+$fontSizeSmall: 0.917em; // ~12px
+$fontSizeXSmall: 0.833em; // ~11px
+$fontSizeXXSmall: 0.667em; // ~9px
+
+/*common colors*/
+$dark-gray: #222;
+$medium-gray: #333;
+$subtext-gray: #c3c3c3;
+$light-gray: $color-ui-dark;
+$deliver-gray: $color-ui-xdark;
+$border-gray: #ddd;
+$dashed-gray: #c1c1c1;
+$border-gray-light: #ccc;
+$border-blue: #0854AB;
+$gunmetal-gray: #bdc0c5;
+$highlight-gray: #eaeaea;
+$background-gray: $color-core-background;
+$background-white: rgba(255,255,255,1);
+$icon-gray: #9b9b9b;
+$expand-gray-light: rgba(87,87,87, 0.5);
+$expand-white: rgba(255, 255, 255, 0.8);
+$expand-gray-dark: rgba(87, 87, 87, 1);
+$expand-white-dark: rgba(255, 255, 255, 1);
+$color-core-tertiary-background: rgba(0, 166, 160, 0.05);
+
+$highlight-primary: $color-ui-xxlight;
+$stubhub-orange: #F26516;
+$text-orange: #DC591B;
+$border-orange: #f36719;
+$border-light-blue: #159adb;
+$marker-dark-orange: #F06823;
+$border-dark-blue: #36A7DE;
+
+$white: #fff;
+$black: #000;
+
+$stubhub-blue: #003f87;
+$header-blue: #003168;
+$dark-blue: #2391DB;
+$link-color: $color-text-links;
+$border-color: #E7EAEC;
+$primary-blue: #2290DA;
+$selected-blue: $color-text-links;
+$border-gray-new: #bababa;
+
+$color-ui-secondary: #d92b79;
+
+$background-color: #E7EAEC;
+$background-dark-gray: #e8e8e8;
+
+$ep-details-background: #fafafa;
+$ep-eventheader-datebackground: #E7EAEC;
+$ep-eventinfo-height: 74px;
+$ep-eventinfo-border: 1px;
+
+$tablet-size: 768px;
+$desktop-size: 1200px;
+$screen-width-small: 767px;
+
+$pip-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+$box-shadow: 0 2px 4px rgba(136, 136, 136, 0.6);
+$bluenew-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+$border-radius-default: 2px;
+
+
+/* svgs as background */
+$background-slashes: url('#{$img_path}/bkg-repeat-slash.svg') repeat-x;

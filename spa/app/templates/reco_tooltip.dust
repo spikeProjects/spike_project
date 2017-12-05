@@ -1,0 +1,31 @@
+<div id='recotooltip'>
+    <div class="ttMessage">
+        <div class="barssection">
+            <div class="allbars">
+                <div class="valuecell">
+                    <div class="valuebarimage valuebar1"></div>
+                </div>
+                <div class="valuecell">
+                    <div class="valuebarimage valuebar2"></div>
+                </div>
+                <div class="valuecell">
+                    <div class="valuebarimage valuebar3"></div>
+                </div>
+                <div class="valuecell">
+                    <div class="valuebarimage valuebar4"></div>
+                </div>
+                <div class="valuecell">
+                    <div class="valuebarimage valuebar5"></div>
+                </div>
+            </div>
+            <div class="arrow">
+                <div class="arrowtail"></div>
+                <i class="sh-iconset sh-iconset-expand arrowright"></i>
+            </div>
+            <div class="arrowMessage">{@i18n key="event.common.ticketreco.bestvalue" /}</div>
+        </div>
+        <div class="message">{@i18n key="event.common.bestValue.tooltipMessage" /}</div>
+        <div class="closeTooltip">{@i18n key="event.common.recotooltip.close" /}</div>
+        </div>
+    </div>
+</div>

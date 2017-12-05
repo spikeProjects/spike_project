@@ -1,0 +1,6 @@
+<div id="sortfilter-selector">
+    <div class="sortfilter-selector-cont">
+        <div class="sortfilter-filter-icon"><span class="filter-icon"><i class="sh-iconset sh-iconset-settings"></i></span></div>
+        <div class="sortfilter-close-icon hide"><span class="close-icon"><span class="sh-iconset-close"></span></span></div>
+    </div>
+</div>

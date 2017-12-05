@@ -1,0 +1,184 @@
+<div class="byo-event-info">
+    <div class="event-meta">
+        {>date_stamp_template dateType="standard" isTBD=displayAttributes.hideEventDate dateLocal=eventDateLocal /}
+    </div>
+    <div class="event-details">
+        <div class="event-details-box">
+            <h1 class="header">{eventNameLinked|s}</h1>
+            <div class="event-location-info">
+                <span class="event-time">
+                {#displayAttributes.hideEventTime}
+                    {@i18n key="event.common.tbd.text"/}
+                {:else}
+                    {@format value=eventDateLocal style="time" /}
+                {/displayAttributes.hideEventTime}
+                </span>
+                <span> {@i18n key="event.common.at.text" /} </span>
+                {#venue.webURI}
+                    <a class="venue" href="/{venue.webURI}" target="_blank"><span class="event-venue">{venue.name}</span></a>
+                {:else}
+                    <span class="event-venue">{venue.name}</span>
+                {/venue.webURI}
+                {@i18n key="event.common.location.in" /}
+                <span class="event-location">{?showVenuePostCode} {venue.postalCode} {venue.locality}{:else} {venue.locality}, {venue.state}{/showVenuePostCode}</span>
+            </div>
+        </div>
+    </div>
+    <div class="separator"></div>
+</div>
+
+<div class="upgraded-wrapper {^globals.upgradeTicket.isTicketUpgraded}hide{/globals.upgradeTicket.isTicketUpgraded}">
+    <hr></hr>
+    <div class="upgraded-text">{@i18n key="event.byoListingInfo.upgradetext"/}</div>
+</div>
+<div class="listing-info-wrapper">
+    <div class="selected-hdr">{@i18n key="event.byoListingInfo.listing.selectedseats" /}</div>
+    <div class="current-listing">
+        <div class="listing-header">
+            <div class="sectionhdr">{@i18n key="event.common.byo.listing.section.text" /}</div>
+            <div class="rowhdr">{@i18n key="event.common.byo.listing.row.text" /}</div>
+            <div class="seathdr">{@i18n key="event.common.byo.listing.seat.text" /}</div>
+        </div>
+        <div class="listing-details">
+            <div class="sectioncell">
+                {@if test="sectionName == 'General Admission' && seats[0].seatNumber == 'General Admission'"}
+                    {@i18n key="event.common.ticket.ga"/}
+                {:else}
+                    {sectionName}
+                {/if}
+            </div>
+            <div class="rowcell">{seats[0].row}</div>
+            <div class="seatcell">
+                {>"/*@echo appNameVersioned*//partials/seat_number_tooltip"/}
+            </div>
+        </div>
+        <div class="moreinfo">
+            <div class="seatinfo">
+                {@eq key=seats[0].seatNumber value="General Admission"}
+                    <div class="seat-info-text"><span class="noseatInfo"></span></div>
+                {:else}
+                    {>"/*@echo appNameVersioned*//partials/seat_numbers" /}
+                {/eq}
+            </div>
+
+            <div class="seat-feature {@eq key=features.length value=0 type=number} hide{/eq}">
+                {@gt key=features.length value=0}
+                    <div class="seat-feature-header">{@i18n key="event.common.byo.listing.features" /}</div>
+                {/gt}
+
+                <div class="feature-disclosures">
+                    <div class="featureIcons ep-sh-iconset">
+                        {@gt key=features.length value=0}
+                            {#features}
+                                {@math key="{$idx}" method="abs"}
+                                    <div class="features {@gte value=3}more-features hide{/gte}">
+                                        <div class="feature-icon">
+                                            {@ne key=featureIcon value="none"}
+                                                <i class="sh-iconset sh-iconset-{featureIcon}"></i>
+                                            {/ne}
+                                            {?displayAlertIcon}
+                                                {>"/*@echo appNameVersioned*//partials/icon-svg-disclosure"/}
+                                            {/displayAlertIcon}
+                                        </div>
+                                        <div class="feature-name">{listingAttribute}</div>
+                                    </div>
+                                {/math}
+                            {/features}
+                        {/gt}
+                    </div>
+                </div>
+            </div>
+
+            <div class="see-more-container {@lte key=features.length value=3} hide {/lte}">
+                <div class="see-more-separator"></div>
+                <div class="see-more-byo">
+                    <span class="see-more-text">{@i18n key="event.common.byo.seemore"/}</span>
+                    <span class="see-more-icon"> + </span>
+                </div>
+            </div>
+
+            <div class="dash-separator"></div>
+
+            <div class="delivery-container">
+                <div class="delivery-header">{@i18n key="event.common.byo.listing.delivery"/}</div>
+                <div class="delivery-info">
+                {@select key=deliveryType[0].id}
+                    {@eq value=1}
+                        {deliveryType[0].deliveryAttribute}
+                        <span class="delivery-date"></span>
+                    {/eq}
+                    {@eq value=2}
+                        {@i18n key="event.common.byo.listing.instantdelivery"/}
+                    {/eq}
+                    {@default}
+                        {@if test="deliveryType.length == 1 && deliveryType[0].id == 4"}
+                            {@i18n key="event.common.byo.listing.pickupdelivery"/}
+                        {:else}
+                            {@i18n key="event.common.delivery.ups"/}
+                            <span class="delivery-date"></span>
+                        {/if}
+                    {/default}
+                {/select}
+                </div>
+            </div>
+            <div class="dash-separator"></div>
+        </div>
+    </div>
+
+    <div class="checkout-summary">
+        <div class="listing-summary">
+            <div class="total-cont">
+                <div class="ticket-price">{@i18n key="event.common.byo.listing.ticketprice"/}</div>
+                <div class="amount">{@format value=usePrice.amount style="money" currency=usePrice.currency substyle="style1"/}</div>
+                <div class="each">{@eq key=globals.event_meta.country value="CA"}{usePrice.currency}/{/eq}{@i18n key="event.common.byo.listing.each"/}</div>
+            </div>
+
+            <div class="qty-container">
+                <div class="qty-text">{@i18n key="event.byoListingInfo.listing.qtyheader"/}</div>
+                {@gt key=splitVector.length value=1}
+                    <div class="qty-box">
+                        <span class="selected-qty">
+                        </span>
+                        <span class="qty-arrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+                    </div>
+                    <select class="byo-quantity">
+                        {#splitVector}
+                            {@eq key="{.}" value=1}
+                                <option value="{.}">{.} {@i18n key="event.common.ticket.text"/}</option>
+                            {:else}
+                                <option value="{.}">{.} {@i18n key="event.common.tickets.text"/}</option>
+                            {/eq}
+                        {/splitVector}
+                    </select>
+                {:else}
+                    <div class="ticket-qty">
+                        {@eq key=quantity value=1}
+                            <span class="qty">{quantity} {@i18n key="event.common.lowercase.ticket.text"/}</span>
+                        {:else}
+                            <span class="qty">{quantity} {@i18n key="event.common.lowercase.tickets.text"/}</span>
+                        {/eq}
+                    </div>
+                {/gt}
+            </div>
+        </div>
+
+        <div class="dash-separator"></div>
+
+        <div class="total-parking-container"></div>
+
+    </div>
+</div>
+
+<div class="blurred-text hide">
+    <div class="blurred-image"></div>
+</div>
+
+<div class="checkout listing-checkout {?globals.byo.upsellAccordion} hide {/globals.byo.upsellAccordion}"><button class="button_primary active">{@i18n key="event.common.gotoCheckout.text" /}</button></div>
+{! <div class="addtocart byo-add-button hide"><button class="button_primary">{@i18n key="event.byoListingInfo.listing.addtocart" /}</button></div> !}
+{?superbowlStaticImage}
+    <img class="static-image message" src="{superbowlStaticImage.imageUrl}" alt="{superbowlStaticImage.imageAlt}"/>
+{/superbowlStaticImage}
+{?globals.displayVisaCheckout}
+    <div class="message">{@i18n key="event.byoListingInfo.listing.visacheckout" /} {! VISACHECKOUT is discount code so does not need translation!}<span class="bold">VISACHECKOUT</span>.</div>
+    <div class="message disclaimer"><span class="small">*</span>{@i18n key="event.byoListingInfo.listing.visacheckout.disclaimer" /}</div>
+{/globals.displayVisaCheckout}

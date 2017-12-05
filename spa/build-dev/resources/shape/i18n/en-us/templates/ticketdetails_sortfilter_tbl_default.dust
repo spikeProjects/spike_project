@@ -1,0 +1,28 @@
+<div class="sortfilter-tbl">
+    <div class="sectioncell{?gc.isAddParking} byo-add-parking{/gc.isAddParking}">
+    {@if test="sectionName == 'General Admission' && seatNumbers == 'General Admission'"}
+        General Admission
+    {:else}
+        {sectionName}
+    {/if}
+    </div>
+    {^gc.isAddParking}
+        <div class="rowcell {?globals.event_meta.isParking}invisible{/globals.event_meta.isParking}">{seats[0].row}</div>
+    {/gc.isAddParking}
+    <div class="qtycell">
+    {?gc.isAddParking}
+        {qty}
+    {:else}
+        {@gt key=splitVector.length value=1 type="number"}
+            {splitVector[0]}-{quantity}
+        {:else}
+            {quantity}
+        {/gt}
+    {/gc.isAddParking}
+    </div>
+    <div class="pricecell">
+        {#usePrice}
+            {>"/*@echo appNameVersioned*//ticketdetails_price" eachText="/ea" /}
+        {/usePrice}
+    </div>
+</div>

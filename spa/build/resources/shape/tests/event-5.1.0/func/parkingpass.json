@@ -1,0 +1,68 @@
+{
+  "ListingResponse": {
+    "listing": {
+      "listingId": 1188447229,
+      "eventId": 9543798,
+      "eventName": "PARKING PASSES ONLY Rascal Flatts Shoreline Amphitheatre Parking Lots Tickets - Buy and sell PARKING PASSES ONLY Rascal Flatts Mountain View Tickets for July 7 at Shoreline Amphitheatre Parking Lots in Mountain View, CA on StubHub!",
+      "currencyCode": "USD",
+      "totalTickets": 5,
+      "currentPrice": {
+        "amount": 37.88,
+        "currency": "USD"
+      },
+      "sectionId": 1385174,
+      "sectionName": "Premier Parking Lot",
+      "row": "VIP",
+      "quantity": 4,
+      "sellerSectionName": "Premier Parking Lot",
+      "seatNumbers": "2,3,4,5",
+      "zoneId": 219911,
+      "zoneName": "Premier Parking",
+      "splitOption": 1,
+      "ticketSplit": 1,
+      "splitVector": "1,2,3,4",
+      "listingAttributesList": [],
+      "deliveryMethods": [
+        {
+          "id": 22,
+          "name": "UPS Worldwide",
+          "estimatedDeliveryTime": 1467667582887,
+          "deliveryPrice": {
+            "amount": 5.25,
+            "currency": "USD"
+          },
+          "accurateDeliveryDateTime": "2016-07-06T12:00:00-07:00"
+        },
+        {
+          "id": 23,
+          "name": "UPS Next Business Day PM",
+          "estimatedDeliveryTime": 1467667582887,
+          "deliveryPrice": {
+            "amount": 5.25,
+            "currency": "USD"
+          },
+          "accurateDeliveryDateTime": "2016-07-05T12:00:00-07:00"
+        },
+        {
+          "id": 25,
+          "name": "UPS Next Business Day AM",
+          "estimatedDeliveryTime": 1467667582887,
+          "deliveryPrice": {
+            "amount": 5.25,
+            "currency": "USD"
+          },
+          "accurateDeliveryDateTime": "2016-07-05T12:00:00-07:00"
+        }
+      ],
+      "isPaypalAvailable": 1,
+      "dirtyTicketInd": 0,
+      "displayPricePerTicket": {
+        "amount": 49.95,
+        "currency": "USD"
+      },
+      "isStudentTicket": "N",
+      "isEPLClubPolicyEvent": "N",
+      "listingSource": 10
+    }
+  }
+}

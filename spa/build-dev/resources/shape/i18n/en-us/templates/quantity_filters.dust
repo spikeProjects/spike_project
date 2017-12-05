@@ -1,0 +1,5 @@
+<div id="qty_filter_header">
+    <div class="qty_header">HOW MANY TICKETS?</div>
+    {>"/*@echo appNameVersioned*//partials/quantity_select_carousel"/}
+</div>
+<div id="no_event_listings" class="hide">We don't have any listings available for this event right now.</div>

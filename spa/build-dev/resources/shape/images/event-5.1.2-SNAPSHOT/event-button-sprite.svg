@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="578" height="98">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#0fffff" id="canvas_background" height="100" width="580" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <rect stroke="#000" id="svg_1" height="96.000009" width="575.999975" y="1.75" x="0.75" fill="#36a7de"/>
+ </g>
+</svg>
+
+<symbol id="icon-minus" viewBox="0 0 1024 1024">
+    <title>minus</title>
+    <path class="icon-minus-path1">
+      <g>
+       <rect stroke="#000" id="svg_1" height="96.000009" width="575.999975" y="1.75" x="0.75" fill="#36a7de"/>
+      </g>
+    </path>
+</symbol>

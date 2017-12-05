@@ -1,0 +1,13 @@
+{?mapTakeover}
+    <div id="arrowButton" class="drawer-buttons">
+        <span class="drawer-nav-up">
+            <span class="label">{@i18n key="event.common.layout.map.drawer.control.close.text" /}</span>
+            <span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span></span>
+        <span class="drawer-nav-down">
+            <span class="label">{@i18n key="event.common.layout.map.drawer.control.open.text" /}</span>
+            <span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span></span>
+        <span class="drawer-nav-split"></span>
+    </div>
+{:else}
+    <div id="arrowButton"><i class="sh-iconset sh-iconset-expand"></i></div>
+{/mapTakeover}

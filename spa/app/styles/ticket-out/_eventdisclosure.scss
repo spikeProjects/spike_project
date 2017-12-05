@@ -1,0 +1,106 @@
+@import "common";
+@import "../utils/mixins";
+
+/* Event disclosure styles */
+#eventDisclosure {
+    width: 300px;
+    min-width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+        &.disclosureOverlayAnimate {
+        opacity: 1;
+        visibility: visible;
+        z-index: 5000;
+        @include transform(scale(1) translate(-50%, -50%));
+        -webkit-filter: none;
+        filter: none;
+    }
+
+    /* Super Bowl styles */
+    &.sb-et {
+        @media only screen and (min-width: $tablet-size) {
+            width: 600px;
+            max-width: 600px;
+            height: 600px;
+
+            button {
+                width: 350px;
+                height: 50px;
+                /*for centering a relative positioned div*/
+                left: 50%;
+                margin-left: -175px;
+            }
+        }
+
+        #disclosure_container {
+            @media only screen and (min-width: $tablet-size) {
+                padding: 0px 15px 15px 15px;
+            }
+        }
+
+        #disclosure_message {
+            max-height: 188px;
+            top: 0px;
+            @media only screen and (min-width: $tablet-size) {
+                max-height: 235px;
+            }
+        }
+        .superbowl-header {
+            width: 100%;
+            height: 132px;
+            background-image: url('/cms/content-content/app-eventpage-splitscreen/images/superbowl-hdr-mobile.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            @media only screen and (min-width: $tablet-size) {
+                height: 253px;
+                background-image: url('/cms/content-content/app-eventpage-splitscreen/images/superbowl-hdr-tablet.png');
+            }
+            
+        }
+    }
+}
+
+#disclosure_container {
+    background-color: $white;
+    max-height: 430px;
+    margin: 0px auto;
+    padding: 15px;
+    position: relative;
+    color: $medium-gray;
+
+    #disclosure_header {
+        position: relative;
+        top: 0;
+        text-align: left;
+        font-size: $font-size-14;
+        font-weight: bold;
+
+        .sh-iconset-flag {
+            margin: 0 5px 5px 0;
+        }
+    }
+
+    #disclosure_message {
+        position: relative;
+        top: 10px;
+        max-height: 320px;
+        margin-bottom: 25px;
+        overflow: auto;
+        font-size: $font-size-12;
+    }
+
+    button {
+        color: $white;
+        position: relative;
+        bottom: 0;
+        background-color: $color-core-secondary;
+    }
+}
+
+@media only screen and (min-width: $tablet-size) {
+    #eventDisclosure {
+        width: 400px;
+        max-width: 400px;
+    }
+}

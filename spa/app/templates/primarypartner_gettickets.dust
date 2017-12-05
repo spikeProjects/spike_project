@@ -1,0 +1,6 @@
+<div id="partner-gettickets" class="hide partner-gettickets">
+    <h3 class="message">{@i18n key="event.common.msg.seealltickets.heading" /}</h3>
+    <div class="information">{@i18n key="event.primarypartner.gettickets.information.text" /}</div>
+    <button class="button-secondary see-upcoming-events-button">{@i18n key="event.common.gettickets.seetickets.text" /}</button>
+    <button class="button-white see-partner-tickets-button">{@i18n key="event.primarypartner.gototheteampage.button.text" /}</button>
+</div>

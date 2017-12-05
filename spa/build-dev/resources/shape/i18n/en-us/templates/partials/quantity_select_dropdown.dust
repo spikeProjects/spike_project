@@ -1,0 +1,16 @@
+<div class='evt-dropdown'>
+    <select id="{filterId}" class="{filterClass}">
+        <option value="-1">All tickets</option>
+        {#quantityFilter.buttons}
+            {@select key=value}
+                {@eq value="1"}
+                    <option {?id} id='{id}' {/id} class='qty_index {buttonClass} {buttonState}' {@eq key=buttonState value="selectQty"} selected='selected' {/eq}  data-value='{value}' value="{value}">{label} Ticket</option>
+                {/eq}
+                {@default}
+                    <option {?id} id='{id}' {/id} class='qty_index {buttonClass} {buttonState}' {@eq key=buttonState value="selectQty"} selected='selected' {/eq} data-value='{value}' value="{value}">{label} Tickets</option>
+                {/default}
+            {/select}
+        {/quantityFilter.buttons}
+    </select>
+    <span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>
+</div>

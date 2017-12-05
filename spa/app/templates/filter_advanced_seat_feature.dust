@@ -1,0 +1,25 @@
+{@eq key=globals.event_meta.isParking value="false" type="boolean"}
+<div id="seatfeature-cont" class="dropdown-cont" tabindex="0">
+    <div id="seatfeatureHeader" class="seatfeature-header">{@i18n key="event.common.filters.seatfeatures.text"/}
+        <span class="filter-feature-arrow">
+            <span class="down-arrow">{>"/*@echo appNameVersioned*//partials/icon-svg-downarrow"/}</span>
+            <span class="up-arrow hide">{>"/*@echo appNameVersioned*//partials/icon-svg-uparrow"/}</span>
+        </span>
+    </div>
+    <div class="filter-accordion hide">
+        <ul id="seatfeature-dropdown">
+            {#seatTraits}
+                <li {@eq key=checked value="true"}class="selected"{/eq}>
+                    <label class="checkbox-label">
+                        <div class="checkbox-icon" data-name="seatfeature" data-id="{id}" data-category="{category}" data-category-id="{categoryId}"></div>
+                        {@ne key=iconset value=""}
+                            <i class="sh-iconset {iconset}"></i>
+                        {/ne}
+                        <div class="checkbox-text">{category}</div>
+                    </label>
+                </li>
+            {/seatTraits}
+        </ul>
+    </div>
+</div>
+{/eq}

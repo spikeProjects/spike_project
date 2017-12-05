@@ -1,0 +1,19 @@
+{
+  "name": "jquery_drawer",
+  "version": "1.0.0",
+  "description": "StubHub Common UI Platform Component library",
+  "scripts": {},
+  "repository": "Stubhub/app-eventpage-splitscreen",
+  "author": {
+    "name": "Kody Smith",
+    "email": "kodsmith@stubhub.com"
+  },
+  "contributors": {
+
+  },
+  "engines": {
+    "node": "4.x"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

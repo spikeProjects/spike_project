@@ -1,0 +1,64 @@
+<div id="eventParkingHeader" class="{^gc.isAddParking}hide{/gc.isAddParking}">
+    <H3><div class="back-button"><i class="sh-iconset sh-iconset-headerback"></i></div><span class="header">ADD PARKING</span></H3>
+    <span class="close-icon">
+        <i class="sh-iconset sh-iconset-close"></i>
+    </span>
+</div>
+
+<div id="event_layout">
+    <div id="eventMapContainer">
+        <div id="large-vfs" class="hide"></div>
+        <div id="seatmap"></div>
+        <div id="small-vfs" class="hide"></div>
+        <div id="seatmap-zone-section" class="hide">
+            <div>
+                <label for="section-zone-checkbox" class="switch-label zone">Zone</label>
+                <span class="switch">
+                    <input class="toggle-switch" id="section-zone-checkbox" type="checkbox" value="zones" {?zonesEnabled}checked{/zonesEnabled}/>
+                    <label for="section-zone-checkbox"></label>
+                </span>
+                <label for="section-zone-checkbox" class="switch-label section">Section</label>
+                <span class="reset-map {^sidzidApplied}hide{/sidzidApplied}"><i class="sh-iconset sh-iconset-maprefresh"></i></span>
+            </div>
+        </div>
+        <div id="seatmap-tooltip" class="hide"></div>
+        <div id="window-vfs" class="hide">
+            <img />
+            <span class="sh-iconset sh-close close-button"></span>
+        </div>
+    </div>
+    <div id="eventContainer">
+        <div id="arrowButton"><i class="sh-iconset sh-iconset-expand"></i></div>
+        <div id="sortfilter_header" class="sortfilter-tblhdr hide"></div>
+        {?singleTicketMode}
+            <div id="single-ticket">
+                <div class='spinner'><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+            </div>
+        {/singleTicketMode}
+
+        <div id="ticketlist" {?singleTicketMode}class="hide"{/singleTicketMode} tabindex="0"></div>
+        <div class="bottom-container">
+            <div id="ticketlist_footer" class="hide"></div>
+            <div id="filter" class="hide"></div>
+            {?showServiceFeeInfo}
+            <div class="serviceFeeInfo">
+                <div class='sh-icons sh-info'></div>
+                <div class='infoContainer'>All prices are set by sellers, include VAT, may vary from face value and do not include service fees unless explicitly mentioned</div>
+            </div>
+            {/showServiceFeeInfo}
+        </div>
+        <div class="modal-overlay-cover"></div>
+    </div>
+    <div id="event-byo-container" class="hide">
+        {?isBYOEnabled}
+        {>"/*@echo appNameVersioned*//build_your_order" /}
+        {/isBYOEnabled}
+    </div>
+    {>"/*@echo appNameVersioned*//dataready_error" /}
+</div>
+
+{?hasBsfFeature}
+<div id="bsf"></div>
+{/hasBsfFeature}
+
+<div id="quantityfilter" class="quantityOverlay hide"></div>

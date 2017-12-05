@@ -1,0 +1,4 @@
+<div id="event_error" class="error hide">
+	<div class="somethingwrong">Looks like it's too late for this event. We hope you find something that comes close!</div>
+	<div class="findmoretickets"><a href="/" class="findmorelink" rel="external">Find more events</a></div>
+</div>

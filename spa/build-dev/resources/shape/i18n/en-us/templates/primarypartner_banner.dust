@@ -1,0 +1,12 @@
+<div class="partner-banner {@eq key=isHost value="true" type="boolean"}host{/eq}">
+    <div class="partner-logo">
+        <span class="partner-logo-iconset sh-iconset sh-iconset-primarypartner {^isHost}hide{/isHost}"></span>
+    </div>
+    <div class="partner-information">
+        <div class="partner-information-details">
+                <div class="partner-designation">{designation}</div>
+                <div class="partner-gettickets-banner hide"><a rel="external" href="#" class="see-partner-tickets-link" target="_blank">Get more tickets for<span class="primaryPerformer"></span></a></div>
+        </div>
+    </div>
+    <div class="partner-performer-logo"></div>
+</div>

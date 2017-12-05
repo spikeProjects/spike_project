@@ -1,0 +1,635 @@
+@import "../utils/mixins";
+@import "common";
+@import "tooltips";
+@import "flexBoxAlternatives";
+
+/***** FILTER VIEW *******/
+body {
+    &.overlay-active {
+        #filter {
+            padding-bottom: 0;
+            border-radius: 0;
+
+            @media only screen and (max-width: $tablet-size) {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
+
+            &.overlayAnimate {
+                opacity: 1;
+                z-index: 4002;
+            }
+        }
+
+        #event_ga_layout {
+            .bottom-wrapper {
+                position: static;
+                #filter {
+                    position: fixed;
+                }
+                .bottom-container {
+                    position: fixed;
+                }
+            }
+        }
+    }
+}
+
+#filter {
+    opacity: 0;
+    color: $color-text-xdark;
+    background-color: $color-ui-xxlight;
+    min-height: 120px;
+    border: 1px solid $light-gray;
+    border-radius: 2px;
+    width: 100%;
+    min-width: 320px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    padding-right: 15px;
+    .filter-icon {
+        display: none;
+    }
+}
+
+.applyBlue {
+    color: $selected-blue;
+}
+
+.adv-filter {
+    margin: 20px;
+}
+
+.adv-filter-txt {
+    font-size: $font-size-16;
+    text-decoration: line-through;
+}
+
+.coming-soon {
+    color: $color-core-secondary;
+    margin-left: 5px;
+}
+
+#filter-container {
+    // minus filter done button height
+    height: calc(100% - 45px);
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .filter-header {
+        overflow: hidden;
+        font-size: $font-size-16;
+        line-height: 50px;
+        height: 50px;
+        border-top: 1px solid $border-gray-light;
+        border-radius: 2px;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+
+        @media only screen and (min-width: $tablet-size) {
+            position: relative;
+        }
+
+        .filter-title {
+            display: inline-block;
+            opacity: 0.3;
+            position: absolute;
+            right: 47%;
+            @include transform(translateX(50%));
+
+            .filter-icon {
+                .sh-iconset {
+                    padding-right: 14px;
+                    font-size: 7px;
+                }
+            }
+            .filter-txt {
+                vertical-align: top;
+                position: absolute;
+                right: 50%;
+                @include transform(translateX(50%));
+            }
+        }
+        .filter-reset {
+            color: $light-gray;
+            cursor: pointer;
+            vertical-align: middle;
+            padding: 0px 0px 0px 20px;
+        }
+        .filter-submit {
+            color: $link-color;
+            cursor: pointer;
+            /* to remove the focus outline when tab is pressed */
+            outline: none;
+            padding: 0px 20px 0px 0px;
+            vertical-align: middle;
+        }
+    }
+
+    .filter-container {
+        .filter-item {
+            overflow: hidden;
+            padding-bottom: 15px;
+            position: relative;
+            width:100%;
+            .qty-and-filter-ctr {
+                @extend .flex-box-display;
+                flex-direction: column;
+                margin-right: 34px;
+                padding: 40px 0 10px 15px;
+
+                #qty_container {
+                    @extend .evt-dropdown-select-quantity-filter;
+                    .evt-dropdown-select-quantity-filter {
+                        width: inherit;
+                        padding-left: 0px;
+                        font-family: $font-family-secondary;
+                        font-size: 16px;
+                        color: $color-text-xdark;
+                    }
+
+                }
+                select {
+                    color: $color-text-xdark;
+                }
+                .dropdownArrow {
+                    position: absolute;
+                    right: 0px;
+                    margin: 0 0 0 5px;
+                    display: inline-block;
+                    pointer-events: none;
+                    top: -8px;
+                    .sh-iconset {
+                        font-size: 2.3px;
+                        top: 0px;
+                        position: relative;
+                    }
+                }
+                .quantity-filter-header-title {
+                    width: 100%;
+                    color: $color-text-dark;
+                    font-size: 14px;
+                    font-family: $font-family-primary;
+                    top: 10px;
+                    position: relative;
+                    margin-bottom: 10px;
+                }
+
+            }
+        }
+        #quantity-filter {
+            border-bottom: 1px solid $border-gray-new;
+
+            .verticalLine {
+                display: none;
+            }
+
+            #advancedfilter-x-done {
+                background-color: transparent;
+                font-size: $font-size-30;
+                padding: 10px;
+                position: absolute;
+                right: 0;
+                top: -50px;
+                width: auto;
+
+                @media only screen and (min-width: $tablet-size) {
+                    display: none;
+                }
+            }
+        }
+        .label {
+            margin-right: 5px;
+            display: inline-block;
+            font-size: 90%;
+            text-align: right;
+        }
+
+        #qty_filter_mobile.qty_content {
+            margin: 0 auto;
+        }
+        .qty_content {
+            height: 50px;
+            max-width: inherit;
+            margin: 0;
+
+            .filter-mobile-carousel {
+                padding: 0 14px;
+                flex-basis: -moz-max-content;
+                flex-basis: max-content;
+            }
+            .dropdownArrow .sh-iconset {
+                position: absolute;
+                right: 20px;
+                color: #525252;
+                font-size: 4px;
+                padding-top: 10px;
+            }
+
+            ul {
+                text-align: center;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 0 0 5px;
+
+                li {
+                    display: inline-block;
+                    float: left;
+                    @include box-sizing(border-box);
+                    margin: 5px;
+                    font-weight: 500;
+                    font-size: $font-size-20;
+                    perspective: 100;
+                    text-align: center;
+                    line-height: 40px;
+
+                    .qty_index {
+                        width: 40px;
+                        height: 40px;
+                        color: #4d4d4d;
+                        border-radius: 50%;
+                        border: #919191 solid 1px;
+                        font-size: $font-size-20;
+                        @include transition(0.3s);
+                        @include transform-style(preserve-3d);
+
+                        &.selectQty {
+                            background-color: $color-core-tertiary;
+                            border-color: $color-core-tertiary;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .checkbox-label {
+            margin-left: 20px;
+        }
+
+        .fee-option {
+            padding-bottom: 20px;
+
+            &.slider-space {
+                padding-top: 50px;
+            }
+
+            .tblftr-wrapper {
+                margin-top: 15px;
+                text-align: left;
+                vertical-align: middle;
+            }
+        }
+
+        .price-range {
+            overflow: hidden;
+        }
+
+        .filter-item input, .filter-item select {
+            border: 0 none;
+            @include box-sizing(border-box);
+            font-size: $font-size-16;
+            height: 30px;
+            outline: none;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .filter-item input:first-child {
+            padding-left: 0;
+        }
+
+        .lbl-price {
+            padding: 31px 0px 0px 20px;
+        }
+
+        .to-price {
+            position: relative;
+            background-color: $color-ui-xxxlight;
+            border: 1px solid $gunmetal-gray;
+            font-size: $font-size-16;
+            margin: 20px 20px 0px 0px;
+            padding-left: 10px;
+            width: 30%;
+            top: 0px;
+        }
+
+        .lbl-quantity {
+            line-height: 25px;
+            padding-top: 20px;
+            padding-left: 20px;
+        }
+
+        .filter-reset {
+            color: #919191;
+            width: 15%;
+            cursor: pointer;
+        }
+
+        .filter-submit {
+            text-align: center;
+            cursor: pointer;
+            float: right;
+            font-size: $font-size-14;
+            width: 100%;
+            height: 30px;
+        }
+    }
+
+    #seatfeature-cont {
+        padding-top: 0;
+    }
+}
+
+// Seat feature and Delivery
+.filterDropdown {
+    width: 100%;
+
+    display: block;
+    padding-bottom: 120px;
+}
+
+#seatfeature-cont, #delivery-cont {
+    display: block;
+    clear: both;
+    position: relative;
+    padding: 17px 10px 0px 20px;
+    outline: none;
+
+    .seatfeature-header, .delivery-header {
+        border-top: 2px solid $color-ui-xlight;
+        color: $color-text-dark;
+        cursor: pointer;
+        font-family: $font-family-primary;
+        font-size: $font-size-14;
+        padding: 17px 0;
+
+        .sh-iconset {
+            @include center-vertical();
+            position: absolute;
+            right: 20px;
+            color: $deliver-gray;
+            font-size: $font-size-4;
+
+            @media only screen and (min-width: $tablet-size) {
+                font-size: $font-size-3;
+            }
+        }
+
+        .filter-feature-arrow {
+            position: absolute;
+            right: 20px;
+        }
+    }
+
+    .seatfeature-header {
+        border-bottom: 2px solid $color-ui-xlight;
+    }
+
+    .seatfeature-header + .filter-accordion {
+        border-bottom: 2px solid $color-ui-xlight;
+        border-top: none;
+    }
+
+    .filter-accordion {
+        background-color: $color-ui-xxxlight;
+        border-top: 2px solid $color-ui-xlight;
+
+        ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+                font-size: $font-size-14;
+                height: 55px;
+                overflow: visible;
+                padding-left: 15px;
+                position: relative;
+
+                .checkbox-icon, .checkbox-text {
+                    display: inline-block;
+                }
+
+                .checkbox-label {
+                    @include center-vertical();
+                }
+
+                .checkbox-text {
+                    max-width: 90%;
+                }
+
+                i {
+                    margin-right: 10px;
+                }
+
+                .sh-iconset {
+                    color: $color-ui-xdark;
+                }
+
+                &.selected {
+                    color: $dark-gray;
+                    .checkbox-label {
+                        .checkbox-icon {
+                            @include checkboxChecked;
+                            background-color: rgba(26, 199, 199, .10);
+                            border: 2px solid $color-brand-tertiary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-size) {
+    .recoExpSlider {
+        #filter {
+            border-top: none;
+        }
+    }
+
+    #filter {
+        background-color: $background-gray;
+        border: none;
+        border-top: 1pt solid $border-gray-light;
+        border-bottom: none;
+        font-size: $font-size-14;
+        opacity: 1;
+        padding: 0 10px 0 0;
+        right: initial;
+        -webkit-transform: none;
+        transform: none;
+        transition: none 0s ease 0s;
+        height: 100%;
+
+        .filter-icon {
+            display: inline-block;
+            position: relative;
+            left: -25px;
+        }
+
+        #quantity-filter {
+            display: none;
+        }
+
+        #filter-container {
+            .filter-container {
+                .ticketNumFilter {
+                    display:block;
+                }
+
+                .qtyhdr {
+                    color: $white;
+                    position: relative;
+                    display: inline-block;
+                    float: right;
+                    margin-right: 12px;
+                    height: 40px;
+
+                    button {
+                        @include button;
+                        padding: 0 5px;
+                        background-color: $color-core-tertiary;
+                        color: $white;
+                        font-size: $font-size-12;
+                        top: 10px;
+                        position: relative;
+                    }
+
+                    button.applyQuantity {
+                        @include applyQuantity;
+                    }
+
+                    #qtyselector {
+                        line-height: 40px;
+                        position: relative;
+                        top: -16px;
+                        padding: 0;
+                        height: 27px;
+                        left: 0;
+                        opacity: 0;
+                        font-size: $font-size-14;
+                    }
+
+                    i {
+                        margin-left: 5px;
+                        position: relative;
+                        top: -2px;
+                    }
+                }
+                .filterButton {
+                    position: relative;
+                    left: 50%;
+
+                    i {
+                        position: relative;
+                        left: -60px;
+                    }
+                    .bluetext {
+                        color: $selected-blue;
+                    }
+                }
+
+                .ticketQty {
+                    position: relative;
+                    left: 20px;
+                    padding-top: 20px;
+                    top: 10px;
+                    line-height: 20px;
+                }
+
+                .filterTitle {
+                    border-top: 1px solid $border-gray-light;
+                    height: 100%;
+                    .fee-option {
+                        padding-bottom: 20px;
+                    }
+
+                    #price-filter {
+                        margin-top: 20px;
+                        width: 100%;
+                    }
+                    .price-range {
+                        .lbl-price {
+                            position: relative;
+                            top: -5px;
+                            padding: 28px 0 0 20px;
+                        }
+                        .to-price {
+                            height: 30px;
+                            position: relative;
+                            top: 0px;
+                            left: -4px;
+                            line-height: 30px;
+                            margin: 15px 20px 0 0;
+
+                            label {
+                                position: relative;
+                                top: -1px;
+                            }
+                            #eitoPriceTxt {
+                                top: -1px;
+                                position: relative;
+                                height: 20px;
+                            }
+                        }
+                    }
+                    border-top: 1px solid $border-gray-light;
+                    height: 100%;
+                    .fee-option {
+                        padding-bottom: 20px;
+                    }
+
+                    #price-filter {
+                        margin-top: 20px;
+                        width: 100%;
+                    }
+                    .price-range {
+                        .lbl-price {
+                            position: relative;
+                            top: -5px;
+                            padding: 28px 0 0 20px;
+                        }
+                        .to-price {
+                            height: 30px;
+                            position: relative;
+                            top: 0px;
+                            left: -4px;
+                            line-height: 30px;
+                            margin: 15px 20px 0 0;
+
+                            label {
+                                position: relative;
+                                top: -1px;
+                            }
+                            #eitoPriceTxt {
+                                top: -1px;
+                                position: relative;
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//
+//@media only screen and (min-width: $desktop-size) {
+//    #filter {
+//        width: 350px;
+//    }
+//}
+//
+//@media only screen and (max-width: $screen-width-small) {
+//    #filter {
+//        position: fixed;
+//        top: 50%;
+//        left: 50%;
+//    }
+//}

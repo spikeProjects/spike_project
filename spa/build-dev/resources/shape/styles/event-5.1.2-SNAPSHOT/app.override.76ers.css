@@ -1,0 +1,343 @@
+/* -- Brand Core Palette -- */
+/* -- ----------------- -- */
+/* -- Brand Alternative Palette -- */
+/* -- ------------------------- -- */
+/* -- Brand UI Palette -- */
+/* -- ---------------- -- */
+/* -- Brand Status Palette -- */
+/* -- -------------------- -- */
+/* -- Brand Typography Palette -- */
+/* -- ------------------ -- */
+/* events page break points */
+/* stubhub breakpoints */
+/*
+$breakpoint-small: "only screen and (min-width: 320px) and (max-width: 639px)";
+$breakpoint-medium: "only screen and (min-width: 640px) and (max-width: 949px)";
+$breakpoint-large: "only screen and (min-width: 950px) and (max-width: 1280px)";
+$breakpoint-xlarge: "only screen and (min-width: 1281px)";
+*/
+/* Media Query Breakpoints */
+/* Written by GruntFile */
+body > main > #app_container #content_container {
+  height: 100%; }
+body > main > #app_container a {
+  color: #B1CCDF; }
+body > main > #app_container .performer.pid-2746, body > main > #app_container .event-date-weekday {
+  color: #EF0022; }
+body > main > #app_container #event-build-your-order .date-stamp-standard.date-container .date-stamp-day {
+  color: #EF0022; }
+body > main > #app_container #event-build-your-order .byo-event-info a {
+  color: #085F99; }
+body > main > #app_container #event-build-your-order .upsell-info .parking-component.active {
+  border-color: #005ABB; }
+body > main > #app_container #event-build-your-order .upsell-info .parking-component .parking-check {
+  background-color: #005ABB; }
+body > main > #app_container #eventInfo .eventInfoHeader .closeEventInfo {
+  color: #B1CCDF; }
+body > main > #app_container #eventInfo .event-card .container .date-stamp-standard.date-container .date-stamp-month-dd {
+  color: #FFF; }
+body > main > #app_container #eventInfo .event-card .container .date-stamp-standard.date-container .date-stamp-day {
+  color: #EF0022; }
+body > main > #app_container #eventInfo .event-card .container .event-details .event-details-box {
+  color: #EF0022; }
+  body > main > #app_container #eventInfo .event-card .container .event-details .event-details-box .header {
+    color: #FFF;
+    font-weight: normal;
+    max-height: 83px; }
+    body > main > #app_container #eventInfo .event-card .container .event-details .event-details-box .header > .performer.pid-2746 {
+      color: #EF0022; }
+  body > main > #app_container #eventInfo .event-card .container .event-details .event-details-box .event-location-info {
+    color: #dbdbdb; }
+body > main > #app_container #event-details {
+  height: 68px; }
+  body > main > #app_container #event-details.event-details-container {
+    background-color: #002244;
+    opacity: 1; }
+  body > main > #app_container #event-details .partner-logo {
+    background-image: url("https://cache11.stubhubstatic.com/promotions/scratch/76ers/logo-76ers.svg");
+    width: 46px;
+    height: 68px;
+    position: absolute;
+    right: 30px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; }
+  body > main > #app_container #event-details .eventTitle {
+    white-space: initial;
+    width: 85%; }
+body > main > #app_container .primary-primary-button:not(.disabled), body > main > #app_container .button_primary:not(.disabled) {
+  color: #FFF;
+  fill: #EF0022;
+  background-color: #EF0022;
+  border-color: inherit; }
+  body > main > #app_container .primary-primary-button:not(.disabled) .primary-color, body > main > #app_container .button_primary:not(.disabled) .primary-color {
+    fill: #FFF; }
+  body > main > #app_container .primary-primary-button:not(.disabled):hover, body > main > #app_container .button_primary:not(.disabled):hover {
+    color: #FFF;
+    fill: #CE0643;
+    background-color: #CE0643;
+    border-color: inherit; }
+    body > main > #app_container .primary-primary-button:not(.disabled):hover .primary-color, body > main > #app_container .button_primary:not(.disabled):hover .primary-color {
+      fill: #FFF; }
+  body > main > #app_container .primary-primary-button:not(.disabled):active, body > main > #app_container .button_primary:not(.disabled):active {
+    color: #FFF;
+    fill: #EF0022;
+    background-color: #EF0022;
+    border-color: inherit; }
+    body > main > #app_container .primary-primary-button:not(.disabled):active .primary-color, body > main > #app_container .button_primary:not(.disabled):active .primary-color {
+      fill: #FFF; }
+body > main > #app_container .primary-primary-button.disabled, body > main > #app_container .primary-primary-button [disabled], body > main > #app_container .button_primary.disabled, body > main > #app_container .button_primary [disabled] {
+  color: #FFF;
+  fill: #F58696;
+  background-color: #F58696;
+  border-color: inherit; }
+  body > main > #app_container .primary-primary-button.disabled .primary-color, body > main > #app_container .primary-primary-button [disabled] .primary-color, body > main > #app_container .button_primary.disabled .primary-color, body > main > #app_container .button_primary [disabled] .primary-color {
+    fill: #FFF; }
+body > main > #app_container .primary-secondary-button:not(.disabled) {
+  color: #EF0022;
+  fill: #FFF;
+  background-color: #FFF;
+  border-color: inherit; }
+  body > main > #app_container .primary-secondary-button:not(.disabled) .primary-color {
+    fill: #EF0022; }
+  body > main > #app_container .primary-secondary-button:not(.disabled):hover {
+    color: #EF0022 #CE0643;
+    fill: #F4DCE3;
+    background-color: #F4DCE3;
+    border-color: inherit; }
+    body > main > #app_container .primary-secondary-button:not(.disabled):hover .primary-color {
+      fill: #EF0022 #CE0643; }
+  body > main > #app_container .primary-secondary-button:not(.disabled):active {
+    color: #EF0022;
+    fill: #FFF;
+    background-color: #FFF;
+    border-color: #EF0022; }
+    body > main > #app_container .primary-secondary-button:not(.disabled):active .primary-color {
+      fill: #EF0022; }
+body > main > #app_container .primary-secondary-button.disabled, body > main > #app_container .primary-secondary-button [disabled] {
+  color: #F58696;
+  fill: #FFF;
+  background-color: #FFF;
+  border-color: #F58696; }
+  body > main > #app_container .primary-secondary-button.disabled .primary-color, body > main > #app_container .primary-secondary-button [disabled] .primary-color {
+    fill: #F58696; }
+body > main > #app_container .secondary-primary-button:not(.disabled), body > main > #app_container .button_secondary:not(.disabled) {
+  color: #FFF;
+  fill: #005ABB;
+  background-color: #005ABB;
+  border-color: inherit; }
+  body > main > #app_container .secondary-primary-button:not(.disabled) .primary-color, body > main > #app_container .button_secondary:not(.disabled) .primary-color {
+    fill: #FFF; }
+  body > main > #app_container .secondary-primary-button:not(.disabled):hover, body > main > #app_container .button_secondary:not(.disabled):hover {
+    color: #FFF;
+    fill: #002244;
+    background-color: #002244;
+    border-color: inherit; }
+    body > main > #app_container .secondary-primary-button:not(.disabled):hover .primary-color, body > main > #app_container .button_secondary:not(.disabled):hover .primary-color {
+      fill: #FFF; }
+  body > main > #app_container .secondary-primary-button:not(.disabled):active, body > main > #app_container .button_secondary:not(.disabled):active {
+    color: #FFF;
+    fill: #005ABB;
+    background-color: #005ABB;
+    border-color: inherit; }
+    body > main > #app_container .secondary-primary-button:not(.disabled):active .primary-color, body > main > #app_container .button_secondary:not(.disabled):active .primary-color {
+      fill: #FFF; }
+body > main > #app_container .secondary-primary-button.disabled, body > main > #app_container .secondary-primary-button [disabled], body > main > #app_container .button_secondary.disabled, body > main > #app_container .button_secondary [disabled] {
+  color: #FFF;
+  fill: #81ADDD;
+  background-color: #81ADDD;
+  border-color: inherit; }
+  body > main > #app_container .secondary-primary-button.disabled .primary-color, body > main > #app_container .secondary-primary-button [disabled] .primary-color, body > main > #app_container .button_secondary.disabled .primary-color, body > main > #app_container .button_secondary [disabled] .primary-color {
+    fill: #FFF; }
+body > main > #app_container .secondary-secondary-button:not(.disabled) {
+  color: #005ABB;
+  fill: #FFF;
+  background-color: #FFF;
+  border-color: inherit; }
+  body > main > #app_container .secondary-secondary-button:not(.disabled) .primary-color {
+    fill: #005ABB; }
+  body > main > #app_container .secondary-secondary-button:not(.disabled):hover {
+    color: #005ABB;
+    fill: #D8E5F2;
+    background-color: #D8E5F2;
+    border-color: #005ABB; }
+    body > main > #app_container .secondary-secondary-button:not(.disabled):hover .primary-color {
+      fill: #005ABB; }
+  body > main > #app_container .secondary-secondary-button:not(.disabled):active {
+    color: #005ABB;
+    fill: #FFF;
+    background-color: #FFF;
+    border-color: #005ABB; }
+    body > main > #app_container .secondary-secondary-button:not(.disabled):active .primary-color {
+      fill: #005ABB; }
+body > main > #app_container .secondary-secondary-button.disabled, body > main > #app_container .secondary-secondary-button [disabled] {
+  color: #D8E5F2;
+  fill: #FFF;
+  background-color: #FFF;
+  border-color: #D8E5F2; }
+  body > main > #app_container .secondary-secondary-button.disabled .primary-color, body > main > #app_container .secondary-secondary-button [disabled] .primary-color {
+    fill: #D8E5F2; }
+body > main > #app_container .qty-button:hover:not(.disabled) {
+  color: #FFF;
+  fill: #005ABB;
+  background-color: #005ABB;
+  border-color: inherit; }
+  body > main > #app_container .qty-button:hover:not(.disabled) .primary-color {
+    fill: #FFF; }
+body > main > #app_container .qty-button.qty-button-scroll:not(.disabled):hover {
+  color: #005ABB;
+  fill: #D8E5F2;
+  background-color: #D8E5F2;
+  border-color: #005ABB; }
+  body > main > #app_container .qty-button.qty-button-scroll:not(.disabled):hover .primary-color {
+    fill: #005ABB; }
+body > main > #app_container .spinner {
+  color: #EF0022; }
+body > main > #app_container .ticket-item-error {
+  border-top: 2px solid #EF0022;
+  border-bottom: 2px solid #EF0022; }
+body > main > #app_container #quantityfilter.quantityOverlay {
+  float: left;
+  position: absolute;
+  width: 100%;
+  background-color: #FFF;
+  z-index: 999;
+  height: 100%;
+  -webkit-transform: inherit;
+  -moz-transform: inherit;
+  -ms-transform: inherit;
+  -o-transform: inherit;
+  transform: inherit;
+  top: 0;
+  left: inherit;
+  visibility: inherit;
+  color: inherit;
+  padding: inherit; }
+  body > main > #app_container #quantityfilter.quantityOverlay .close-icon.qty-close svg#icon-close {
+    margin: 18px 0 0; }
+body > main > #app_container .banner, body > main > #app_container #eventInfo, body > main > #app_container #event-details {
+  background-color: #1D2631;
+  text-align: left; }
+  body > main > #app_container .banner .event-date, body > main > #app_container #eventInfo .event-date, body > main > #app_container #event-details .event-date {
+    text-align: left;
+    color: #FFF; }
+  body > main > #app_container .banner .header, body > main > #app_container .banner .eventTitle, body > main > #app_container #eventInfo .header, body > main > #app_container #eventInfo .eventTitle, body > main > #app_container #event-details .header, body > main > #app_container #event-details .eventTitle {
+    color: #FFF; }
+  body > main > #app_container .banner #event-details #event-date, body > main > #app_container #eventInfo #event-details #event-date, body > main > #app_container #event-details #event-details #event-date {
+    text-align: left;
+    color: #FFF; }
+body > main > #app_container #event-build-your-order .seat-info #byo-seatmap .byomap-tooltip.selected {
+  border-color: #EF0022; }
+body > main > #app_container #event-build-your-order .seat-info #byo-seatmap .byomap-tooltip.upgrade, body > main > #app_container #event-build-your-order .seat-info #byo-seatmap .selectedTooltip.upgrade, body > main > #app_container #event-build-your-order .seat-info #byo-seatmap .upgradeTooltip.upgrade {
+  border-color: #005ABB; }
+body > main > #app_container .byo-header h3 {
+  border-top: 5px solid #EF0022; }
+body > main > #app_container .oval-97 {
+  stroke: #EF0022;
+  fill: #EF0022; }
+body > main > #app_container .date-stamp-standard .date-divider-top, body > main > #app_container .date-stamp-day .date-divider-top, body > main > #app_container .date-stamp-month-dd .date-divider-top {
+  background-color: #EF0022; }
+
+@media only screen and (min-width: 768px) {
+  #eventInfo .event-card {
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat; }
+    #eventInfo .event-card:after {
+      content: '';
+      background-image: url("https://cache11.stubhubstatic.com//promotions/scratch/76ers/logo-76ers.svg");
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      background-size: contain; }
+    #eventInfo .event-card .event-card-overlay {
+      background-color: rgba(0, 0, 0, 0.2);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; }
+
+  .event-description.event-details-item::before {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent 0, black 100%);
+    z-index: 50;
+    transition: background .3s ease;
+    content: '';
+    max-height: 108px;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1; }
+    .scrolled-up .event-description.event-details-item::before {
+      height: 54px; } }
+@media only screen and (min-width: 1200px) {
+  #eventInfo.quantityQuestionHeader {
+    background-position: center;
+    height: 216px; }
+    #eventInfo.quantityQuestionHeader .event-info-wrapper {
+      background-size: contain;
+      box-shadow: inset 0 -40px 100px 25px rgba(0, 0, 0, 0.9); }
+    #eventInfo.quantityQuestionHeader .event-card {
+      clear: both;
+      overflow: hidden;
+      top: 0;
+      position: relative;
+      padding-top: 50px;
+      height: 162px; }
+      #eventInfo.quantityQuestionHeader .event-card:after {
+        width: 65px;
+        height: 65px; }
+      #eventInfo.quantityQuestionHeader .event-card .quantityQuestionHeader .event-details .event-date {
+        color: #FFF; }
+      #eventInfo.quantityQuestionHeader .event-card .date-stamp-standard.date-container .date-stamp-month-dd {
+        color: #dbdbdb; }
+      #eventInfo.quantityQuestionHeader .event-card .container {
+        padding: 3px 20px; }
+        #eventInfo.quantityQuestionHeader .event-card .container .event-date {
+          text-align: left;
+          color: #FFF; }
+        #eventInfo.quantityQuestionHeader .event-card .container .event-details {
+          padding: inherit;
+          height: inherit;
+          max-height: inherit;
+          position: inherit;
+          width: 50%;
+          margin-left: 20px; }
+          #eventInfo.quantityQuestionHeader .event-card .container .event-details .event-details-box {
+            position: inherit;
+            top: inherit;
+            -webkit-transform: inherit;
+            -moz-transform: inherit;
+            -ms-transform: inherit;
+            -o-transform: inherit;
+            transform: inherit; }
+            #eventInfo.quantityQuestionHeader .event-card .container .event-details .event-details-box .event-location-info {
+              color: #dbdbdb;
+              font-size: 15px; }
+            #eventInfo.quantityQuestionHeader .event-card .container .event-details .event-details-box .header {
+              color: #FFF;
+              font-family: 'Interstate';
+              font-size: 30.8px; }
+              #eventInfo.quantityQuestionHeader .event-card .container .event-details .event-details-box .header > .performer.pid-2746 {
+                color: #EF0022; }
+                #eventInfo.quantityQuestionHeader .event-card .container .event-details .event-details-box .header > .performer.pid-2746::before {
+                  content: '';
+                  display: block; }
+            #eventInfo.quantityQuestionHeader .event-card .container .event-details .event-details-box .event-location-info {
+              color: #dbdbdb; } }
+
+/*# sourceMappingURL=app.override.76ers.css.map */

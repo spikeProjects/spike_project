@@ -1,0 +1,14 @@
+$skin-name: '76ers';
+$banner-background-color: rgba(0,0,0,.3);
+
+/*fonts*/
+$font-family-primary: AgencyFB-Bold, Interstate, HelveticaNeue, Helvetica, Roboto, Segoe, Arial, Sans-Serif;
+$font-family-secondary: HelveticaNeue, Helvetica, Roboto, Segoe, Arial, Sans-Serif;
+
+@import "../../../node_modules/@stubhub/common-build-files/brand/styles/ticket-out/colors";
+
+@import "breakpoints";
+@import "colors";
+
+@import "../_globals_";
+@import "overrides";

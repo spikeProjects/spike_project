@@ -1,0 +1,23 @@
+@import "common";
+
+/***** HEADER *******/
+#header_view {
+    height: 54px;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    background-color: $header-blue;
+    box-sizing: border-box;
+
+    #global-content {
+    	position: relative;
+    }
+}
+/* mobile */
+@media only screen and (max-width: $tablet-size) {
+    #header_view {
+        &.hideHeader {
+            display: none;
+        }
+    }
+}

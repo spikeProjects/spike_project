@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <th:block th:fragment="page-top (applicationModel, env)">
+            <link rel="stylesheet"
+      th:href="${env['app.default.brand']!=''}? (|${applicationModel.configBaseUrl}/resources/shape/styles/${applicationModel.appName}-${applicationModel.appVersion}/module-main.${env['app.default.brand']}.css|) : (|${applicationModel.configBaseUrl}/resources/shape/styles/${applicationModel.appName}-${applicationModel.appVersion}/module-main.css|)"
+      href="{%=app.staticHost%}/resources/shape/styles/{%=appName%}-{%=appVersion%}/module-main.css"/>
+            <link rel="stylesheet" th:href="${env['app.default.brand']!=''}?  (|${applicationModel.configBaseUrl}/resources/shape/styles/search-${env['app.search.modulesVersion']}/module-main.${env['app.default.brand']}.css|) : (|${applicationModel.configBaseUrl}/resources/shape/styles/search-${env['app.search.modulesVersion']}/module-main.css|)" href="{%=app.staticHost%}/resources/shape/styles/search-${env['app.search.modulesVersion']}/module-main.css"/>
+        </th:block>
+    </head>
+
+    <body>
+
+        <th:block th:fragment="header (applicationModel, env)">
+            <script>
+                SH.event = SH.event || {};
+                SH.event.referrer = document.referrer;
+            </script>
+        </th:block>
+
+        <th:block th:fragment="main (applicationModel, env)">
+            <!-- 05/27: app_conatiner div now resides in app common index.html thymeleaf template -->
+            <!-- <div id="app_container"></div> -->
+            <!-- <div id="login-container"></div> -->
+            <div id="target-searchComponent-mbox" class="mboxDefault"></div> 
+        </th:block>
+
+        <th:block th:fragment="footer (applicationModel, env)">
+        </th:block>
+
+        <th:block th:fragment="page-JsIncludesTop (applicationModel, env)">
+        <script th:src="|${applicationModel.configBaseUrl}/resources/shape/scripts/${applicationModel.appName}-${applicationModel.appVersion}/${applicationModel.locale}/module-main.js|"
+    src="{%=app.staticHost%}/resources/shape/scripts/${applicationModel.appName}-${applicationModel.appVersion}/${applicationModel.locale}/module-main.js"></script>
+            <script th:src="|${applicationModel.configBaseUrl}/resources/shape/scripts/${applicationModel.appName}-${applicationModel.appVersion}/module-main.js|"
+        src="{%=app.staticHost%}/resources/shape/scripts/${applicationModel.appName}-${applicationModel.appVersion}/module-main.js"></script>
+            <script th:src="|${applicationModel.configBaseUrl}/resources/shape/scripts/search-${env['app.search.modulesVersion']}/${applicationModel.locale}/module-main.js|" src="{%=app.staticHost%}/resources/shape/scripts/search-${env['app.search.modulesVersion']}/${applicationModel.locale}/module-main.js"></script>
+            <script th:src="|${applicationModel.configBaseUrl}/resources/shape/scripts/search-${env['app.search.modulesVersion']}/module-main.js|" src="{%=app.staticHost%}/resources/shape/scripts/search-${env['app.search.modulesVersion']}/module-main.js"></script>
+        </th:block>
+
+        <th:block th:fragment="page-JsIncludesBottom (applicationModel, env)">
+        </th:block>
+
+    </body>
+
+</html>

@@ -1,0 +1,8 @@
+{@select key=globals.TicketReco.showTicketReco}
+    {@eq value=globals.TicketReco.experience.VALUEBARLOWEST}
+        {>"/*@echo appNameVersioned*//sortfilter_header_valuebar"/}
+    {/eq}
+    {@default}
+        {>"/*@echo appNameVersioned*//sortfilter_header_default" /}
+    {/default}
+{/select}

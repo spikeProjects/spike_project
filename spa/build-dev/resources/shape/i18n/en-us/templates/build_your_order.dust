@@ -1,0 +1,37 @@
+<div id="event-build-your-order">
+    <div class="byo-header">
+        <H3>ORDER DETAILS</H3>
+        <span class="close-icon">
+            <i class="sh-iconset sh-iconset-close"></i>
+        </span>
+    </div>
+
+    <div class="seat-info">
+    </div>
+    
+    <div class="similar-ticket-container hide"></div>
+
+    <div class="listing-info">
+    </div>
+
+    <div class="upsell-info hide">
+        <div class="upsell-header hide">
+            {^globals.byo.upsellAccordion}
+                <div class="upsell-separator"></div>
+            {/globals.byo.upsellAccordion}
+        </div>
+        <div class="upgrade-listing hide {?globals.byo.upsellAccordion}accordion {/globals.byo.upsellAccordion} {?globals.upgradeTicket.isTicketUpgraded}upgrade-selected {/globals.upgradeTicket.isTicketUpgraded}"></div>
+        <div class="parking-container"></div>
+    </div>
+
+    <div class="checkout {^globals.byo.upsellAccordion} hide {/globals.byo.upsellAccordion} accordion-checkout"><button class="button_primary active">Go to checkout</button></div>
+</div>
+
+<div class="byo-upgrade-map-wrapper hide">
+    <div class="upgradeTooltip upgrade hide"></div>
+    <div class="selectedTooltip selected hide"></div>
+    <div class="byo-upgrade-seatmap">
+        <i class="sh-iconset sh-iconset-close"></i>
+    </div>
+</div>
+<div class="byo-black-overlay-screen hide"></div>

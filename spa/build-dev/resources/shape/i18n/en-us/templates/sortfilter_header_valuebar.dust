@@ -1,0 +1,16 @@
+{>"/*@echo appNameVersioned*//sortfilter_header_qtyselector" /}
+{>"/*@echo appNameVersioned*//sortfilter_header_filtericon" /}
+{?globals.priceSlider.displayOutside}
+	{>"/*@echo appNameVersioned*//slider" /}
+{/globals.priceSlider.displayOutside}
+{>"/*@echo appNameVersioned*//sortfilter_header_recoButtons" /}
+
+<div class="tblhdr-wrapper">
+    <div class="sectionhdr" data-sort="section" data-sort-direction="desc" data-sort-value="sectionname" data-tracking-prefix="Section Sorting">Section{?sortArrows}<span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>{/sortArrows}</div>
+    <div class="rowhdr {?globals.event_meta.isParking}invisible{/globals.event_meta.isParking} {^sortArrows}moveleft{/sortArrows}" data-sort="row" data-sort-direction="desc" data-sort-value="row" data-tracking-prefix="Row Sorting">Row{?sortArrows}<span class="dropdownArrow"><i class="sh-iconset sh-iconset-expand"></i></span>{/sortArrows}</div>
+    <div class="pricehdr {^sortArrows}moveleft{/sortArrows}" data-sort="price" data-sort-direction="asc" data-sort-value="currentPrice" data-tracking-prefix="Price Sorting">Price{?sortArrows}<span class="dropdownArrow upArrow"><i class="sh-iconset sh-iconset-expand"></i></span>{/sortArrows}</div>
+    <div class="valuehdr" data-sort="value" data-sort-direction="desc" data-sort-value="value" data-tracking-prefix="Value Sorting">Value{?sortArrows}<span class="dropdownArrow upArrow"><i class="sh-iconset sh-iconset-expand"></i></span>{/sortArrows}</div>
+</div>
+
+{>"/*@echo appNameVersioned*//reco_tooltip" /}
+

@@ -1,0 +1,6 @@
+<div class="qty-and-filter-ctr {customClass}">
+	<div class="sortfilter-close-icon hide"><span class="close-icon"><span class="sh-iconset-close"></span></span></div>
+	<span class="quantity-filter-header-title hide">{@i18n key="event.common.sortfilter.selector.qtyheader"/}</span>
+	{>"/*@echo appNameVersioned*//sortfilter_header_qtyselector" /}
+	{>"/*@echo appNameVersioned*//sortfilter_header_filter_btn" /}
+</div>

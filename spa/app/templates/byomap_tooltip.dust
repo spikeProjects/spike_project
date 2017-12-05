@@ -1,0 +1,13 @@
+<div class="content">
+	{@eq key=markerType value="upgrade"}
+		{?priceDiff}
+			{@i18n key="event.byomaptooltip.upgradefor"/}
+		{/priceDiff}
+	{:else}
+		{@i18n key="event.byomaptooltip.selectedseats"/}
+	{/eq}
+</div>
+<div class="seatInfo">
+	<div class="levelInfo">{sectionName}</div>
+	<div class="rowInfo">{@i18n key="event.common.row.text"/} {seats[0].row}</div>
+</div>

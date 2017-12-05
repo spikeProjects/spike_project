@@ -1,0 +1,376 @@
+@import "common";
+@import "../utils/mixins";
+
+
+//*******************//
+// End of Mixins CSS //
+//*******************//
+
+#sortfilter_header {
+    .qty-and-filter-ctr {
+        @extend .flex-box-display;
+        flex-direction: row;
+        padding-bottom: 5px;
+        flex-wrap: wrap;
+        .quantity-filter-header-title {
+            @include flex-box-flex(0 1 100%);
+            width: 100%;
+            color: $color-text-dark;
+            font-size: 14px;
+            font-family: $font-family-primary;
+            top: 10px;
+            position: relative;
+
+        }
+        .sortfilter-close-icon {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            z-index: 2;
+            .sh-iconset-close {
+                font-size: $font-size-20;
+            }
+        }
+        .sortfilter-qty-selector {
+            &.evt-dropdown-select-quantity-filter {
+                @extend .flex-box-display;
+            }
+
+            @include flex-box-flex(5);
+            &.hide {
+                display: none;
+            }
+            select.qty-filter-drop-down{
+                border: none;
+                color: $color-text-dark;
+                font-size: 16px;
+                margin: 0;
+                padding: 0;
+                min-height: 34px;
+            }
+
+            .dropdownArrow {
+                position: absolute;
+                right: 12px;
+                margin: 0 0 0 5px;
+                display: inline-block;
+                pointer-events: none;
+                top: 0px;
+                .sh-iconset {
+                    font-size: 2.3px;
+                    top: 0px;
+                    position: relative;
+                }
+            }
+        }
+
+        #sortfilter-selector {
+            border: 1px solid $color-ui-light;
+            margin: 10px 0px 0px;
+            line-height: 33px;
+            min-width: 40px;
+            background-color: $color-ui-xxxlight;
+            padding: 0px 15px;
+            margin-left: 20px;
+            .sortfilter-selector-cont {
+                float: none;
+                cursor: pointer;
+                .sortfilter-filter-icon {
+                    position: static;
+                    top: initial;
+                    right: initial;
+                    .filter-icon {
+                        border: none;
+                        position: relative;
+                        top: 2px;
+                        padding: 0px;
+                    }
+                    .sh-iconset-settings {
+                        color: $color-ui-xdark;
+                    }
+                }
+                .filter-title {
+                    color: $color-text-xdark;
+                    font-size: $font-size-12;
+                    padding-left: 5px;
+                    white-space: nowrap;
+                    position: relative;
+                    top: 2px;
+                }
+            }
+        }
+    }
+}
+.sortfilter-tblhdr {
+    padding: 0px 13px 0px 14px;
+    font-size: $font-size-12;
+    color: $color-text-dark;
+    min-height: 40px;
+    line-height: 40px;
+    background-color: $background-gray;
+    border-bottom: 1px solid $border-gray-light;
+    @include box-sizing;
+
+    @media only screen and (min-width: $tablet-size) {
+        padding: 0px 14px 0px 17px;
+    }
+
+    &.valuebar {
+        min-height: 30px;
+        line-height: 30px;
+
+        @media only screen and (min-width: $tablet-size) {
+            min-height: 35px;
+            line-height: 35px;
+            .sortfilter-qty-selector {
+                display: block;
+            }
+        }
+
+        @media only screen and (min-width: $desktop-size) {
+            min-height: 40px;
+            line-height: 40px;
+        }
+    }
+    .sortfilter-qty-selector.reco-experience {
+        display: none;
+    }
+
+    .infoIcon {
+        position: relative;
+        font-size: 4px;
+        left: 6px;
+        margin-right: 10px;
+        top: 0px;
+    }
+
+    .ttMessage {
+        border-color: $border-gray-light;
+        line-height: 20px;
+        font-size: $font-size-16;
+        width: 260px;
+        padding: 10px 20px 20px 20px;
+        text-align: left;
+        top:30px;
+    }
+
+    .tblhdr-wrapper {
+        display: table;
+        width: 100%;
+    }
+
+
+    div {
+        display: table-cell;
+        vertical-align: middle;
+
+        .dropdownArrow {
+            margin: 0 0 -1px 5px;
+            display: inline-block;
+            pointer-events: none;
+            position: relative;
+            top: -2px;
+        }
+
+        .upArrow {
+            @include rotation(180deg);
+            top: 0px;
+        }
+
+        & .hide {
+            display: none;
+        }
+    }
+
+    .sectionhdr {
+        margin-left: 8px;
+    }
+
+    .qtyhdr {
+        position: relative;
+
+        button {
+            @include button;
+            padding: 0 5px;
+            background-color: $selected-blue;
+            color: $white;
+            font-size: $font-size-12;
+        }
+
+        button.applyQuantity {
+            @include applyQuantity;
+        }
+
+        select {
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            padding: 0;
+            height: 27px;
+            left: 0;
+            opacity: 0;
+            font-size: $font-size-14;
+        }
+    }
+
+    .tabbar {
+        display: inline-block;
+        width: 90%;
+        text-align: center;
+
+        .lowestprice, .bestvalue, .bestseats {
+            background-color: $color-ui-xxxlight;
+            color: $color-text-xdark;
+            font-size: $font-size-12;
+            width: 33.33%;
+            height: 25px;
+            line-height: 1;
+            white-space: nowrap;
+
+            border-top: 1pt solid $color-ui-light;
+            border-bottom: 1pt solid $color-ui-light;
+            border-left: 1pt solid $color-ui-light;
+        }
+
+        .bestseats {
+            border-right: 1pt solid $color-ui-light;
+        }
+
+        button {
+            &.selected {
+                background-color: $color-core-tertiary;
+                color: $color-text-xxlight;
+                border-color: $color-core-tertiary;
+                &+button {
+                    border-left-color: $color-core-tertiary!important;
+                }
+            }
+
+            .text {
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
+}
+
+.sortfilter-tbl {
+    display: table;
+    width: 100%;
+
+    > div {
+        display: table-cell;
+        vertical-align: top;
+    }
+}
+
+.sectionhdr, .sectioncell {
+    width: 35%;
+    text-align: left;
+}
+
+.rowhdr, .rowcell {
+    width: 20%;
+    text-align: center;
+}
+
+.qtyhdr, .qtycell {
+    width: 25%;
+    text-align: center;
+}
+
+.pricehdr, .pricecell {
+    cursor: pointer;
+    text-align: right;
+    width: 20%;
+}
+
+.sectionhdr, .rowhdr, .pricehdr .qtyhdr, .sortfilter-filter-icon {
+    cursor: pointer;
+}
+
+.valuebar {
+
+    .sectionhdr, .rowhdr, .pricehdr, .valuehdr {
+        cursor: auto;
+    }
+
+    .moveleft {
+        position: relative;
+        left: -11px;
+    }
+
+    .rowhdr.moveleft {
+        left: -7px;
+    }
+
+    .valuehdr, .valuecell {
+        position: relative;
+        text-align: right;
+        width: 20%;
+    }
+
+    .valuehdr {
+        right: -6px;
+    }
+}
+
+.sortfilter-filter-icon {
+    position: absolute;
+    right: 0;
+    top: 1px;
+
+    .dropdown-container & {
+        @extend .flex-box-display;
+        @include flex-box-align('center');
+    }
+
+    .filter-icon {
+        border: 1px solid $border-blue;
+        padding: 6px 5px 1px 5px;
+
+        @media only screen and (min-width: $tablet-size) {
+            border: none;
+            padding: 0px;
+        }
+    }
+
+    .sh-iconset-settings {
+        font-size: $font-size-6;
+        color: $border-blue;
+
+        @media only screen and (min-width: $tablet-size) {
+            color: $color-ui-xdark;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-size) {
+    .ttMessage {
+        left: -122px;
+        top: 22px;
+    }
+
+    #recotooltip {
+        .ttMessage {
+            left: 0px;
+        }
+    }
+
+    .sortfilter-tblhdr {
+        .tabbar {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: $desktop-size) {
+    .sortfilter-qty-selector {
+        display: inline-block;
+    }
+    .valuebar {
+        .valuehdr, .valuecell {
+            text-align: center;
+        }
+    }
+}

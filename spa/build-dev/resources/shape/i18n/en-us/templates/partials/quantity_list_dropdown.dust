@@ -1,0 +1,13 @@
+<ul id="{filterId}" class="{filterClass}">
+    <li data-qty-title='All tickets' data-value="-1" class="{@eq key=qtySelected value="-1"} selected {/eq}">All tickets <i class="sh-iconset sh-iconset-ok"></i></li>
+    {#quantityFilter.buttons}
+        {@select key=value}
+            {@eq value="1"}
+                <li data-qty-title='{value} Ticket' data-value="{value}" class="{@eq key=buttonState value="selectQty"} selected {/eq}">{label} Ticket <i class="sh-iconset sh-iconset-ok"></i></li>
+            {/eq}
+            {@default}
+                <li data-qty-title='{value} Tickets' data-value="{value}" class="{@eq key=buttonState value="selectQty"} selected {/eq}">{label} Tickets <i class="sh-iconset sh-iconset-ok"></i></li>
+            {/default}
+        {/select}
+    {/quantityFilter.buttons}
+</ul>

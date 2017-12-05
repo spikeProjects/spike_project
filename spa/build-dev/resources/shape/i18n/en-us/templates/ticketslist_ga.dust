@@ -1,0 +1,29 @@
+<div class="tickets_wrapper {?gc.ticket_id}hide{/gc.ticket_id}">
+    <div class="throbber hide">
+        <div class="spinner"><i class="sh-iconset sh-iconset-loader sh-animate-spin"></i></div>
+    </div>
+    <div id="view_ticket" class="hide">
+    </div>
+</div>
+
+<div class="no-tickets hide">Uh-oh. It looks like there aren’t any other tickets available for this event right now.<br/><br/>Check back again later – we get thousands of new listings every day.</div>
+
+<div id="view_more_content" class="hide">
+    <div id="view_more" class="hide">View more tickets</div>
+    <div class="font_dark_grey">We show the lowest General Admission ticket price first.</div>
+    <div class="font_light_grey priceDesc">
+        {@if test="gc.country == 'gb' || gc.country == 'fr'"}
+            All prices are set by sellers, include VAT, may vary from face value and do not include service fees unless explicitly mentioned
+        {:else}
+            All prices are set by sellers.
+        {/if}
+    </div>
+</div>
+<div id="listings_not_found" class="hide">
+    <div id="listings_not_found_head">That quantity isn't available.</div><br>
+    <div id="listings_not_found_body">We don't have any listings that offer that number of tickets for the event.</div>
+</div>
+<div id="zero_listings_found" class="hide">
+    <div class="notickets">We don't have any listings available for this event right now.<br/></div>
+    <div class="findmoretickets"><a href="{upcomingEventsLink}" rel="external">Find more events</a></div>
+</div>

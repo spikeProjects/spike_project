@@ -1,0 +1,38 @@
+<div class="moreinfo">
+    <div class="ticketsText">
+        {@gt key=splitVector.length value=1}
+            {splitVector[0]}-{#splitVector}{@math key=$idx method="add" operand="1"}{@eq value=$len}{splitVector[$idx]}{/eq}{/math}{/splitVector} {@i18n key="event.common.lowercase.tickets.text"/}
+        {:else}
+            {quantity} {@lte key=quantity value=1}{@i18n key="event.common.lowercase.ticket.text"/}{:else}{@i18n key="event.common.lowercase.tickets.text"/}{/lte}
+        {/gt}
+    </div>
+    <div class="delivery">
+        {@if test="deliveryTypeList.length > 0"}
+            {#deliveryTypeList}
+                <span class="deliverymethod">
+                    {@eq key=id value=2}<i class="sh-iconset sh-iconset-instantdnld"></i>{/eq}
+                    {deliveryAttribute}
+                </span>
+                {@sep}<span class="separator">&#124</span>{/sep}
+            {/deliveryTypeList}
+        {/if}
+    </div>
+    <div class="featureIcons">
+        {@if test="listingAttributeList.length > 0"}
+            {#listingAttributeList}
+                {@if test="featureIcon != 'none'"}
+                    <i class="sh-iconset sh-iconset-{featureIcon} tooltip tooltip-top">
+                        <div>{listingAttribute}</div>
+                    </i>
+                {/if}
+            {/listingAttributeList}
+
+            {@if test="showDisclosure == 'yes'"}
+                <div class="alert tooltip tooltip-top">
+                    {>"/*@echo appNameVersioned*//partials/icon-svg-disclosure"/}
+                    <div class="disclosureText">{@i18n key="event.common.ticketdetails.alert.text"/}</div>
+                </div>
+            {/if}
+        {/if}
+    </div>
+</div>

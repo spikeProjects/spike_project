@@ -1,0 +1,76 @@
+@import "common";
+
+.evt-dropdown {
+  select:after {
+    content: "\E007";
+  }
+  select {
+    color: $selected-blue;
+    z-index: 1;
+    background-color: transparent;
+    -moz-appearance: none;
+  }
+  ul{
+    display: none;
+    &:after {
+      content: "\E007";
+    }
+  }
+  .dropdownArrow {
+    z-index: 0;
+  }
+  width: 100%;
+}
+
+.evt-dropdown-small {
+
+  @extend .evt-dropdown;
+  min-width: 200px;
+}
+
+.evt-dropdown-medium {
+  @extend .evt-dropdown;
+  min-width: 300px;
+}
+
+.evt-dropdown-large {
+  @extend .evt-dropdown;
+  min-width: 500px;
+}
+
+.evt-dropdown-select-quantity-filter {
+  height: 36px;
+  float: left;
+  margin: 10px 0 0 0;
+  line-height: 35px;
+  padding-left: 13px;
+  position: relative;
+  border: 1px solid $color-ui-light;
+  background-color: $color-ui-xxxlight;
+  color: $color-text-xdark;
+
+  .sortfilter-title {
+    width: 100%;
+    .dropdownArrow {
+      position: absolute;
+      right: 12px;
+      margin: 0 0 0px 5px;
+      display: inline-block;
+      pointer-events: none;
+      .sh-iconset {
+        font-size: 2.3px;
+        top: 0px;
+        position: relative;
+      }
+    }
+  }
+  &.sortfilter-qty-selector{
+    > div.select-dropdown {
+      width: 100%;
+      left: 0;
+      top: 36px;
+      max-height: inherit;
+      overflow-y: auto;
+    }
+  }
+}

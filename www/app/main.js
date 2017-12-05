@@ -210,11 +210,10 @@ for (var state in china) {
     //no-2: set color of fill
 
     //binding the events of show color number
+    var attr = new Object(areaAttr);
     if (fd.show_colors) {
-        china[state].path.attr({
-            ...areaAttr,
-            fill: china[state].fillColor
-        });
+        attr.fill = china[state].fillColor;
+        china[state].path.attr(attr);
 
         (function(st, state) {
             $(st[0]).css('cursor', 'pointer');
@@ -267,7 +266,7 @@ for (var state in china) {
     }
 };
 
-utils.adjustPosition();
+utils.adjustPosition()&& $tiplayer.hide();
 
 window.onresize = utils.adjustPosition;
 

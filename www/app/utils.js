@@ -49,16 +49,13 @@ define(function (require) {
 	        var wrapper = document.querySelector('.wrapper');
 	        var parentWidth = $(wrapper).width();
 	        var parentHeight = $(wrapper).height();
-
-	        if (parentHeight>(initial.height+initial.gap) && parentWidth>(initial.width+initial.gap)){
+	        
+/*	        if (parentHeight>(initial.height+initial.gap) && parentWidth>(initial.width+initial.gap)){
 	        	return;
-	        }
-
-	        var child = document.querySelector('#ChinaMap');
+	        }*/
 
 	        var childScale = initial.width/initial.height, 				//
 	        	parentScale = parentWidth/parentHeight, ratio;
-
 
 	        if (parentScale>childScale) {
 	        	ratio = $(wrapper).height()/(initial.height+initial.gap);

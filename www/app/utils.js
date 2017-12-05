@@ -67,14 +67,7 @@ define(function (require) {
 	        }
 
 	        var map = document.querySelector('#ChinaMap');
-
-
-	        $(map).css({
-                'transform': 'scale(' + ratio + ',' + ratio + ')'
-            })
-
-
-	        // $(map).css(csstransform, 'matrix(' + ratio + ', 0, 0, ' + ratio + ', ' + 0 + ', ' + 0 + ')');
+	        $(map).css(csstransform, 'matrix(' + ratio + ', 0, 0, ' + ratio + ', ' + 0 + ', ' + 0 + ')');
 
 	    },
 	    /**

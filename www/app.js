@@ -15,4 +15,8 @@ requirejs.config({
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['app/main']);
+// requirejs(['app/main']);
+
+// requirejs(['app/chinese_map']);
+requirejs(['app/chinese_map']);
+

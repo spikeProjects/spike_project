@@ -20,3 +20,6 @@ http://requirejs.org/docs/optimization.html
 
 For more information on using requirejs:
 http://requirejs.org/docs/api.html
+
+added feature list：
+-chinese map in svg；

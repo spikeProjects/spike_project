@@ -1,3 +1,5 @@
+Deprecated this project
+
 This web project has the following setup:
 
 * www/ - the web assets for the project

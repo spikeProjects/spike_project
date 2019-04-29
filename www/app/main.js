@@ -9,4 +9,12 @@ define(function (require) {
     var print = require('print');
 
     print(messages.getHello());
+
+    // es5 doesn't support generator
+    var task = messages.longRunningTask(12);
+    var task2 = task.next();
+    var task3 = task2.next();
+    console.log(task);
+    console.log(task2);
+    console.log(task3);
 });

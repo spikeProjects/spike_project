@@ -1,9 +1,111 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <script data-main="app" src="lib/require.js"></script>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="app/style.css"></head>
     </head>
     <body>
-        <h1>Hello World</h1>
+        <h1>basic layout</h1>
+        <h2>单列布局</h2>
+        <h3>水平居中</h3>
+        <div>
+            <div class="parent1">
+                <div class="child1">
+                    优点：兼容性好；<br />不足：需要同时设置子元素和父元素
+                </div>
+            </div>
+            <div class="parent2">
+                <div class="child2">
+                    优点：兼容性好<br />
+                    缺点: 需要指定宽度
+                </div>
+            </div>
+            <div class="parent3">
+                <div class="child3">
+                    优点:只需要对自身进行设置<br />
+                    不足:IE6,7需要调整结构
+                </div>
+            </div>
+            <div class="parent4">
+                <div class="child4">
+                    不足：兼容性差,IE9及以上可用
+                </div>
+            </div>
+            <div class="parent5">
+                <div class="child5">
+                    缺点：兼容性差，如果进行大面积的布局可能会影响效率
+                </div>
+            </div>
+        </div>
+
+        <h3>垂直居中</h3>
+        <p>vertical-align呢，是个比较挑食的家伙，它只喜欢吃果冻，从小吃果冻长大，没有了果冻，它就会闹脾气，对你不理不睬。我称之为“果冻依赖型元素”，又称之为“inline-block依赖型元素”，也就是说,只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block水平）水平，其身上的vertical-align属性才会起作用。我对css-vertical-align的一些理解与认识. 在使用vertical-align的时候，由于对齐的基线是用行高的基线作为标记，故需要设置line-height或设置display:table-cell;</p>
+        <div>
+            <div class="parent21">
+                parent1 has child1
+            </div>
+            <div class="parent22">
+                parent2 has child2
+            </div>
+            <div class="parent23 border">
+                <div class="child23">child23</div>
+            </div>
+            <div class="parent24 border">
+                parent4 has child4
+            </div>
+        </div>
+
+        <h3>水平垂直全部居中</h3>
+        <div>
+            <div class="parent31 border">
+                <div>child31</div>
+            </div>
+            <div class="parent32 border">
+                <div>child31</div>
+            </div>
+        </div>
+
+        <h2>多列布局</h2>
+        <h3>左列定宽，右列自适应</h3>
+        <div class="multiple11 border">
+            <div class="left1 border">left</div>
+            <div class="right1 border">right1: 注：IE6会有3px的bug</div>
+        </div>
+        <div class="multiple12 border">
+            <div class="left2">left2</div>
+            <div class="right-fix">
+                <div class="right2">right2</div>
+            </div>
+        </div>
+        <h5>使用float+overflow实现</h5>
+        <div class="multiple13 border">
+            <div class="left3 border">left</div>
+            <div class="right3 border">
+                right3:overflow:hidden，触发bfc模式，浮动无法影响，隔离其他元素，IE6不支持，左侧left设置margin-left当作left与right之间的边距，右侧利用overflow:hidden 进行形成bfc模式
+            </div>
+        </div>
+        <div class="multiple14 border">
+            <div class="left4 border">left</div>
+            <div class="right4 border">
+                right3:overflow:hidden，触发bfc模式，浮动无法影响，隔离其他元素，IE6不支持，左侧left设置margin-left当作left与right之间的边距，右侧利用overflow:hidden 进行形成bfc模式
+                <br />
+                两列等高
+            </div>
+        </div>
+        <div class="multiple15 border">
+            <div class="left5 border">left <br /> left</div>
+            <div class="right5 border">
+                两列等高: 使用table实现
+            </div>
+        </div>
+        <div class="multiple16 border">
+            <div class="left6 border">left</div>
+            <div class="right6 border">
+                两列等高: 使用flex实现. 利用右侧容器的flex:1，均分了剩余的宽度，也实现了同样的效果。而align-items 默认值为stretch，故二者高度相等
+            </div>
+        </div>
+
     </body>
 </html>

@@ -1,0 +1,62 @@
+body{
+  background: #eee;
+}
+.border{
+  border: 1px greenyellow solid;
+}
+
+.parent1{text-align: center; border:  1px hotpink solid;}
+.child1{display: inline-block; border: 1px greenyellow solid;}
+
+.parent2{}
+.child2{width: 200px; margin: 0 auto;}
+
+.parent3{}
+.child3{display: table; margin: 0 auto;}
+
+.parent4{position:relative; overflow: auto;}
+/*或者实用margin-left的负值为盒子宽度的一半也可以实现，不过这样就必须知道盒子的宽度，但兼容性好*/
+.child4{position:absolute; left:50%; transform:translate(-50%);}
+
+/*第一种方法*/.parent5{display:flex; justify-content:center;}
+/*第二种方法*/.parent5{display:flex;}
+.child5{margin:0 auto;}
+
+/*第一种方法*/.parent21{display:table-cell;vertical-align:middle;height:40px;}
+/*第二种方法*/.parent22{display:inline-block;vertical-align:middle;line-height:40px;}
+
+.parent23{position:relative; height: 40px}
+.child23{position:absolute; top:50%; transform:translate(0,-50%);}
+
+.parent24{display:flex; height: 40px; align-items:center;}
+
+.parent31{position:relative;}
+.child31{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+/** or **/
+/* .child31{position:absolute;top:50%;left:50%; margin-left: -midwidth; margin-top: -midheight;} */
+
+.parent{display:flex; justify-content:center; align-items:center;}
+
+.multiple11{ }
+.left1{float:left;width:100px;}
+.right1{margin-left:100px;}
+
+.left2{width:100px;float:left;}
+.right-fix{width:100%;margin-left:-100px;float:right;}
+  .right2{margin-left:100px;}
+
+.left3{width:100px;float:left;}
+.right3{overflow:auto;}
+
+.multiple14{overflow:hidden;}
+.left4{width:100px;float:left;}
+.right4{overflow:hidden;}
+.left4,.right4{padding-bottom:9999px;margin-bottom:-9999px;}
+
+.multiple15{display:table;table-layout:fixed;width:100%;}
+.left5{width:100px;}
+.right5,.left5{display:table-cell;}
+
+.multiple16{display:flex;}
+.left6{width:100px;}
+.right6{flex:1;}
